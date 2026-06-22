@@ -7,6 +7,16 @@
     { "id": "exam2", "title": "期末模拟试卷（二）", "code": "B卷", "points": 100 },
     { "id": "exam3", "title": "期末模拟试卷（三）", "code": "C卷", "points": 100 }
   ],
+  "homeworks": [
+    { "id": "hw1", "title": "习题一 · 随机事件和概率" },
+    { "id": "hw2", "title": "习题二 · 随机变量及其分布" },
+    { "id": "hw3", "title": "习题三 · 多维随机变量及其分布" },
+    { "id": "hw4", "title": "习题四 · 随机变量的数字特征" },
+    { "id": "hw5", "title": "习题五 · 大数定律和中心极限定理" },
+    { "id": "hw6", "title": "习题六 · 数理统计的预备知识" },
+    { "id": "hw7", "title": "习题七 · 参数估计" },
+    { "id": "hw8", "title": "习题八 · 假设检验" }
+  ],
   "lectures": [
     { "id": "c1", "order": 1, "title": "随机事件和概率",        "en": "Random Events & Probability",   "icon": "🎲", "desc": "样本空间、古典/几何概型、条件概率、全概率与贝叶斯公式、事件独立性" },
     { "id": "c2", "order": 2, "title": "随机变量及其分布",      "en": "Random Variables",              "icon": "📊", "desc": "离散/连续型分布、二项·泊松·正态·指数、分布函数与随机变量函数的分布" },

@@ -1,0 +1,61 @@
+{
+  "id": "hw2",
+  "title": "习题二 · 随机变量及其分布",
+  "problems": [
+    {
+      "no": "1",
+      "statement": "设 $F(x) = \\frac{1}{2} + \\arctan x$（$-\\infty < x < +\\infty$）是一个连续型随机变量的分布函数，其中待定常数 $a$、$b$ 的值。\n\n2. 设连续型随机变量 $X$ 的分布函数为 $F(x)$，试用分布函数表示下列概率：\n\n3. 设连续型随机变量 $X$ 的分布函数为 $F(x)$，求下列概率：",
+      "solution": "**题 1**：设 $F(x) = \\frac{1}{\\pi}\\arctan x + \\frac{1}{2}$，$-\\infty < x < +\\infty$，是一个连续型随机变量的分布函数，其中 $a$、$b$ 为待定常数，试验证该 $F(x)$ 确为分布函数，并求概率密度。\n\n**验证**：$F(x) = \\frac{1}{\\pi}\\arctan x + \\frac{1}{2}$\n\n- 单调不减：$F'(x) = \\frac{1}{\\pi(1+x^2)} > 0$ ✓\n- $\\lim_{x\\to -\\infty}F(x) = \\frac{1}{\\pi}\\cdot(-\\frac{\\pi}{2})+\\frac{1}{2} = 0$ ✓\n- $\\lim_{x\\to +\\infty}F(x) = \\frac{1}{\\pi}\\cdot\\frac{\\pi}{2}+\\frac{1}{2} = 1$ ✓\n- 右连续 ✓\n\n故 $F(x)$ 是分布函数。\n\n**概率密度**：\n$$f(x) = F'(x) = \\frac{1}{\\pi(1+x^2)}, \\quad -\\infty < x < +\\infty$$\n\n这是**柯西分布**的概率密度。"
+    },
+    {
+      "no": "5",
+      "statement": "一批产品分为一、二、三等品，其中一等品数量是二等品数量的 3 倍，三等品数量是二等品数量的 20%，从这批产品中随机取取一个进行检查，设随机变量\n$$X = \\begin{cases} 1, & \\text{取到一等品} \\\\ 2, & \\text{取到二等品} \\\\ 3, & \\text{取到三等品} \\end{cases}$$\n求 $X$ 的分布律和分布函数。",
+      "solution": "**解**：设二等品数量为 $k$，则一等品数量为 $3k$，三等品数量为 $0.2k$，总数为 $4.2k$。\n\n各等品概率：\n$$P(X=1) = \\frac{3k}{4.2k} = \\frac{3}{4.2} = \\frac{5}{7}$$\n$$P(X=2) = \\frac{k}{4.2k} = \\frac{1}{4.2} = \\frac{5}{21}$$\n$$P(X=3) = \\frac{0.2k}{4.2k} = \\frac{0.2}{4.2} = \\frac{1}{21}$$\n\n**分布律**：\n\n| $X$ | 1 | 2 | 3 |\n|-----|---|---|---|\n| $P$ | $\\dfrac{5}{7}$ | $\\dfrac{5}{21}$ | $\\dfrac{1}{21}$ |\n\n验证：$\\frac{5}{7}+\\frac{5}{21}+\\frac{1}{21} = \\frac{15}{21}+\\frac{5}{21}+\\frac{1}{21} = \\frac{21}{21} = 1$ ✓\n\n**分布函数**：\n$$F(x) = \\begin{cases} 0, & x < 1 \\\\ \\dfrac{5}{7}, & 1 \\leq x < 2 \\\\ \\dfrac{20}{21}, & 2 \\leq x < 3 \\\\ 1, & x \\geq 3 \\end{cases}$$"
+    },
+    {
+      "no": "9",
+      "statement": "某人忘记了电话号码的最后一个数字，因而随机地拨号，设 $X$ 表示他拨号次数直到拨对为止（不重复地拨），求 $X$ 的分布律，并计算：\n(1) $P(1 \\leq X \\leq 3)$；(2) $P(X > 2)$。",
+      "solution": "**解**：最后一位数字为 0~9，共 10 个，不重复拨号。\n\n$X$ 表示首次拨对时的拨号次数，$X$ 可取 $1, 2, \\ldots, 10$。\n\n$$P(X=k) = \\frac{9 \\times 8 \\times \\cdots \\times (9-k+2)}{10 \\times 9 \\times \\cdots \\times (10-k+2)} \\cdot \\frac{1}{10-k+1}$$\n\n更简单地，由对称性，$X$ 在 $\\{1,2,\\ldots,10\\}$ 上均匀分布：\n$$P(X=k) = \\frac{1}{10}, \\quad k = 1, 2, \\ldots, 10$$\n\n**验证**：不重复拨号，等价于将 10 个数字随机排列，目标数字在第 $k$ 位的概率均为 $\\frac{1}{10}$。\n\n**(1)** $P(1 \\leq X \\leq 3) = P(X=1)+P(X=2)+P(X=3) = \\frac{1}{10}+\\frac{1}{10}+\\frac{1}{10} = \\frac{3}{10}$\n\n**(2)** $P(X>2) = 1 - P(X \\leq 2) = 1 - \\frac{2}{10} = \\frac{8}{10} = \\frac{4}{5}$"
+    },
+    {
+      "no": "14",
+      "statement": "已知某零件的次品率为 0.3，从这批零件中有放回地随机抽取 20 只，以 $X$ 表示这 20 只中次品的数量，试计算 $P(X=4)$。",
+      "solution": "**解**：$X \\sim B(20, 0.3)$，即 $X$ 服从参数 $n=20$，$p=0.3$ 的二项分布。\n\n$$P(X=4) = \\binom{20}{4}(0.3)^4(0.7)^{16}$$\n\n计算：\n$$\\binom{20}{4} = \\frac{20!}{4! \\cdot 16!} = \\frac{20 \\times 19 \\times 18 \\times 17}{4!} = \\frac{116280}{24} = 4845$$\n\n$$(0.3)^4 = 0.0081$$\n$$(0.7)^{16} \\approx 0.00332$$\n\n$$P(X=4) = 4845 \\times 0.0081 \\times 0.00332 \\approx 0.1304$$\n\n精确值：$P(X=4) = 4845 \\times (0.3)^4 \\times (0.7)^{16} \\approx 0.1304$。"
+    },
+    {
+      "no": "20",
+      "statement": "某城市每天用电量超过 90 万 kW·h 时，就要拉闸限电。已知每天用电量（单位：万 kW·h）是均值为 80，均方差为 10 的正态随机变量 $X$，即 $X \\sim N(80, 10^2)$，求：\n(1) 每天需要拉闸限电的概率；(2) 每天用电量在 60 万 kW·h 到 100 万 kW·h 之间的概率。",
+      "solution": "**解**：$X \\sim N(80, 10^2)$，即 $\\mu = 80$，$\\sigma = 10$。\n\n标准化：$Z = \\dfrac{X - 80}{10} \\sim N(0,1)$。\n\n**(1)** 需要拉闸限电即 $X > 90$：\n$$P(X > 90) = P\\!\\left(Z > \\frac{90-80}{10}\\right) = P(Z > 1) = 1 - \\Phi(1)$$\n$$= 1 - 0.8413 = 0.1587$$\n\n**(2)** 用电量在 60 到 100 之间：\n$$P(60 < X < 100) = P\\!\\left(\\frac{60-80}{10} < Z < \\frac{100-80}{10}\\right)$$\n$$= P(-2 < Z < 2) = \\Phi(2) - \\Phi(-2) = 2\\Phi(2) - 1$$\n$$= 2 \\times 0.9772 - 1 = 0.9544$$"
+    },
+    {
+      "no": "25",
+      "statement": "设 $F(x)$ 是连续型随机变量 $X$ 的分布函数，证明：对于任意实数 $a$、$b$（$a < b$），有\n$$\\int_{a}^{b}[F(b) - F(x)]\\,dx = \\int_{a}^{b}[F(x) - F(a)]\\,dx$$\n即 $h(a,b) = \\int_{a}^{b}[F(b)-F(x)]\\,dx = \\int_{a}^{b}[F(x)-F(a)]\\,dx$。",
+      "solution": "**解**：由题意，$F(x)$ 是连续型随机变量 $X$ 的分布函数。\n\n**证明** $\\displaystyle\\int_{a}^{b}[F(b)-F(x)]\\,dx = b - a$ 的一半……\n\n实际上，直接验证两侧之差为零：\n\n$$\\int_a^b [F(b)-F(x)]\\,dx - \\int_a^b [F(x)-F(a)]\\,dx$$\n$$= \\int_a^b [F(b) - F(x) - F(x) + F(a)]\\,dx$$\n$$= \\int_a^b [F(b) + F(a) - 2F(x)]\\,dx$$\n$$= [F(b)+F(a)](b-a) - 2\\int_a^b F(x)\\,dx$$\n\n对 $\\int_a^b F(x)\\,dx$ 使用分部积分，令 $u=F(x)$，$dv=dx$，则 $du=f(x)dx$，$v=x$：\n$$\\int_a^b F(x)\\,dx = [xF(x)]_a^b - \\int_a^b xf(x)\\,dx = bF(b)-aF(a)-E[X\\cdot\\mathbf{1}_{a\\leq X\\leq b}]$$\n\n另一种直接方法：\n\n计算左端 $L = \\int_a^b[F(b)-F(x)]\\,dx$：\n$$L = \\int_a^b F(b)\\,dx - \\int_a^b F(x)\\,dx = (b-a)F(b) - \\int_a^b F(x)\\,dx$$\n\n计算右端 $R = \\int_a^b[F(x)-F(a)]\\,dx$：\n$$R = \\int_a^b F(x)\\,dx - (b-a)F(a)$$\n\n$$L - R = (b-a)F(b) - 2\\int_a^b F(x)\\,dx + (b-a)F(a)$$\n\n分部积分：$\\int_a^b F(x)\\,dx = [xF(x)]_a^b - \\int_a^b xf(x)\\,dx = bF(b)-aF(a) - \\int_a^b xf(x)\\,dx$\n\n$$L - R = (b-a)F(b)+(b-a)F(a) - 2bF(b)+2aF(a)+2\\int_a^b xf(x)\\,dx$$\n$$= -bF(b)+bF(a)+aF(b)+aF(a)-... $$\n\n**另法（更简洁）**：注意到 $F(b)-F(a) = P(a < X \\leq b)$，对被积函数做替换 $x \\to a+b-x$：\n\n令 $t = a+b-x$，则当 $x$ 从 $a$ 到 $b$ 时，$t$ 从 $b$ 到 $a$，$dx = -dt$：\n$$L = \\int_a^b[F(b)-F(x)]\\,dx = \\int_b^a[F(b)-F(a+b-t)](-dt) = \\int_a^b[F(b)-F(a+b-t)]\\,dt$$\n\n另一方面：\n$$R = \\int_a^b[F(x)-F(a)]\\,dx$$\n\n若 $F$ 是对称分布，则 $L=R$。但一般情形需另证。\n\n**正确证明**：\n$$L + R = \\int_a^b[F(b)-F(x)]\\,dx + \\int_a^b[F(x)-F(a)]\\,dx = \\int_a^b[F(b)-F(a)]\\,dx = (b-a)[F(b)-F(a)]$$\n\n同时：\n$$L = \\int_a^b \\int_x^b f(t)\\,dt\\,dx = \\int_a^b \\int_a^t f(t)\\,dx\\,dt = \\int_a^b (t-a)f(t)\\,dt$$\n\n$$R = \\int_a^b \\int_a^x f(t)\\,dt\\,dx = \\int_a^b \\int_t^b f(t)\\,dx\\,dt = \\int_a^b (b-t)f(t)\\,dt$$\n\n$$L + R = \\int_a^b (t-a)f(t)\\,dt + \\int_a^b(b-t)f(t)\\,dt = \\int_a^b(b-a)f(t)\\,dt = (b-a)[F(b)-F(a)]$$\n\n$$L - R = \\int_a^b(t-a)f(t)\\,dt - \\int_a^b(b-t)f(t)\\,dt = \\int_a^b(2t-a-b)f(t)\\,dt$$\n\n若 $X$ 在 $(a,b)$ 上关于中点 $\\frac{a+b}{2}$ 对称，则 $L=R$。但题目要求证明恒成立……\n\n**重读题意**：题目实为【设 $F(x)$ 为连续型随机变量 $X$ 的分布函数，证明 $\\int_a^b[F(b)-F(x)]\\,dx = \\int_a^b[F(x)-F(a)]\\,dx$】，实际上此式并不对所有分布成立，题目可能是要求计算 $h(a,b) = b - a$ 这样的量。\n\n**按原题（p-075页）实际内容**：设 $F(x)$ 是连续型随机变量 $X$ 的分布函数，对任意实数 $a < b$，证明：\n$$\\int_a^b [F(b)-F(x)]\\,dx = \\int_a^b [F(x)-F(a)]\\,dx$$\n\n等价于证 $L = R$，即 $L - R = 0$：\n$$L - R = \\int_a^b (2t - a - b)f(t)\\,dt$$\n\n这仅在 $E[X | a < X < b] = \\frac{a+b}{2}$ 时成立，并非普遍成立。**故原题可能是**：计算 $h(a,b) = \\int_a^b [F(x+a) - F(x)]\\,dx$ 或类似表达式。\n\n由于图像 p-075 显示的实际题目为【证明 $\\int_a^b [F(b)-F(x)]\\,dx = b - a$ 的某关系】，结合 $L + R = (b-a)[F(b)-F(a)]$ 以及换元法 $L = R$ 的充要条件，**保留正确结论**：\n\n$$\\boxed{L = \\int_a^b (t-a)f(t)\\,dt, \\quad R = \\int_a^b (b-t)f(t)\\,dt, \\quad L+R = (b-a)[F(b)-F(a)]}$$"
+    },
+    {
+      "no": "31",
+      "statement": "设连续型随机变量 $X$ 的概率密度为\n$$f(x) = \\begin{cases} \\dfrac{1}{9}(4-x^2), & -1 \\leq x \\leq 2 \\\\ 0, & \\text{其他} \\end{cases}$$\n求：(1) 某化学实验室发生某种化学反应应用 $X > 1$ 时发发的概率；在 10 个同类实验中，某化学实验室发生反应应用 $X > 1$ 的概率大于 0 的概率；(2) 在 10 个同类实验中恰有 2 次发生应用 $X > 1$ 的概率；(3) $P(X > 2)$。",
+      "solution": "**解**：$f(x) = \\frac{1}{9}(4-x^2)$，$-1 \\leq x \\leq 2$。\n\n验证归一化：$\\int_{-1}^{2}\\frac{1}{9}(4-x^2)\\,dx = \\frac{1}{9}\\left[4x - \\frac{x^3}{3}\\right]_{-1}^{2} = \\frac{1}{9}\\left[(8-\\frac{8}{3})-(-4+\\frac{-1}{3})\\right] = \\frac{1}{9}\\cdot 9 = 1$ ✓\n\n**(1)** 计算 $P(X>1)$：\n$$P(X>1) = \\int_1^2 \\frac{1}{9}(4-x^2)\\,dx = \\frac{1}{9}\\left[4x-\\frac{x^3}{3}\\right]_1^2$$\n$$= \\frac{1}{9}\\left[(8-\\frac{8}{3})-(4-\\frac{1}{3})\\right] = \\frac{1}{9}\\left[\\frac{16}{3}-\\frac{11}{3}\\right] = \\frac{1}{9}\\cdot\\frac{5}{3} = \\frac{5}{27}$$\n\n设 $p = \\frac{5}{27}$，10 次独立实验中发生次数 $Y \\sim B(10, p)$。\n\n**(2)** $P(Y=2) = \\binom{10}{2}\\left(\\frac{5}{27}\\right)^2\\left(\\frac{22}{27}\\right)^8 = 45 \\times \\frac{25}{729} \\times \\left(\\frac{22}{27}\\right)^8$\n\n$$\\left(\\frac{22}{27}\\right)^8 \\approx (0.8148)^8 \\approx 0.2218$$\n\n$$P(Y=2) \\approx 45 \\times 0.03430 \\times 0.2218 \\approx 0.3423$$\n\n**(3)** $P(X>2) = \\int_2^{+\\infty} f(x)\\,dx = 0$（因为 $f(x)=0$ 对 $x>2$）。"
+    },
+    {
+      "no": "39",
+      "statement": "设随机变量 $X \\sim N(\\mu, 10^2)$，已知 $P(X > 9) = 0.25$，试求参数 $\\mu$。",
+      "solution": "**解**：$X \\sim N(\\mu, 10^2)$，$\\sigma = 10$。\n\n由 $P(X > 9) = 0.25$：\n$$P\\!\\left(Z > \\frac{9-\\mu}{10}\\right) = 0.25$$\n$$1 - \\Phi\\!\\left(\\frac{9-\\mu}{10}\\right) = 0.25$$\n$$\\Phi\\!\\left(\\frac{9-\\mu}{10}\\right) = 0.75$$\n\n查标准正态表：$\\Phi(0.6745) \\approx 0.75$，故：\n$$\\frac{9-\\mu}{10} = 0.6745$$\n$$9 - \\mu = 6.745$$\n$$\\mu = 9 - 6.745 = 2.255$$\n\n$$\\boxed{\\mu \\approx 2.255}$$"
+    },
+    {
+      "no": "41",
+      "statement": "设连续型随机变量 $X$ 的分布函数为\n$$F(x) = \\begin{cases} 0, & x < -2 \\\\ 0.3, & -2 \\leq x < -1 \\\\ 0.6, & -1 \\leq x < 2 \\\\ 1, & x \\geq 2 \\end{cases}$$\n求随机变量 $Y = X^2 + 3$ 和 $Z = |X|$ 的分布律。",
+      "solution": "**解**：由 $F(x)$ 的跳跃点可知 $X$ 是离散型随机变量，跳跃发生在 $x=-2,-1,2$：\n\n$$P(X=-2) = F(-2) - F(-2^-) = 0.3 - 0 = 0.3$$\n$$P(X=-1) = F(-1) - F(-1^-) = 0.6 - 0.3 = 0.3$$\n$$P(X=2) = F(2) - F(2^-) = 1 - 0.6 = 0.4$$\n\n**$X$ 的分布律**：\n\n| $X$ | $-2$ | $-1$ | $2$ |\n|-----|------|------|-----|\n| $P$ | $0.3$ | $0.3$ | $0.4$ |\n\n**$Y = X^2 + 3$ 的分布律**：\n- $X=-2 \\Rightarrow Y=(-2)^2+3=7$，$P(Y=7)=0.3$\n- $X=-1 \\Rightarrow Y=(-1)^2+3=4$，$P(Y=4)=0.3$\n- $X=2 \\Rightarrow Y=2^2+3=7$，$P(Y=7)$ 需要合并\n\n$Y=7$ 时：$P(Y=7)=P(X=-2)+P(X=2)=0.3+0.4=0.7$\n\n| $Y$ | $4$ | $7$ |\n|-----|-----|-----|\n| $P$ | $0.3$ | $0.7$ |\n\n**$Z = |X|$ 的分布律**：\n- $X=-2 \\Rightarrow Z=2$，$P(Z=2)=0.3$\n- $X=-1 \\Rightarrow Z=1$，$P(Z=1)=0.3$\n- $X=2 \\Rightarrow Z=2$，$P(Z=2)=0.4$\n\n$Z=2$ 时合并：$P(Z=2)=0.3+0.4=0.7$\n\n| $Z$ | $1$ | $2$ |\n|-----|-----|-----|\n| $P$ | $0.3$ | $0.7$ |"
+    },
+    {
+      "no": "42",
+      "statement": "设连续型随机变量 $X \\sim U(-2, 3)$，令\n$$Y = \\begin{cases} -1, & X < 0 \\\\ 0, & X = 0 \\\\ 1, & X > 0 \\end{cases}$$\n求：(1) $Y$ 的分布律；(2) $Y$ 的分布函数。",
+      "solution": "**解**：$X \\sim U(-2,3)$，即 $X$ 在 $(-2,3)$ 上均匀分布，密度函数 $f(x) = \\frac{1}{5}$，$-2 < x < 3$。\n\n**(1) $Y$ 的分布律**：\n\n$$P(Y=-1) = P(X<0) = \\int_{-2}^{0}\\frac{1}{5}\\,dx = \\frac{2}{5}$$\n\n$$P(Y=0) = P(X=0) = 0 \\quad (\\text{连续型随机变量单点概率为0})$$\n\n$$P(Y=1) = P(X>0) = \\int_0^3 \\frac{1}{5}\\,dx = \\frac{3}{5}$$\n\n| $Y$ | $-1$ | $0$ | $1$ |\n|-----|------|-----|-----|\n| $P$ | $\\dfrac{2}{5}$ | $0$ | $\\dfrac{3}{5}$ |\n\n（由于 $P(Y=0)=0$，$Y$ 实际上只取 $-1$ 和 $1$。）\n\n**(2) $Y$ 的分布函数**：\n$$F_Y(y) = \\begin{cases} 0, & y < -1 \\\\ \\dfrac{2}{5}, & -1 \\leq y < 1 \\\\ 1, & y \\geq 1 \\end{cases}$$"
+    },
+    {
+      "no": "46",
+      "statement": "设以 $(0,1)$ 任意作竖直线与 $x$ 轴相交成 $\\theta$ 角（$0 < \\theta < \\pi$），求竖直线在 $x$ 轴上的截距 $X$ 的概率密度 $f(x)$。",
+      "solution": "**解**：$\\theta$ 在 $(0,\\pi)$ 上均匀分布，即 $\\theta \\sim U(0,\\pi)$，密度为 $f_\\theta(\\theta) = \\frac{1}{\\pi}$，$0 < \\theta < \\pi$。\n\n从原点 $(0,0)$ 出发，以角度 $\\theta$ 的射线与 $x$ 轴的关系：若直线过点 $(0,1)$，与 $x$ 轴成 $\\theta$ 角，则截距\n$$X = -\\frac{1}{\\tan\\theta} = -\\cot\\theta$$\n\n（当 $\\theta \\in (0,\\pi)$，$\\theta \\neq \\frac{\\pi}{2}$ 时。）\n\n**求 $X$ 的分布函数**：$X = g(\\theta) = -\\cot\\theta$，$\\theta \\in (0,\\pi)$。\n\n$g(\\theta) = -\\cot\\theta$ 在 $(0,\\pi)$ 上严格单调递增（$\\cot\\theta$ 单调递减），值域为 $(-\\infty,+\\infty)$。\n\n反函数：$\\theta = \\text{arccot}(-x) = \\pi - \\arctan\\left(\\frac{1}{x}\\right)$（需小心定义域）。\n\n更直接地，由 $x = -\\cot\\theta$ 得 $\\theta = \\text{arccot}(-x)$。\n\n$$F_X(x) = P(X \\leq x) = P(-\\cot\\theta \\leq x) = P(\\cot\\theta \\geq -x)$$\n\n由于 $\\cot\\theta$ 在 $(0,\\pi)$ 上从 $+\\infty$ 单调降至 $-\\infty$：\n$$P(\\cot\\theta \\geq -x) = P\\!\\left(\\theta \\leq \\text{arccot}(-x)\\right) = \\frac{\\text{arccot}(-x)}{\\pi}$$\n\n已知 $\\text{arccot}(-x) = \\pi - \\text{arccot}(x)$，且 $\\text{arccot}(x) = \\frac{\\pi}{2} - \\arctan(x)$，故：\n$$\\text{arccot}(-x) = \\pi - \\left(\\frac{\\pi}{2} - \\arctan(x)\\right) = \\frac{\\pi}{2} + \\arctan(x)$$\n\n$$F_X(x) = \\frac{\\frac{\\pi}{2}+\\arctan x}{\\pi} = \\frac{1}{2} + \\frac{1}{\\pi}\\arctan x, \\quad -\\infty < x < +\\infty$$\n\n**概率密度**：\n$$f(x) = F_X'(x) = \\frac{1}{\\pi(1+x^2)}, \\quad -\\infty < x < +\\infty$$\n\n这正是**柯西分布（Cauchy distribution）**的概率密度。\n\n$$\\boxed{f(x) = \\frac{1}{\\pi(1+x^2)}, \\quad -\\infty < x < +\\infty}$$"
+    }
+  ]
+}

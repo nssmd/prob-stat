@@ -467,6 +467,76 @@ const App = (() => {
     renderMath(appEl);
   }
 
+  /* ---------- homeworks (作业题解) ---------- */
+  const hwCache = {};
+  async function getHw(id) {
+    if (hwCache[id]) return hwCache[id];
+    const d = await fetch(`./data/${id}.json`).then(r => r.ok ? r.json() : null);
+    hwCache[id] = d;
+    return d;
+  }
+
+  async function viewHomeworks() {
+    const idx = await getIndex();
+    const hws = idx.homeworks || [];
+    const datas = await Promise.all(hws.map(h => getHw(h.id)));
+    const cards = hws.map((h, i) => {
+      const d = datas[i] || {};
+      const n = (d.problems || []).length;
+      return `<a class="card" href="#/hw/${h.id}">
+        <div class="c-top"><span class="c-icon">✍️</span>
+          <div><div class="c-order">作业</div><h3 class="c-title">${esc(h.title)}</h3></div></div>
+        <div class="c-meta"><span>题目 <b>${n}</b></span></div>
+      </a>`;
+    }).join('');
+    appEl.innerHTML = `
+      <div class="lec-head">
+        <h1>✍️ 作业题解</h1>
+        <div class="en">教材课后习题精选 · 题面 + 详细解答</div>
+        <div class="summary">点击各次作业查看题目与解答。建议<strong>先自己做，再点「显示解答」对照</strong>。解答为 AI 依据教材扫描整理的参考答案，请自行复核关键步骤与数值。</div>
+      </div>
+      <div class="grid">${cards}</div>`;
+  }
+
+  async function viewHomework(id) {
+    const idx = await getIndex();
+    const d = await getHw(id);
+    if (!d) { appEl.innerHTML = `<div class="empty">未找到该作业。<br><a href="#/homeworks">返回作业列表</a></div>`; return; }
+    const probs = d.problems || [];
+    const body = probs.map((p, i) => `
+      <div class="q-card" id="hw-${i}">
+        <div class="q-meta"><span class="badge type">第 ${esc(p.no)} 题</span></div>
+        <div class="kp-body">${mdToHtml(p.statement)}</div>
+        <div class="q-actions"><button data-hw="${i}">显示解答</button></div>
+        <div class="explain" id="sol-${i}"><div class="ex-head">解答</div>${mdToHtml(p.solution)}</div>
+      </div>`).join('');
+    appEl.innerHTML = `
+      <div class="lec-head">
+        <div class="crumb"><a href="#/homeworks">作业</a> / ${esc(d.title)}</div>
+        <h1>✍️ ${esc(d.title)}</h1>
+        <div class="en">共 ${probs.length} 题</div>
+        <div class="q-actions"><button id="hwRevealAll" class="btn-primary">显示全部解答</button><button id="hwHideAll">隐藏全部解答</button></div>
+      </div>
+      <div class="kp-list">${body || '<div class="empty">本次作业整理中…</div>'}</div>`;
+    appEl.querySelectorAll('[data-hw]').forEach(btn => {
+      btn.onclick = () => {
+        const s = document.getElementById(`sol-${btn.dataset.hw}`);
+        const open = s.classList.toggle('show');
+        btn.textContent = open ? '隐藏解答' : '显示解答';
+      };
+    });
+    document.getElementById('hwRevealAll').onclick = () => {
+      appEl.querySelectorAll('.explain').forEach(e => e.classList.add('show'));
+      appEl.querySelectorAll('[data-hw]').forEach(b => b.textContent = '隐藏解答');
+    };
+    document.getElementById('hwHideAll').onclick = () => {
+      appEl.querySelectorAll('.explain').forEach(e => e.classList.remove('show'));
+      appEl.querySelectorAll('[data-hw]').forEach(b => b.textContent = '显示解答');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    renderMath(appEl);
+  }
+
   /* ---------- search ---------- */
   async function buildSearch() {
     if (searchIndex) return searchIndex;
@@ -510,6 +580,8 @@ const App = (() => {
       if (parts[0] === 'quiz') return void await viewQuiz(parts[1] || null);
       if (parts[0] === 'exams') return void await viewExams();
       if (parts[0] === 'exam') return void await viewExam(parts[1]);
+      if (parts[0] === 'homeworks') return void await viewHomeworks();
+      if (parts[0] === 'hw') return void await viewHomework(parts[1]);
       await viewHome();
     } catch (e) {
       appEl.innerHTML = `<div class="empty">加载出错：${esc(e.message)}<br><a href="#/">返回首页</a></div>`;
@@ -519,7 +591,7 @@ const App = (() => {
   }
 
   function setActiveNav(key) {
-    const map = { '': 'home', 'home': 'home', 'lectures': 'lectures', 'lecture': 'lectures', 'quiz': 'quiz', 'exams': 'exams', 'exam': 'exams' };
+    const map = { '': 'home', 'home': 'home', 'lectures': 'lectures', 'lecture': 'lectures', 'quiz': 'quiz', 'exams': 'exams', 'exam': 'exams', 'homeworks': 'homeworks', 'hw': 'homeworks' };
     const active = map[key] || 'home';
     document.querySelectorAll('.topnav a').forEach(a => a.classList.toggle('active', a.dataset.nav === active));
   }

@@ -1,0 +1,21 @@
+{
+  "course": "概率论与数理统计",
+  "subtitle": "Probability & Mathematical Statistics · 基于案例分析",
+  "instructor": "上海交通大学数学科学学院",
+  "exams": [
+    { "id": "exam1", "title": "期末模拟试卷（一）", "code": "A卷", "points": 100 },
+    { "id": "exam2", "title": "期末模拟试卷（二）", "code": "B卷", "points": 100 },
+    { "id": "exam3", "title": "期末模拟试卷（三）", "code": "C卷", "points": 100 }
+  ],
+  "lectures": [
+    { "id": "c1", "order": 1, "title": "随机事件和概率",        "en": "Random Events & Probability",   "icon": "🎲", "desc": "样本空间、古典/几何概型、条件概率、全概率与贝叶斯公式、事件独立性" },
+    { "id": "c2", "order": 2, "title": "随机变量及其分布",      "en": "Random Variables",              "icon": "📊", "desc": "离散/连续型分布、二项·泊松·正态·指数、分布函数与随机变量函数的分布" },
+    { "id": "c3", "order": 3, "title": "多维随机变量及其分布",   "en": "Multivariate Distributions",    "icon": "🧩", "desc": "联合/边缘/条件分布、独立性、二维正态、和与极值的分布" },
+    { "id": "c4", "order": 4, "title": "随机变量的数字特征",     "en": "Numerical Characteristics",     "icon": "📐", "desc": "数学期望、方差、协方差、相关系数、矩与切比雪夫不等式" },
+    { "id": "c5", "order": 5, "title": "大数定律和中心极限定理", "en": "LLN & CLT",                     "icon": "📈", "desc": "依概率收敛、大数定律、独立同分布与棣莫弗-拉普拉斯中心极限定理" },
+    { "id": "c6", "order": 6, "title": "数理统计的预备知识",     "en": "Statistics Preliminaries",      "icon": "🔬", "desc": "总体与样本、统计量、χ²/t/F 分布与正态总体的抽样分布定理" },
+    { "id": "c7", "order": 7, "title": "参数估计",              "en": "Parameter Estimation",          "icon": "🎯", "desc": "矩估计、极大似然估计、无偏/有效/相合性、置信区间" },
+    { "id": "c8", "order": 8, "title": "假设检验",              "en": "Hypothesis Testing",            "icon": "⚖️", "desc": "原假设与两类错误、Z/t/χ²/F 检验、拒绝域与 p 值" },
+    { "id": "c9", "order": 9, "title": "回归分析",              "en": "Regression Analysis",           "icon": "📉", "desc": "一元线性回归、最小二乘估计、显著性检验与预测" }
+  ]
+}

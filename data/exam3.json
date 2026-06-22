@@ -1,0 +1,183 @@
+{
+  "id": "exam3",
+  "title": "概率论与数理统计 期末模拟试卷（三）",
+  "code": "C卷",
+  "totalPoints": 100,
+  "duration": "120分钟",
+  "note": "闭卷",
+  "sections": [
+    {
+      "name": "一、单项选择题",
+      "desc": "每小题3分，共30分。",
+      "type": "single",
+      "questions": [
+        {
+          "stem": "设事件 $A$、$B$ 满足 $P(A)=0.4$，$P(B)=0.3$，$P(A\\cup B)=0.6$，则 $P(AB)=$",
+          "options": ["$0.1$", "$0.12$", "$0.7$", "$0.58$"],
+          "answer": "A",
+          "explanation": "由加法公式 $P(A\\cup B)=P(A)+P(B)-P(AB)$，得 $P(AB)=0.4+0.3-0.6=0.1$。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X\\sim B(n,p)$，已知 $E(X)=2$，$D(X)=1.6$，则 $n$、$p$ 的值为",
+          "options": ["$n=10,\\;p=0.2$", "$n=8,\\;p=0.25$", "$n=5,\\;p=0.4$", "$n=4,\\;p=0.5$"],
+          "answer": "A",
+          "explanation": "$np=2$，$np(1-p)=1.6$，故 $1-p=0.8$，$p=0.2$，$n=10$。",
+          "points": 3
+        },
+        {
+          "stem": "设随机变量 $X$ 的密度函数为 $f(x)=\\begin{cases}2x,&0<x<1\\\\0,&\\text{其他}\\end{cases}$，则 $E(X)=$",
+          "options": ["$\\dfrac{1}{3}$", "$\\dfrac{1}{2}$", "$\\dfrac{2}{3}$", "$\\dfrac{3}{4}$"],
+          "answer": "C",
+          "explanation": "$E(X)=\\int_0^1 x\\cdot 2x\\,dx=2\\int_0^1 x^2\\,dx=\\dfrac{2}{3}$。",
+          "points": 3
+        },
+        {
+          "stem": "设 $(X,Y)$ 的联合密度为 $f(x,y)=\\begin{cases}1,&0<x<1,0<y<1\\\\0,&\\text{其他}\\end{cases}$，则 $P(X+Y\\leq 1)=$",
+          "options": ["$\\dfrac{1}{4}$", "$\\dfrac{1}{3}$", "$\\dfrac{1}{2}$", "$\\dfrac{2}{3}$"],
+          "answer": "C",
+          "explanation": "积分区域为单位正方形内 $x+y\\leq 1$ 的三角形，面积为 $\\dfrac{1}{2}$，故概率为 $\\dfrac{1}{2}$。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X_1,X_2,\\ldots,X_n$ 为来自总体 $X\\sim N(\\mu,\\sigma^2)$ 的样本，$\\bar{X}$ 为样本均值，$S^2$ 为样本方差，则下列说法正确的是",
+          "options": [
+            "$\\bar{X}$ 与 $S^2$ 不相关",
+            "$\\dfrac{(n-1)S^2}{\\sigma^2}\\sim\\chi^2(n)$",
+            "$\\dfrac{\\bar{X}-\\mu}{S/\\sqrt{n}}\\sim N(0,1)$",
+            "$\\bar{X}$ 与 $S^2$ 相互独立，且 $\\dfrac{(n-1)S^2}{\\sigma^2}\\sim\\chi^2(n-1)$"
+          ],
+          "answer": "D",
+          "explanation": "正态总体的抽样定理：$\\bar{X}$ 与 $S^2$ 独立，且 $\\dfrac{(n-1)S^2}{\\sigma^2}\\sim\\chi^2(n-1)$。",
+          "points": 3
+        },
+        {
+          "stem": "设 $\\hat{\\theta}$ 是参数 $\\theta$ 的无偏估计量，则下列说法正确的是",
+          "options": [
+            "$\\hat{\\theta}^2$ 是 $\\theta^2$ 的无偏估计",
+            "$E(\\hat{\\theta})=\\theta$",
+            "$\\hat{\\theta}$ 一定是 $\\theta$ 的最小方差无偏估计",
+            "$D(\\hat{\\theta})=0$"
+          ],
+          "answer": "B",
+          "explanation": "无偏估计的定义为 $E(\\hat{\\theta})=\\theta$，其余选项均不正确。",
+          "points": 3
+        },
+        {
+          "stem": "下列关于假设检验的说法，正确的是",
+          "options": [
+            "拒绝 $H_0$ 就意味着 $H_0$ 一定错误",
+            "显著性水平 $\\alpha$ 越小，犯第一类错误的概率越小",
+            "显著性水平 $\\alpha$ 越小，犯第二类错误的概率越小",
+            "接受 $H_0$ 就意味着 $H_0$ 一定正确"
+          ],
+          "answer": "B",
+          "explanation": "$\\alpha$ 是犯第一类错误（拒绝真 $H_0$）的概率，$\\alpha$ 越小则犯第一类错误的概率越小，但犯第二类错误的概率通常增大。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X\\sim P(\\lambda)$（泊松分布），则 $D(X)=$",
+          "options": ["$\\lambda^2$", "$\\sqrt{\\lambda}$", "$\\lambda$", "$\\dfrac{1}{\\lambda}$"],
+          "answer": "C",
+          "explanation": "泊松分布 $P(\\lambda)$ 的期望和方差均为 $\\lambda$。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X\\sim N(0,1)$，$Y\\sim\\chi^2(n)$，且 $X$ 与 $Y$ 独立，则 $\\dfrac{X}{\\sqrt{Y/n}}$ 服从",
+          "options": ["$N(0,1)$", "$\\chi^2(n)$", "$t(n)$", "$F(1,n)$"],
+          "answer": "C",
+          "explanation": "由 $t$ 分布的定义，$\\dfrac{X}{\\sqrt{Y/n}}\\sim t(n)$。",
+          "points": 3
+        },
+        {
+          "stem": "在一元线性回归模型 $Y=\\beta_0+\\beta_1 x+\\varepsilon$ 中，$\\hat{\\beta}_1$ 的最小二乘估计为",
+          "options": [
+            "$\\hat{\\beta}_1=\\dfrac{\\sum_{i=1}^n x_i y_i}{\\sum_{i=1}^n x_i^2}$",
+            "$\\hat{\\beta}_1=\\dfrac{S_{xy}}{S_{xx}}$，其中 $S_{xy}=\\sum(x_i-\\bar{x})(y_i-\\bar{y})$，$S_{xx}=\\sum(x_i-\\bar{x})^2$",
+            "$\\hat{\\beta}_1=\\dfrac{\\bar{y}}{\\bar{x}}$",
+            "$\\hat{\\beta}_1=\\dfrac{\\sum x_i y_i - n\\bar{x}\\bar{y}}{\\sum x_i^2}$"
+          ],
+          "answer": "B",
+          "explanation": "最小二乘估计公式为 $\\hat{\\beta}_1=\\dfrac{S_{xy}}{S_{xx}}=\\dfrac{\\sum(x_i-\\bar{x})(y_i-\\bar{y})}{\\sum(x_i-\\bar{x})^2}$。",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "name": "二、填空题",
+      "desc": "每小题3分，共18分。",
+      "type": "fill",
+      "questions": [
+        {
+          "stem": "设 $A$、$B$ 为两事件，$P(A)=0.5$，$P(B|A)=0.4$，$P(A|B)=0.5$，则 $P(B)=$ ____。",
+          "answer": "$P(AB)=P(B|A)P(A)=0.4\\times0.5=0.2$，故 $P(B)=\\dfrac{P(AB)}{P(A|B)}=\\dfrac{0.2}{0.5}=0.4$。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X$ 的分布律为：$P(X=k)=\\dfrac{1}{6}$，$k=1,2,3,4,5,6$，则 $D(X)=$ ____。",
+          "answer": "$E(X)=\\dfrac{7}{2}$，$E(X^2)=\\dfrac{1}{6}(1+4+9+16+25+36)=\\dfrac{91}{6}$，$D(X)=\\dfrac{91}{6}-\\dfrac{49}{4}=\\dfrac{35}{12}$。",
+          "points": 3
+        },
+        {
+          "stem": "设 $(X,Y)$ 服从二维正态分布，$X\\sim N(1,4)$，$Y\\sim N(2,9)$，相关系数 $\\rho=0.5$，则 $\\text{Cov}(X,Y)=$ ____。",
+          "answer": "$\\text{Cov}(X,Y)=\\rho\\sqrt{D(X)}\\sqrt{D(Y)}=0.5\\times 2\\times 3=3$。",
+          "points": 3
+        },
+        {
+          "stem": "设总体 $X\\sim N(\\mu,4)$，来自该总体的样本量 $n=16$，样本均值 $\\bar{X}=10$，则 $\\mu$ 的置信水平为 $0.95$ 的置信区间为 ____。（已知 $z_{0.025}=1.96$）",
+          "answer": "$\\sigma=2$，$\\bar{X}\\pm z_{0.025}\\cdot\\dfrac{\\sigma}{\\sqrt{n}}=10\\pm 1.96\\times\\dfrac{2}{4}=10\\pm 0.98$，置信区间为 $(9.02,\\;10.98)$。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X_1,X_2,\\ldots,X_n$ 为来自均匀分布 $U(0,\\theta)$ 的样本，则 $\\theta$ 的矩估计量为 ____。",
+          "answer": "$U(0,\\theta)$ 的期望为 $\\dfrac{\\theta}{2}$，令 $\\bar{X}=\\dfrac{\\theta}{2}$，得矩估计量 $\\hat{\\theta}=2\\bar{X}$。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X\\sim t(n)$，则 $X^2\\sim$ ____。",
+          "answer": "$F(1,n)$。由于 $t(n)$ 分布的平方服从 $F(1,n)$ 分布。",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "name": "三、计算题",
+      "desc": "写出主要解题步骤，否则不得分。",
+      "type": "calc",
+      "questions": [
+        {
+          "stem": "（10分）某工厂有三条流水线甲、乙、丙生产同一种产品，产量分别占总产量的 $50\\%$、$30\\%$、$20\\%$，各流水线的次品率分别为 $2\\%$、$3\\%$、$5\\%$。\n\n（1）从该工厂所有产品中随机抽取一件，求该产品是次品的概率；\n\n（2）已知取到的是次品，求该次品来自甲流水线的概率。",
+          "answer": "**解：**\n\n设事件 $B$ 为「取到次品」，$A_1,A_2,A_3$ 分别为「产品来自甲、乙、丙流水线」。\n\n已知：$P(A_1)=0.5$，$P(A_2)=0.3$，$P(A_3)=0.2$，\n\n$P(B|A_1)=0.02$，$P(B|A_2)=0.03$，$P(B|A_3)=0.05$。\n\n**（1）** 由全概率公式：\n\n$$P(B)=\\sum_{i=1}^{3}P(A_i)P(B|A_i)$$\n\n$$=0.5\\times0.02+0.3\\times0.03+0.2\\times0.05$$\n\n$$=0.010+0.009+0.010=0.029$$\n\n**（2）** 由贝叶斯公式：\n\n$$P(A_1|B)=\\frac{P(A_1)P(B|A_1)}{P(B)}=\\frac{0.5\\times0.02}{0.029}=\\frac{0.010}{0.029}\\approx0.345$$",
+          "points": 10
+        },
+        {
+          "stem": "（11分）设随机变量 $X$ 的密度函数为\n$$f(x)=\\begin{cases}ax^2+bx,&0<x<1\\\\0,&\\text{其他}\\end{cases}$$\n已知 $E(X)=\\dfrac{7}{12}$，求：\n\n（1）常数 $a$、$b$ 的值；\n\n（2）$D(X)$；\n\n（3）$P\\!\\left(X>\\dfrac{1}{2}\\right)$。",
+          "answer": "**解：**\n\n**（1）** 由归一性：\n$$\\int_0^1(ax^2+bx)\\,dx=\\frac{a}{3}+\\frac{b}{2}=1 \\quad\\cdots(1)$$\n\n由 $E(X)=\\dfrac{7}{12}$：\n$$\\int_0^1 x(ax^2+bx)\\,dx=\\frac{a}{4}+\\frac{b}{3}=\\frac{7}{12} \\quad\\cdots(2)$$\n\n由 $(1)\\times\\dfrac{1}{3}$：$\\dfrac{a}{9}+\\dfrac{b}{6}=\\dfrac{1}{3}$，\n\n$(2)$ 减 $(1)\\times\\dfrac{1}{4}$：$\\dfrac{b}{3}-\\dfrac{b}{8}=\\dfrac{7}{12}-\\dfrac{1}{4}=\\dfrac{1}{3}$，\n\n由 $(1)$：$\\dfrac{a}{3}+\\dfrac{b}{2}=1$；由 $(2)$：$\\dfrac{a}{4}+\\dfrac{b}{3}=\\dfrac{7}{12}$。\n\n$(1)\\times 3$：$a+\\dfrac{3b}{2}=3$；$(2)\\times 4$：$a+\\dfrac{4b}{3}=\\dfrac{7}{3}$。\n\n两式相减：$\\dfrac{3b}{2}-\\dfrac{4b}{3}=3-\\dfrac{7}{3}=\\dfrac{2}{3}$，\n\n$\\dfrac{9b-8b}{6}=\\dfrac{2}{3}$，故 $b=4$。\n\n代入得 $a=-3$（需验证 $f(x)\\geq 0$ 在 $(0,1)$ 成立：$-3x^2+4x=x(4-3x)>0$，$0<x<1$，成立）。\n\n$$\\boxed{a=-3,\\quad b=4}$$\n\n**（2）** 先求 $E(X^2)$：\n$$E(X^2)=\\int_0^1 x^2(-3x^2+4x)\\,dx=\\int_0^1(-3x^4+4x^3)\\,dx$$\n$$=-\\frac{3}{5}+1=\\frac{2}{5}$$\n\n$$D(X)=E(X^2)-[E(X)]^2=\\frac{2}{5}-\\left(\\frac{7}{12}\\right)^2=\\frac{2}{5}-\\frac{49}{144}=\\frac{288-245}{720}=\\frac{43}{720}$$\n\n**（3）**\n$$P\\!\\left(X>\\frac{1}{2}\\right)=\\int_{1/2}^{1}(-3x^2+4x)\\,dx=\\left[-x^3+2x^2\\right]_{1/2}^{1}$$\n$$=(−1+2)−\\left(−\\frac{1}{8}+\\frac{1}{2}\\right)=1-\\frac{3}{8}=\\frac{5}{8}$$",
+          "points": 11
+        },
+        {
+          "stem": "（11分）设总体 $X\\sim N(\\mu,\\sigma^2)$，从中抽取样本 $X_1,\\ldots,X_{25}$，得 $\\bar{x}=52$，$s^2=100$。\n\n（1）求 $\\mu$ 的置信水平为 $0.95$ 的置信区间（$\\sigma^2$ 未知，已知 $t_{0.025}(24)=2.064$）；\n\n（2）检验假设 $H_0:\\mu=50$ vs $H_1:\\mu\\neq 50$（显著性水平 $\\alpha=0.05$），给出结论。",
+          "answer": "**解：**\n\n已知 $n=25$，$\\bar{x}=52$，$s^2=100$，$s=10$。\n\n**（1）** $\\sigma^2$ 未知时，用 $t$ 区间：\n\n$$\\bar{x}\\pm t_{\\alpha/2}(n-1)\\cdot\\frac{s}{\\sqrt{n}}=52\\pm 2.064\\times\\frac{10}{5}=52\\pm 4.128$$\n\n$\\mu$ 的 $95\\%$ 置信区间为 $(47.872,\\;56.128)$。\n\n**（2）** 构造检验统计量：\n\n$$T=\\frac{\\bar{X}-\\mu_0}{S/\\sqrt{n}}=\\frac{52-50}{10/5}=\\frac{2}{2}=1$$\n\n拒绝域为 $|T|>t_{0.025}(24)=2.064$。\n\n由于 $|T|=1<2.064$，故**不拒绝 $H_0$**，即在显著性水平 $0.05$ 下，没有充分理由认为 $\\mu\\neq 50$。",
+          "points": 11
+        },
+        {
+          "stem": "（10分）设 $X$ 与 $Y$ 相互独立，$X\\sim P(\\lambda_1)$（泊松分布），$Y\\sim P(\\lambda_2)$。求：\n\n（1）$Z=X+Y$ 的分布；\n\n（2）在已知 $Z=n$ 的条件下，$X$ 的条件分布律。",
+          "answer": "**解：**\n\n**（1）** 利用泊松分布的可加性（或用卷积公式）：\n\n$$P(Z=k)=\\sum_{j=0}^{k}P(X=j)P(Y=k-j)$$\n$$=\\sum_{j=0}^{k}\\frac{e^{-\\lambda_1}\\lambda_1^j}{j!}\\cdot\\frac{e^{-\\lambda_2}\\lambda_2^{k-j}}{(k-j)!}$$\n$$=\\frac{e^{-(\\lambda_1+\\lambda_2)}}{k!}\\sum_{j=0}^{k}\\binom{k}{j}\\lambda_1^j\\lambda_2^{k-j}$$\n$$=\\frac{e^{-(\\lambda_1+\\lambda_2)}(\\lambda_1+\\lambda_2)^k}{k!}$$\n\n故 $Z=X+Y\\sim P(\\lambda_1+\\lambda_2)$。\n\n**（2）** 设 $\\lambda=\\lambda_1+\\lambda_2$，$p=\\dfrac{\\lambda_1}{\\lambda}$。对 $j=0,1,\\ldots,n$：\n\n$$P(X=j|Z=n)=\\frac{P(X=j,Z=n)}{P(Z=n)}=\\frac{P(X=j)P(Y=n-j)}{P(Z=n)}$$\n\n$$=\\frac{\\dfrac{e^{-\\lambda_1}\\lambda_1^j}{j!}\\cdot\\dfrac{e^{-\\lambda_2}\\lambda_2^{n-j}}{(n-j)!}}{\\dfrac{e^{-\\lambda}\\lambda^n}{n!}}$$\n\n$$=\\binom{n}{j}\\left(\\frac{\\lambda_1}{\\lambda}\\right)^j\\left(\\frac{\\lambda_2}{\\lambda}\\right)^{n-j}=\\binom{n}{j}p^j(1-p)^{n-j}$$\n\n故在 $Z=n$ 条件下，$X\\sim B\\!\\left(n,\\,\\dfrac{\\lambda_1}{\\lambda_1+\\lambda_2}\\right)$。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "name": "四、证明题",
+      "desc": "写出完整证明过程。",
+      "type": "proof",
+      "questions": [
+        {
+          "stem": "（10分）设 $X_1,X_2,\\ldots,X_n$ 是来自总体 $X$ 的简单随机样本，总体期望 $E(X)=\\mu$，方差 $D(X)=\\sigma^2$（均有限）。证明：样本方差\n$$S^2=\\frac{1}{n-1}\\sum_{i=1}^{n}(X_i-\\bar{X})^2$$\n是总体方差 $\\sigma^2$ 的无偏估计量，即 $E(S^2)=\\sigma^2$。",
+          "answer": "**证明：**\n\n首先对 $\\sum_{i=1}^{n}(X_i-\\bar{X})^2$ 进行变形：\n\n$$\\sum_{i=1}^{n}(X_i-\\bar{X})^2=\\sum_{i=1}^{n}\\left[(X_i-\\mu)-(\\bar{X}-\\mu)\\right]^2$$\n\n$$=\\sum_{i=1}^{n}(X_i-\\mu)^2-2(\\bar{X}-\\mu)\\sum_{i=1}^{n}(X_i-\\mu)+n(\\bar{X}-\\mu)^2$$\n\n注意到 $\\sum_{i=1}^{n}(X_i-\\mu)=n(\\bar{X}-\\mu)$，故\n\n$$\\sum_{i=1}^{n}(X_i-\\bar{X})^2=\\sum_{i=1}^{n}(X_i-\\mu)^2-n(\\bar{X}-\\mu)^2 \\quad \\cdots(*)$$\n\n对两边取期望。由于 $X_1,\\ldots,X_n$ 独立同分布，$E(X_i-\\mu)^2=D(X_i)=\\sigma^2$，故\n\n$$E\\left[\\sum_{i=1}^{n}(X_i-\\mu)^2\\right]=n\\sigma^2$$\n\n又 $\\bar{X}=\\dfrac{1}{n}\\sum_{i=1}^{n}X_i$，故\n\n$$D(\\bar{X})=\\frac{\\sigma^2}{n}$$\n\n从而\n\n$$E\\left[n(\\bar{X}-\\mu)^2\\right]=n\\cdot D(\\bar{X})=n\\cdot\\frac{\\sigma^2}{n}=\\sigma^2$$\n\n代入 $(*)$ 取期望：\n\n$$E\\left[\\sum_{i=1}^{n}(X_i-\\bar{X})^2\\right]=n\\sigma^2-\\sigma^2=(n-1)\\sigma^2$$\n\n因此\n\n$$E(S^2)=E\\left[\\frac{1}{n-1}\\sum_{i=1}^{n}(X_i-\\bar{X})^2\\right]=\\frac{(n-1)\\sigma^2}{n-1}=\\sigma^2$$\n\n故 $S^2$ 是 $\\sigma^2$ 的无偏估计量。$\\blacksquare$",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}

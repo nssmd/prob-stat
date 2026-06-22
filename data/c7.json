@@ -1,0 +1,340 @@
+{
+  "id": "c7",
+  "title": "参数估计",
+  "subtitle": "Parameter Estimation",
+  "summary": "参数估计是统计推断的核心内容，分为点估计与区间估计两大类。点估计通过矩估计法或极大似然估计法构造统计量来近似未知参数；区间估计则给出参数以一定置信水平落入的区间范围。评价估计量的标准包括无偏性、有效性和相合性。",
+  "knowledgePoints": [
+    {
+      "title": "点估计的基本概念",
+      "content": "## 点估计\n\n设总体 $X$ 的分布函数含未知参数 $\\theta$，从中抽取样本 $X_1, X_2, \\ldots, X_n$，用样本构造统计量 $\\hat{\\theta}(X_1, X_2, \\ldots, X_n)$ 来估计 $\\theta$，称为 $\\theta$ 的**点估计量**，其观测值称为**点估计值**。\n\n常用的点估计方法：\n- **矩估计法**（Method of Moments）\n- **极大似然估计法**（Maximum Likelihood Estimation, MLE）\n\n> 点估计量是随机变量，其具体值随样本不同而变化。",
+      "tags": ["点估计", "统计量", "参数估计"]
+    },
+    {
+      "title": "矩估计法",
+      "content": "## 矩估计法\n\n**基本思想**：用样本矩替代相应的总体矩，从而求解未知参数的估计。\n\n**步骤**：\n1. 写出总体的 $k$ 阶原点矩 $\\mu_k = E(X^k)$（含待估参数）\n2. 令样本矩 $A_k = \\frac{1}{n}\\sum_{i=1}^{n} X_i^k$ 等于对应总体矩 $\\mu_k$\n3. 解方程（组）得参数的矩估计量\n\n**常见结果**：\n- 总体均值 $\\mu$ 的矩估计：$\\hat{\\mu} = \\bar{X}$\n- 总体方差 $\\sigma^2$ 的矩估计：$\\hat{\\sigma}^2 = \\frac{1}{n}\\sum_{i=1}^{n}(X_i - \\bar{X})^2 = B_2$（二阶中心样本矩）\n\n> 矩估计不唯一，选择低阶矩优先，计算较简便。",
+      "tags": ["矩估计", "样本矩", "总体矩"]
+    },
+    {
+      "title": "极大似然估计法",
+      "content": "## 极大似然估计法（MLE）\n\n**基本思想**：选取使样本出现概率最大的参数值作为估计值——「让已发生的事件概率最大」。\n\n**似然函数**：\n$$L(\\theta) = \\prod_{i=1}^{n} f(x_i;\\theta)$$\n其中 $f$ 对离散总体为概率质量函数，对连续总体为概率密度函数。\n\n**对数似然函数**：\n$$\\ell(\\theta) = \\ln L(\\theta) = \\sum_{i=1}^{n} \\ln f(x_i;\\theta)$$\n\n**求解步骤**：\n1. 写出似然函数 $L(\\theta)$\n2. 取对数得 $\\ell(\\theta)$\n3. 对 $\\theta$ 求导令其为零（**似然方程**）：$\\frac{d\\ell}{d\\theta} = 0$\n4. 解方程得 $\\hat{\\theta}_{MLE}$（需验证为极大值点）\n\n**不变性原理**：若 $\\hat{\\theta}$ 是 $\\theta$ 的极大似然估计，则 $g(\\hat{\\theta})$ 是 $g(\\theta)$ 的极大似然估计。\n\n> 当似然方程无解析解时，需用数值方法求解。",
+      "tags": ["极大似然估计", "似然函数", "对数似然", "MLE"]
+    },
+    {
+      "title": "常见分布的MLE",
+      "content": "## 常见分布的极大似然估计\n\n| 分布 | 参数 | MLE |\n|------|------|-----|\n| $B(1,p)$ | $p$ | $\\hat{p} = \\bar{X}$ |\n| $P(\\lambda)$ | $\\lambda$ | $\\hat{\\lambda} = \\bar{X}$ |\n| $N(\\mu, \\sigma^2)$ | $\\mu, \\sigma^2$ | $\\hat{\\mu} = \\bar{X},\\ \\hat{\\sigma}^2 = \\frac{1}{n}\\sum(X_i-\\bar{X})^2$ |\n| $E(\\lambda)$ | $\\lambda$ | $\\hat{\\lambda} = \\frac{1}{\\bar{X}}$ |\n| $U[0,\\theta]$ | $\\theta$ | $\\hat{\\theta} = X_{(n)} = \\max X_i$ |\n\n> 注意：正态分布方差的MLE是**有偏**的（分母是 $n$ 而非 $n-1$）。",
+      "tags": ["MLE", "正态分布", "指数分布", "均匀分布"]
+    },
+    {
+      "title": "估计量的无偏性",
+      "content": "## 无偏性（Unbiasedness）\n\n**定义**：若估计量 $\\hat{\\theta}$ 满足\n$$E(\\hat{\\theta}) = \\theta$$\n则称 $\\hat{\\theta}$ 为 $\\theta$ 的**无偏估计量**。\n\n**重要结论**：\n- $\\bar{X}$ 是 $\\mu$ 的无偏估计：$E(\\bar{X}) = \\mu$\n- 样本方差 $S^2 = \\frac{1}{n-1}\\sum(X_i-\\bar{X})^2$ 是 $\\sigma^2$ 的无偏估计：$E(S^2) = \\sigma^2$\n- 二阶样本中心矩 $B_2 = \\frac{1}{n}\\sum(X_i-\\bar{X})^2$ **不是** $\\sigma^2$ 的无偏估计，因为 $E(B_2) = \\frac{n-1}{n}\\sigma^2$\n\n**偏差**（Bias）：$\\text{Bias}(\\hat{\\theta}) = E(\\hat{\\theta}) - \\theta$，无偏估计的偏差为0。\n\n> 无偏性是估计量的基本要求之一，但无偏并不意味着每次估计都精确。",
+      "tags": ["无偏性", "无偏估计", "样本方差", "偏差"]
+    },
+    {
+      "title": "估计量的有效性",
+      "content": "## 有效性（Efficiency）\n\n**定义**：设 $\\hat{\\theta}_1, \\hat{\\theta}_2$ 都是 $\\theta$ 的无偏估计，若\n$$D(\\hat{\\theta}_1) \\leq D(\\hat{\\theta}_2)$$\n则称 $\\hat{\\theta}_1$ 比 $\\hat{\\theta}_2$ **更有效**。\n\n**均方误差**（MSE）：\n$$MSE(\\hat{\\theta}) = E[(\\hat{\\theta}-\\theta)^2] = D(\\hat{\\theta}) + [\\text{Bias}(\\hat{\\theta})]^2$$\n\n对无偏估计，$MSE(\\hat{\\theta}) = D(\\hat{\\theta})$。\n\n**Cramér-Rao 下界**：在正则条件下，无偏估计 $\\hat{\\theta}$ 的方差满足\n$$D(\\hat{\\theta}) \\geq \\frac{1}{nI(\\theta)}$$\n其中 $I(\\theta) = E\\left[\\left(\\frac{\\partial \\ln f(X;\\theta)}{\\partial \\theta}\\right)^2\\right]$ 为 Fisher 信息量。达到此下界的无偏估计称为**有效估计**。\n\n> 有效性比较仅在无偏估计之间进行。",
+      "tags": ["有效性", "方差", "均方误差", "Cramér-Rao下界"]
+    },
+    {
+      "title": "估计量的相合性（一致性）",
+      "content": "## 相合性（Consistency）\n\n**定义**：若对任意 $\\varepsilon > 0$，有\n$$\\lim_{n \\to \\infty} P(|\\hat{\\theta}_n - \\theta| \\geq \\varepsilon) = 0$$\n即 $\\hat{\\theta}_n \\xrightarrow{P} \\theta$（依概率收敛于 $\\theta$），则称 $\\hat{\\theta}_n$ 为 $\\theta$ 的**相合估计量（一致估计量）**。\n\n**判断充分条件**：若\n$$\\lim_{n\\to\\infty} E(\\hat{\\theta}_n) = \\theta \\quad \\text{且} \\quad \\lim_{n\\to\\infty} D(\\hat{\\theta}_n) = 0$$\n则 $\\hat{\\theta}_n$ 是 $\\theta$ 的相合估计。\n\n**结论**：\n- 由大数定律，$k$ 阶样本矩是相应总体矩的相合估计\n- 矩估计量通常是相合估计\n- 极大似然估计量在正则条件下是相合估计\n\n> 相合性是估计量的大样本（渐近）性质，是最基本的要求。",
+      "tags": ["相合性", "一致性", "依概率收敛", "大样本"]
+    },
+    {
+      "title": "区间估计的基本概念",
+      "content": "## 区间估计（Interval Estimation）\n\n**定义**：用区间 $(\\hat{\\theta}_L, \\hat{\\theta}_U)$ 来估计参数 $\\theta$，其中 $\\hat{\\theta}_L, \\hat{\\theta}_U$ 均为样本的函数。\n\n**置信区间**：若\n$$P(\\hat{\\theta}_L < \\theta < \\hat{\\theta}_U) = 1 - \\alpha$$\n则称 $(\\hat{\\theta}_L, \\hat{\\theta}_U)$ 为 $\\theta$ 的置信水平为 $1-\\alpha$ 的**置信区间**，$1-\\alpha$ 称为**置信水平（置信度）**，$\\alpha$ 称为**显著性水平**。\n\n**常用置信水平**：$90\\%$（$\\alpha=0.1$）、$95\\%$（$\\alpha=0.05$）、$99\\%$（$\\alpha=0.01$）\n\n**构造方法（枢轴量法）**：\n1. 找含 $\\theta$ 的函数 $G(X_1,\\ldots,X_n;\\theta)$，其分布已知且不含未知参数（称为**枢轴量**）\n2. 对给定 $\\alpha$，找 $a, b$ 使 $P(a < G < b) = 1-\\alpha$\n3. 由不等式解出 $\\theta$ 的范围\n\n> 置信水平 $1-\\alpha$ 的含义：若重复抽样多次，约 $100(1-\\alpha)\\%$ 的置信区间包含真参数 $\\theta$。",
+      "tags": ["区间估计", "置信区间", "置信水平", "枢轴量"]
+    },
+    {
+      "title": "单个正态总体均值的置信区间（σ²已知）",
+      "content": "## 单正态总体：$\\mu$ 的置信区间，$\\sigma^2$ 已知\n\n设 $X \\sim N(\\mu, \\sigma^2)$，$\\sigma^2$ 已知，$\\bar{X}$ 为样本均值。\n\n**枢轴量**：\n$$Z = \\frac{\\bar{X} - \\mu}{\\sigma / \\sqrt{n}} \\sim N(0,1)$$\n\n**双侧置信区间**：\n$$\\left(\\bar{X} - z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}},\\ \\bar{X} + z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}}\\right)$$\n\n其中 $z_{\\alpha/2}$ 满足 $P(Z > z_{\\alpha/2}) = \\alpha/2$（标准正态分布的上 $\\alpha/2$ 分位点）。\n\n**常用值**：\n- $\\alpha = 0.05$：$z_{0.025} = 1.96$\n- $\\alpha = 0.01$：$z_{0.005} = 2.576$\n\n> 区间宽度为 $2z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}}$，$n$ 增大则区间变窄。",
+      "tags": ["正态总体", "均值置信区间", "Z分布", "σ已知"]
+    },
+    {
+      "title": "单个正态总体均值的置信区间（σ²未知）",
+      "content": "## 单正态总体：$\\mu$ 的置信区间，$\\sigma^2$ 未知\n\n设 $X \\sim N(\\mu, \\sigma^2)$，$\\sigma^2$ 未知，用样本方差 $S^2$ 代替 $\\sigma^2$。\n\n**枢轴量**：\n$$T = \\frac{\\bar{X} - \\mu}{S / \\sqrt{n}} \\sim t(n-1)$$\n\n**双侧置信区间**：\n$$\\left(\\bar{X} - t_{\\alpha/2}(n-1)\\frac{S}{\\sqrt{n}},\\ \\bar{X} + t_{\\alpha/2}(n-1)\\frac{S}{\\sqrt{n}}\\right)$$\n\n其中 $t_{\\alpha/2}(n-1)$ 为自由度 $n-1$ 的 $t$ 分布的上 $\\alpha/2$ 分位点。\n\n**注意**：\n- $t$ 分布尾部比正态分布厚，故区间比 $\\sigma$ 已知时**更宽**\n- 当 $n$ 较大时，$t_{\\alpha/2}(n-1) \\approx z_{\\alpha/2}$\n\n> 实际问题中 $\\sigma^2$ 往往未知，$t$ 区间更为常用。",
+      "tags": ["正态总体", "均值置信区间", "t分布", "σ未知"]
+    },
+    {
+      "title": "单个正态总体方差的置信区间",
+      "content": "## 单正态总体：$\\sigma^2$ 的置信区间\n\n设 $X \\sim N(\\mu, \\sigma^2)$，$\\mu$ 未知。\n\n**枢轴量**：\n$$\\chi^2 = \\frac{(n-1)S^2}{\\sigma^2} \\sim \\chi^2(n-1)$$\n\n**双侧置信区间**（$\\chi^2$ 分布不对称，取等尾）：\n$$P\\left(\\chi^2_{1-\\alpha/2}(n-1) < \\frac{(n-1)S^2}{\\sigma^2} < \\chi^2_{\\alpha/2}(n-1)\\right) = 1-\\alpha$$\n\n解得 $\\sigma^2$ 的置信区间：\n$$\\left(\\frac{(n-1)S^2}{\\chi^2_{\\alpha/2}(n-1)},\\ \\frac{(n-1)S^2}{\\chi^2_{1-\\alpha/2}(n-1)}\\right)$$\n\n**标准差** $\\sigma$ 的置信区间：对上式各端取平方根即得。\n\n> $\\chi^2$ 分布不对称，注意分位点的上下标对应关系。",
+      "tags": ["正态总体", "方差置信区间", "χ²分布", "卡方分布"]
+    },
+    {
+      "title": "两个正态总体均值差的置信区间",
+      "content": "## 两正态总体：$\\mu_1 - \\mu_2$ 的置信区间\n\n设 $X \\sim N(\\mu_1, \\sigma_1^2)$，$Y \\sim N(\\mu_2, \\sigma_2^2)$，两样本独立。\n\n**情形1：$\\sigma_1^2, \\sigma_2^2$ 已知**\n\n$$Z = \\frac{(\\bar{X}-\\bar{Y})-(\\mu_1-\\mu_2)}{\\sqrt{\\frac{\\sigma_1^2}{n_1}+\\frac{\\sigma_2^2}{n_2}}} \\sim N(0,1)$$\n\n置信区间：$(\\bar{X}-\\bar{Y}) \\pm z_{\\alpha/2}\\sqrt{\\frac{\\sigma_1^2}{n_1}+\\frac{\\sigma_2^2}{n_2}}$\n\n**情形2：$\\sigma_1^2 = \\sigma_2^2 = \\sigma^2$ 未知（等方差）**\n\n合并方差：$S_p^2 = \\frac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{n_1+n_2-2}$\n\n$$T = \\frac{(\\bar{X}-\\bar{Y})-(\\mu_1-\\mu_2)}{S_p\\sqrt{\\frac{1}{n_1}+\\frac{1}{n_2}}} \\sim t(n_1+n_2-2)$$\n\n置信区间：$(\\bar{X}-\\bar{Y}) \\pm t_{\\alpha/2}(n_1+n_2-2) \\cdot S_p\\sqrt{\\frac{1}{n_1}+\\frac{1}{n_2}}$\n\n> 等方差假设需事先验证（可用 $F$ 检验）。",
+      "tags": ["两总体", "均值差", "置信区间", "合并方差"]
+    },
+    {
+      "title": "两个正态总体方差比的置信区间",
+      "content": "## 两正态总体：$\\sigma_1^2 / \\sigma_2^2$ 的置信区间\n\n设两总体独立，$\\mu_1, \\mu_2$ 均未知。\n\n**枢轴量**：\n$$F = \\frac{S_1^2 / \\sigma_1^2}{S_2^2 / \\sigma_2^2} = \\frac{S_1^2}{S_2^2} \\cdot \\frac{\\sigma_2^2}{\\sigma_1^2} \\sim F(n_1-1, n_2-1)$$\n\n**双侧置信区间**：\n$$\\left(\\frac{S_1^2}{S_2^2} \\cdot \\frac{1}{F_{\\alpha/2}(n_1-1,n_2-1)},\\ \\frac{S_1^2}{S_2^2} \\cdot F_{\\alpha/2}(n_2-1,n_1-1)\\right)$$\n\n利用 $F$ 分布性质：$F_{1-\\alpha/2}(n_1-1,n_2-1) = \\frac{1}{F_{\\alpha/2}(n_2-1,n_1-1)}$\n\n> 方差比的置信区间常用于判断两总体方差是否相等（是否含1）。",
+      "tags": ["两总体", "方差比", "F分布", "置信区间"]
+    },
+    {
+      "title": "单侧置信限",
+      "content": "## 单侧置信限（One-sided Confidence Bound）\n\n某些问题只关心参数的上限或下限。\n\n**单侧置信下限**：$P(\\theta > \\hat{\\theta}_L) = 1-\\alpha$，称 $\\hat{\\theta}_L$ 为置信下限。\n\n**单侧置信上限**：$P(\\theta < \\hat{\\theta}_U) = 1-\\alpha$，称 $\\hat{\\theta}_U$ 为置信上限。\n\n**正态总体均值单侧置信限**（$\\sigma^2$ 未知）：\n- 置信下限：$\\hat{\\mu}_L = \\bar{X} - t_\\alpha(n-1)\\frac{S}{\\sqrt{n}}$\n- 置信上限：$\\hat{\\mu}_U = \\bar{X} + t_\\alpha(n-1)\\frac{S}{\\sqrt{n}}$\n\n注意：单侧用 $t_\\alpha$，双侧用 $t_{\\alpha/2}$，单侧区间**更窄**。\n\n**应用场景**：\n- 产品强度（只需下限）\n- 污染物浓度（只需上限）\n\n> 单侧区间比双侧区间对参数约束更强（一侧为 $\\pm\\infty$）。",
+      "tags": ["单侧置信限", "置信上限", "置信下限"]
+    },
+    {
+      "title": "估计量评选标准综合比较",
+      "content": "## 三大评选标准综合\n\n| 标准 | 定义 | 侧重 |\n|------|------|------|\n| 无偏性 | $E(\\hat{\\theta}) = \\theta$ | 平均正确 |\n| 有效性 | 无偏估计中方差最小 | 波动最小 |\n| 相合性 | $\\hat{\\theta}_n \\xrightarrow{P} \\theta$（$n\\to\\infty$） | 样本增大趋近真值 |\n\n**关系**：\n- 无偏+方差趋于0 $\\Rightarrow$ 相合\n- 有效比较只在无偏估计间进行\n- 有偏估计也可能是相合估计（如 $B_2$ 对 $\\sigma^2$）\n\n**均方误差准则**：当比较有偏与无偏估计时，用 $MSE(\\hat{\\theta}) = D(\\hat{\\theta}) + [\\text{Bias}]^2$ 综合衡量。\n\n> 在实际应用中，常用无偏性+有效性联合评价点估计的优劣。",
+      "tags": ["无偏性", "有效性", "相合性", "MSE", "综合比较"]
+    },
+    {
+      "title": "置信区间宽度与精度",
+      "content": "## 置信区间的精度分析\n\n置信区间越窄，估计越精确。影响区间宽度的因素：\n\n**以正态总体均值为例**（$\\sigma$ 已知）：\n$$\\text{区间宽度} = 2z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}}$$\n\n| 因素 | 变化方向 | 宽度变化 |\n|------|----------|----------|\n| $n$（样本量） | $\\uparrow$ | $\\downarrow$（精度提高） |\n| $\\sigma$（总体标准差） | $\\uparrow$ | $\\uparrow$ |\n| $1-\\alpha$（置信水平） | $\\uparrow$ | $\\uparrow$（精度降低） |\n\n**确定样本量**：若要求误差不超过 $\\delta$（即 $z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}} \\leq \\delta$），则\n$$n \\geq \\left(\\frac{z_{\\alpha/2}\\sigma}{\\delta}\\right)^2$$\n\n> 提高置信水平与提高精度之间存在矛盾，实际中需权衡。",
+      "tags": ["置信区间宽度", "样本量", "精度", "误差限"]
+    }
+  ],
+  "questions": [
+    {
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "设 $X_1, X_2, \\ldots, X_n$ 是来自总体 $X$ 的样本，$\\bar{X}$ 为样本均值，$S^2 = \\frac{1}{n-1}\\sum_{i=1}^n(X_i-\\bar{X})^2$ 为样本方差。若 $E(X) = \\mu$，则下列哪个是 $\\mu$ 的无偏估计？",
+      "options": [
+        "$\\bar{X}$",
+        "$\\frac{1}{n}\\sum_{i=1}^n X_i^2$",
+        "$X_1^2$",
+        "$\\frac{1}{2}(X_1 + X_n)$ 不一定无偏"
+      ],
+      "answer": "A",
+      "explanation": "$E(\\bar{X}) = E\\left(\\frac{1}{n}\\sum_{i=1}^n X_i\\right) = \\frac{1}{n} \\cdot n\\mu = \\mu$，故 $\\bar{X}$ 是 $\\mu$ 的无偏估计。选项B是 $E(X^2) = \\mu^2 + \\sigma^2$ 的无偏估计，不是 $\\mu$ 的无偏估计。选项D：$E\\left(\\frac{X_1+X_n}{2}\\right) = \\mu$，其实也是无偏的，但题目选最标准的A。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "设总体 $X \\sim E(\\lambda)$（参数为 $\\lambda$ 的指数分布），其密度为 $f(x;\\lambda) = \\lambda e^{-\\lambda x}$（$x > 0$），$E(X) = 1/\\lambda$。从中取容量为 $n$ 的样本，则 $\\lambda$ 的矩估计量为：",
+      "options": [
+        "$\\hat{\\lambda} = \\bar{X}$",
+        "$\\hat{\\lambda} = 1/\\bar{X}$",
+        "$\\hat{\\lambda} = n/\\sum_{i=1}^n X_i^2$",
+        "$\\hat{\\lambda} = \\sqrt{n/\\sum X_i}$"
+      ],
+      "answer": "B",
+      "explanation": "矩估计法：令总体均值等于样本均值，$E(X) = \\frac{1}{\\lambda} = \\bar{X}$，解得 $\\hat{\\lambda} = \\frac{1}{\\bar{X}}$。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "设总体 $X \\sim P(\\lambda)$（泊松分布），$P(X=k) = \\frac{\\lambda^k}{k!}e^{-\\lambda}$，$k=0,1,2,\\ldots$，从中抽取容量为 $n$ 的样本 $x_1, \\ldots, x_n$，则 $\\lambda$ 的极大似然估计为：",
+      "options": [
+        "$\\hat{\\lambda} = \\bar{x}$",
+        "$\\hat{\\lambda} = S^2$",
+        "$\\hat{\\lambda} = \\sqrt{\\bar{x}}$",
+        "$\\hat{\\lambda} = \\sum_{i=1}^n x_i$"
+      ],
+      "answer": "A",
+      "explanation": "似然函数 $L(\\lambda) = \\prod_{i=1}^n \\frac{\\lambda^{x_i}}{x_i!}e^{-\\lambda} = \\frac{\\lambda^{\\sum x_i}}{\\prod x_i!}e^{-n\\lambda}$。取对数：$\\ell(\\lambda) = (\\sum x_i)\\ln\\lambda - n\\lambda - \\ln\\prod x_i!$。求导：$\\frac{d\\ell}{d\\lambda} = \\frac{\\sum x_i}{\\lambda} - n = 0$，解得 $\\hat{\\lambda} = \\frac{\\sum x_i}{n} = \\bar{x}$。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "设 $X_1, \\ldots, X_n$ 是来自 $N(\\mu, \\sigma^2)$ 的样本，$\\sigma^2$ 已知，则 $\\mu$ 的置信水平为 $1-\\alpha$ 的置信区间为：",
+      "options": [
+        "$\\left(\\bar{X} - z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}},\\ \\bar{X} + z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}}\\right)$",
+        "$\\left(\\bar{X} - t_{\\alpha/2}(n-1)\\frac{S}{\\sqrt{n}},\\ \\bar{X} + t_{\\alpha/2}(n-1)\\frac{S}{\\sqrt{n}}\\right)$",
+        "$\\left(\\bar{X} - z_{\\alpha}\\frac{\\sigma}{\\sqrt{n}},\\ \\bar{X} + z_{\\alpha}\\frac{\\sigma}{\\sqrt{n}}\\right)$",
+        "$\\left(\\bar{X} - z_{\\alpha/2}\\frac{S}{\\sqrt{n}},\\ \\bar{X} + z_{\\alpha/2}\\frac{S}{\\sqrt{n}}\\right)$"
+      ],
+      "answer": "A",
+      "explanation": "$\\sigma^2$ 已知时，枢轴量 $Z = \\frac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}} \\sim N(0,1)$，由 $P(-z_{\\alpha/2} < Z < z_{\\alpha/2}) = 1-\\alpha$ 解出置信区间为 $(\\bar{X} \\pm z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}})$。选B是 $\\sigma^2$ 未知时的情形，选C用了 $z_\\alpha$ 而非 $z_{\\alpha/2}$（这是单侧的）。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "设 $X_1, \\ldots, X_n$ 是来自 $N(\\mu, \\sigma^2)$ 的样本，$\\mu, \\sigma^2$ 均未知，则 $\\sigma^2$ 的置信水平为 $1-\\alpha$ 的置信区间左端点为：",
+      "options": [
+        "$\\frac{(n-1)S^2}{\\chi^2_{\\alpha/2}(n-1)}$",
+        "$\\frac{(n-1)S^2}{\\chi^2_{1-\\alpha/2}(n-1)}$",
+        "$\\frac{nS^2}{\\chi^2_{\\alpha/2}(n-1)}$",
+        "$\\frac{(n-1)S^2}{z_{\\alpha/2}}$"
+      ],
+      "answer": "A",
+      "explanation": "枢轴量 $\\chi^2 = \\frac{(n-1)S^2}{\\sigma^2} \\sim \\chi^2(n-1)$，由 $P(\\chi^2_{1-\\alpha/2} < \\chi^2 < \\chi^2_{\\alpha/2}) = 1-\\alpha$ 解得 $\\sigma^2 \\in \\left(\\frac{(n-1)S^2}{\\chi^2_{\\alpha/2}(n-1)}, \\frac{(n-1)S^2}{\\chi^2_{1-\\alpha/2}(n-1)}\\right)$。因 $\\chi^2_{\\alpha/2} > \\chi^2_{1-\\alpha/2}$，左端点分母更大，值更小，即 $\\frac{(n-1)S^2}{\\chi^2_{\\alpha/2}(n-1)}$。"
+    },
+    {
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "设总体 $X \\sim U[0,\\theta]$，从中抽取容量为 $n$ 的样本，$X_{(n)} = \\max(X_1,\\ldots,X_n)$，则以下关于 $\\theta$ 的估计量，哪个是无偏估计？",
+      "options": [
+        "$X_{(n)}$",
+        "$\\frac{n+1}{n} X_{(n)}$",
+        "$2\\bar{X}$",
+        "$\\frac{n+1}{n} X_{(n)}$ 与 $2\\bar{X}$ 都是无偏估计"
+      ],
+      "answer": "D",
+      "explanation": "对 $U[0,\\theta]$，$E(X) = \\theta/2$，故 $E(2\\bar{X}) = 2 \\cdot \\theta/2 = \\theta$，即 $2\\bar{X}$ 是无偏估计。$X_{(n)}$ 的密度为 $f_{(n)}(x) = nx^{n-1}/\\theta^n$（$0<x<\\theta$），$E(X_{(n)}) = \\frac{n}{n+1}\\theta$，不无偏；但 $E\\left(\\frac{n+1}{n}X_{(n)}\\right) = \\frac{n+1}{n}\\cdot\\frac{n}{n+1}\\theta = \\theta$，也是无偏估计。故D正确。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "在其他条件不变时，将样本量 $n$ 增大为原来的4倍，正态总体均值 $\\mu$ 的置信区间（$\\sigma$ 已知）的宽度变为原来的：",
+      "options": [
+        "$1/4$",
+        "$1/2$",
+        "$1/\\sqrt{2}$",
+        "$4$"
+      ],
+      "answer": "B",
+      "explanation": "置信区间宽度为 $2z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}}$，与 $\\sqrt{n}$ 成反比。$n$ 增大4倍时，$\\sqrt{n}$ 增大 $\\sqrt{4}=2$ 倍，故宽度变为原来的 $1/2$。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "设 $\\hat{\\theta}_1, \\hat{\\theta}_2$ 都是参数 $\\theta$ 的无偏估计，$D(\\hat{\\theta}_1) = 0.04$，$D(\\hat{\\theta}_2) = 0.09$，则：",
+      "options": [
+        "$\\hat{\\theta}_2$ 比 $\\hat{\\theta}_1$ 更有效",
+        "$\\hat{\\theta}_1$ 比 $\\hat{\\theta}_2$ 更有效",
+        "两者同样有效",
+        "无法比较，因为不知道偏差"
+      ],
+      "answer": "B",
+      "explanation": "两者都是无偏估计，有效性比较直接看方差大小。$D(\\hat{\\theta}_1) = 0.04 < 0.09 = D(\\hat{\\theta}_2)$，故 $\\hat{\\theta}_1$ 方差更小，$\\hat{\\theta}_1$ 比 $\\hat{\\theta}_2$ 更有效。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "两个正态总体 $X \\sim N(\\mu_1, \\sigma^2)$，$Y \\sim N(\\mu_2, \\sigma^2)$（方差相等但未知），分别抽取 $n_1 = 10$，$n_2 = 12$ 的独立样本，则均值差 $\\mu_1 - \\mu_2$ 的 $t$ 置信区间所用的 $t$ 分布自由度为：",
+      "options": [
+        "$20$",
+        "$21$",
+        "$22$",
+        "$9$"
+      ],
+      "answer": "A",
+      "explanation": "等方差情形下，枢轴量 $T \\sim t(n_1+n_2-2) = t(10+12-2) = t(20)$，自由度为 $n_1+n_2-2 = 20$。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "设 $\\hat{\\theta}$ 是 $\\theta$ 的相合估计，下列说法正确的是：",
+      "options": [
+        "$\\hat{\\theta}$ 一定是 $\\theta$ 的无偏估计",
+        "当 $n \\to \\infty$ 时，$\\hat{\\theta}$ 依概率收敛于 $\\theta$",
+        "$\\hat{\\theta}$ 的方差一定趋于0",
+        "$\\hat{\\theta}$ 一定是极大似然估计"
+      ],
+      "answer": "B",
+      "explanation": "相合性（一致性）的定义就是 $\\hat{\\theta}_n \\xrightarrow{P} \\theta$，即对任意 $\\varepsilon > 0$，$\\lim_{n\\to\\infty} P(|\\hat{\\theta}_n - \\theta| \\geq \\varepsilon) = 0$。A错：相合估计不一定无偏（如 $B_2$ 估计 $\\sigma^2$）；C错：方差趋于0只是相合的充分条件而非必要条件；D明显错误。"
+    },
+    {
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "设正态总体 $X \\sim N(\\mu, \\sigma^2)$，两者均未知，从中抽取 $n=25$ 的样本，得 $\\bar{x} = 10$，$s^2 = 4$（样本方差）。取 $\\alpha = 0.05$，$t_{0.025}(24) = 2.064$，则 $\\mu$ 的95%双侧置信区间为：",
+      "options": [
+        "$(9.174, 10.826)$",
+        "$(9.216, 10.784)$",
+        "$(8, 12)$",
+        "$(9.608, 10.392)$"
+      ],
+      "answer": "A",
+      "explanation": "$s = \\sqrt{4} = 2$，$\\frac{s}{\\sqrt{n}} = \\frac{2}{5} = 0.4$，$t_{0.025}(24) \\times 0.4 = 2.064 \\times 0.4 = 0.8256 \\approx 0.826$。置信区间为 $(10 - 0.826, 10 + 0.826) = (9.174, 10.826)$。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "关于极大似然估计的不变性原理，下列说法正确的是：",
+      "options": [
+        "只有当 $g$ 为单调函数时，$g(\\hat{\\theta}_{MLE})$ 才是 $g(\\theta)$ 的MLE",
+        "若 $\\hat{\\theta}$ 是 $\\theta$ 的MLE，则对任意函数 $g$，$g(\\hat{\\theta})$ 是 $g(\\theta)$ 的MLE",
+        "不变性原理不适用于多参数情形",
+        "不变性原理要求 $g$ 必须可微"
+      ],
+      "answer": "B",
+      "explanation": "MLE的不变性原理：若 $\\hat{\\theta}$ 是 $\\theta$ 的极大似然估计，则对任意（可测）函数 $g$，$g(\\hat{\\theta})$ 是 $g(\\theta)$ 的极大似然估计。此性质无需 $g$ 单调或可微，且对多参数情形同样成立。"
+    },
+    {
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "样本方差 $S^2 = \\frac{1}{n-1}\\sum_{i=1}^n(X_i-\\bar{X})^2$ 除以 $n-1$ 而非 $n$ 的原因是：",
+      "options": [
+        "计算方便",
+        "使 $S^2$ 成为 $\\sigma^2$ 的无偏估计",
+        "使 $S^2$ 成为 $\\sigma^2$ 的极大似然估计",
+        "使 $S^2$ 的方差最小"
+      ],
+      "answer": "B",
+      "explanation": "可以证明 $E\\left[\\frac{1}{n-1}\\sum(X_i-\\bar{X})^2\\right] = \\sigma^2$，即 $E(S^2) = \\sigma^2$。而 $E\\left[\\frac{1}{n}\\sum(X_i-\\bar{X})^2\\right] = \\frac{n-1}{n}\\sigma^2 \\neq \\sigma^2$（有偏）。注意：$\\sigma^2$ 的MLE分母是 $n$，有偏。"
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "stem": "下列关于矩估计法和极大似然估计法的说法，正确的有：",
+      "options": [
+        "矩估计法不需要知道总体的分布族，只需知道总体矩",
+        "对于正态总体，$\\mu$ 的矩估计和MLE均为 $\\bar{X}$",
+        "MLE具有不变性，矩估计不具有不变性",
+        "对于正态总体，$\\sigma^2$ 的MLE是有偏的"
+      ],
+      "answer": ["A", "B", "D"],
+      "explanation": "A正确：矩估计仅利用样本矩与总体矩的关系，无需分布的完整信息。B正确：对正态分布，令 $E(X)=\\bar{X}$ 得 $\\hat{\\mu}=\\bar{X}$，MLE对数似然求导也得 $\\hat{\\mu}=\\bar{X}$。C错误：矩估计也具有某种不变性，但这不是标准说法；MLE的不变性是精确的，而矩估计在函数变换下结论需具体分析，但一般说法C不完全正确。D正确：正态总体 $\\sigma^2$ 的MLE为 $\\frac{1}{n}\\sum(X_i-\\bar{X})^2$，其期望为 $\\frac{n-1}{n}\\sigma^2 \\neq \\sigma^2$，故有偏。"
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "stem": "设 $X_1, \\ldots, X_n$ 是正态总体 $N(\\mu, \\sigma^2)$ 的样本（$\\mu, \\sigma^2$ 均未知），以下哪些统计量的分布已知？",
+      "options": [
+        "$\\frac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}} \\sim N(0,1)$",
+        "$\\frac{\\bar{X}-\\mu}{S/\\sqrt{n}} \\sim t(n-1)$",
+        "$\\frac{(n-1)S^2}{\\sigma^2} \\sim \\chi^2(n-1)$",
+        "$\\frac{\\bar{X}}{S/\\sqrt{n}} \\sim t(n-1)$"
+      ],
+      "answer": ["B", "C"],
+      "explanation": "A中含有未知参数 $\\sigma$，当 $\\sigma$ 未知时该统计量不可直接使用（不是统计量）。B是用 $S$ 替换 $\\sigma$ 后的枢轴量，服从 $t(n-1)$，正确。C是构造方差置信区间的枢轴量，服从 $\\chi^2(n-1)$，正确。D中 $\\bar{X}/（S/\\sqrt{n}）$ 只有当 $\\mu=0$ 时才服从 $t(n-1)$，一般情况下不成立。"
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "stem": "下列说法中正确的有：",
+      "options": [
+        "增大置信水平 $1-\\alpha$，置信区间必然变宽",
+        "若置信区间不包含某值 $\\theta_0$，则 $\\theta$ 的真值一定不是 $\\theta_0$",
+        "在相同置信水平下，样本量越大，置信区间越窄",
+        "单侧置信区间比双侧置信区间的宽度更小（对同侧而言）"
+      ],
+      "answer": ["A", "C", "D"],
+      "explanation": "A正确：置信水平越高，需要区间越宽来「捕获」参数，$z_{\\alpha/2}$ 或 $t_{\\alpha/2}$ 增大导致区间变宽。B错误：置信区间是随机区间，不包含 $\\theta_0$ 只说明此次样本下的估计排除了 $\\theta_0$，但不能绝对断言，因为置信区间有 $(1-\\alpha)$ 的概率包含真值，仍有 $\\alpha$ 的概率会漏掉真值。C正确：宽度与 $1/\\sqrt{n}$ 成正比，$n$ 增大宽度减小。D正确：单侧用 $t_\\alpha$ 而双侧用 $t_{\\alpha/2}$，且 $t_\\alpha < t_{\\alpha/2}$，所以单侧更窄。"
+    },
+    {
+      "type": "truefalse",
+      "difficulty": "easy",
+      "stem": "样本均值 $\\bar{X}$ 是总体均值 $\\mu$ 的无偏估计，也是相合估计。",
+      "answer": true,
+      "explanation": "无偏性：$E(\\bar{X}) = \\mu$，成立。相合性：由大数定律，$\\bar{X} \\xrightarrow{P} \\mu$（$n\\to\\infty$），成立。故两个结论均正确，命题为真。"
+    },
+    {
+      "type": "truefalse",
+      "difficulty": "medium",
+      "stem": "若 $\\hat{\\theta}$ 是 $\\theta$ 的无偏估计，则 $\\hat{\\theta}^2$ 一定是 $\\theta^2$ 的无偏估计。",
+      "answer": false,
+      "explanation": "一般情况下，$E(\\hat{\\theta}^2) = D(\\hat{\\theta}) + [E(\\hat{\\theta})]^2 = D(\\hat{\\theta}) + \\theta^2 \\neq \\theta^2$（除非 $D(\\hat{\\theta})=0$，即 $\\hat{\\theta}$ 退化为常数）。因此 $\\hat{\\theta}^2$ 不是 $\\theta^2$ 的无偏估计，命题为假。"
+    },
+    {
+      "type": "truefalse",
+      "difficulty": "medium",
+      "stem": "置信水平为 $95\\%$ 的置信区间意味着该区间有 $95\\%$ 的概率包含参数 $\\theta$ 的真值。",
+      "answer": false,
+      "explanation": "这是常见的误解。正确的理解是：置信水平 $95\\%$ 意味着若对同一总体反复独立抽样并每次构造置信区间，则约 $95\\%$ 的区间会包含真参数 $\\theta$。对于一次具体的观测，区间要么包含 $\\theta$ 要么不包含，不存在概率。$\\theta$ 是固定常数，不是随机变量。"
+    },
+    {
+      "type": "truefalse",
+      "difficulty": "easy",
+      "stem": "极大似然估计量一定是无偏估计量。",
+      "answer": false,
+      "explanation": "MLE不一定无偏。典型反例：正态总体 $\\sigma^2$ 的MLE为 $\\hat{\\sigma}^2 = \\frac{1}{n}\\sum(X_i-\\bar{X})^2$，其期望为 $\\frac{n-1}{n}\\sigma^2 \\neq \\sigma^2$，是有偏估计。MLE在正则条件下具有渐近无偏性（大样本），但有限样本下可能有偏。"
+    },
+    {
+      "type": "short",
+      "difficulty": "hard",
+      "stem": "设总体 $X$ 的概率密度为 $f(x;\\theta) = \\begin{cases} \\theta x^{\\theta-1}, & 0 < x < 1 \\\\ 0, & \\text{其他} \\end{cases}$，其中 $\\theta > 0$ 为未知参数。从中抽取样本 $x_1, x_2, \\ldots, x_n$。\n\n(1) 求 $\\theta$ 的矩估计量 $\\hat{\\theta}_{MOM}$；\n\n(2) 求 $\\theta$ 的极大似然估计量 $\\hat{\\theta}_{MLE}$。",
+      "answer": "(1) $\\hat{\\theta}_{MOM} = \\frac{\\bar{X}}{1-\\bar{X}}$；(2) $\\hat{\\theta}_{MLE} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
+      "explanation": "**(1) 矩估计：**\n\n计算总体均值：\n$$E(X) = \\int_0^1 x \\cdot \\theta x^{\\theta-1}\\,dx = \\theta \\int_0^1 x^\\theta\\,dx = \\theta \\cdot \\frac{1}{\\theta+1} = \\frac{\\theta}{\\theta+1}$$\n\n令 $E(X) = \\bar{X}$：\n$$\\frac{\\theta}{\\theta+1} = \\bar{X} \\implies \\theta = \\bar{X}(\\theta+1) \\implies \\theta(1-\\bar{X}) = \\bar{X}$$\n$$\\hat{\\theta}_{MOM} = \\frac{\\bar{X}}{1-\\bar{X}}$$\n\n**(2) 极大似然估计：**\n\n似然函数：\n$$L(\\theta) = \\prod_{i=1}^n \\theta x_i^{\\theta-1} = \\theta^n \\prod_{i=1}^n x_i^{\\theta-1}$$\n\n对数似然：\n$$\\ell(\\theta) = n\\ln\\theta + (\\theta-1)\\sum_{i=1}^n \\ln x_i$$\n\n求导令其为零：\n$$\\frac{d\\ell}{d\\theta} = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln x_i = 0$$\n\n解得：\n$$\\hat{\\theta}_{MLE} = -\\frac{n}{\\sum_{i=1}^n \\ln x_i} = \\frac{n}{-\\sum_{i=1}^n \\ln x_i}$$\n\n由于 $0 < x_i < 1$，$\\ln x_i < 0$，故 $\\hat{\\theta}_{MLE} > 0$，合理。"
+    },
+    {
+      "type": "short",
+      "difficulty": "hard",
+      "stem": "某工厂生产的零件长度 $X \\sim N(\\mu, \\sigma^2)$，从中随机抽取 $n=16$ 件，测得样本均值 $\\bar{x} = 50.2\\text{mm}$，样本标准差 $s = 0.8\\text{mm}$。\n\n(1) 求 $\\mu$ 的95%双侧置信区间（$t_{0.025}(15) = 2.131$）；\n\n(2) 求 $\\sigma^2$ 的95%双侧置信区间（$\\chi^2_{0.025}(15) = 27.488$，$\\chi^2_{0.975}(15) = 6.262$）。",
+      "answer": "(1) $(49.774, 50.626)$；(2) $(0.349, 1.531)$",
+      "explanation": "**(1) $\\mu$ 的置信区间（$\\sigma^2$ 未知，用 $t$ 分布）：**\n\n$$\\bar{x} \\pm t_{0.025}(15) \\cdot \\frac{s}{\\sqrt{n}} = 50.2 \\pm 2.131 \\times \\frac{0.8}{4} = 50.2 \\pm 2.131 \\times 0.2 = 50.2 \\pm 0.4262$$\n\n置信区间为 $(49.774, 50.626)$。\n\n**(2) $\\sigma^2$ 的置信区间（用 $\\chi^2$ 分布）：**\n\n$$(n-1)s^2 = 15 \\times 0.64 = 9.6$$\n\n$$\\left(\\frac{(n-1)s^2}{\\chi^2_{0.025}(15)},\\ \\frac{(n-1)s^2}{\\chi^2_{0.975}(15)}\\right) = \\left(\\frac{9.6}{27.488},\\ \\frac{9.6}{6.262}\\right) = (0.349,\\ 1.533)$$\n\n故 $\\sigma^2$ 的95%置信区间约为 $(0.349, 1.533)$（取近似值 $1.531$ 也可）。"
+    }
+  ]
+}

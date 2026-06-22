@@ -1,0 +1,335 @@
+{
+  "id": "c6",
+  "title": "数理统计的预备知识",
+  "subtitle": "Preliminaries of Mathematical Statistics",
+  "summary": "本章介绍数理统计的基础概念与工具：总体与样本的定义，统计量的概念，常用统计量（样本均值、样本方差、样本矩），经验分布函数，以及三大抽样分布（$\\chi^2$ 分布、$t$ 分布、$F$ 分布）的定义与性质；最后给出正态总体下各统计量的精确分布定理，这是后续参数估计与假设检验的重要基础。",
+  "knowledgePoints": [
+    {
+      "title": "总体与个体",
+      "content": "## 总体与个体\n\n**总体**（Population）是研究对象的全体，通常用一个随机变量 $X$ 来描述，$X$ 的分布即为总体分布。\n\n**个体**是总体中每一个基本单元。\n\n> 注记：数理统计中我们关心的是总体分布的某些特征（参数），而不是某一具体个体的值。例如，研究某工厂产品寿命时，总体为该厂所有产品寿命，$X\\sim \\text{Exp}(\\lambda)$，参数 $\\lambda$ 未知待估计。",
+      "tags": ["总体", "个体", "总体分布"]
+    },
+    {
+      "title": "简单随机样本",
+      "content": "## 简单随机样本\n\n设总体 $X$ 具有分布函数 $F(x)$，若 $X_1, X_2, \\ldots, X_n$ 满足：\n\n1. **独立性**：$X_1, X_2, \\ldots, X_n$ 相互独立；\n2. **同分布性**：每个 $X_i$ 与总体 $X$ 同分布，即 $X_i \\sim F(x)$。\n\n则称 $(X_1, X_2, \\ldots, X_n)$ 为来自总体 $X$ 的**简单随机样本**（i.i.d. 样本），$n$ 称为**样本容量**。\n\n样本的联合分布函数为\n$$F(x_1, x_2, \\ldots, x_n) = \\prod_{i=1}^{n} F(x_i)$$\n\n观测值 $(x_1, x_2, \\ldots, x_n)$ 称为一个**样本观测值**（样本实现）。",
+      "tags": ["简单随机样本", "i.i.d.", "样本容量"]
+    },
+    {
+      "title": "统计量的概念",
+      "content": "## 统计量\n\n**统计量**是样本 $(X_1, X_2, \\ldots, X_n)$ 的函数 $T = g(X_1, X_2, \\ldots, X_n)$，要求：\n\n- $T$ 是已知的可测函数；\n- $T$ **不含任何未知参数**。\n\n统计量本身也是随机变量，其分布称为**抽样分布**（Sampling Distribution）。\n\n> 注记：若总体均值 $\\mu$ 未知，则 $\\bar{X} - \\mu$ **不是**统计量（含未知参数 $\\mu$）；而 $\\bar{X}$ 是统计量。",
+      "tags": ["统计量", "抽样分布", "不含未知参数"]
+    },
+    {
+      "title": "样本均值与样本方差",
+      "content": "## 样本均值\n\n$$\\bar{X} = \\frac{1}{n}\\sum_{i=1}^{n} X_i$$\n\n## 样本方差\n\n$$S^2 = \\frac{1}{n-1}\\sum_{i=1}^{n}(X_i - \\bar{X})^2$$\n\n分母取 $n-1$（无偏修正），使得 $E(S^2) = \\sigma^2$。\n\n**计算公式**（常用）：\n$$S^2 = \\frac{1}{n-1}\\left(\\sum_{i=1}^{n} X_i^2 - n\\bar{X}^2\\right)$$\n\n## 样本标准差\n\n$$S = \\sqrt{S^2}$$\n\n**基本性质**（设总体 $E(X)=\\mu$，$D(X)=\\sigma^2$）：\n- $E(\\bar{X}) = \\mu$\n- $D(\\bar{X}) = \\dfrac{\\sigma^2}{n}$\n- $E(S^2) = \\sigma^2$",
+      "tags": ["样本均值", "样本方差", "无偏估计", "无偏修正"]
+    },
+    {
+      "title": "样本矩",
+      "content": "## 样本矩\n\n**样本 $k$ 阶原点矩**：\n$$A_k = \\frac{1}{n}\\sum_{i=1}^{n} X_i^k, \\quad k=1,2,\\ldots$$\n\n特别地，$A_1 = \\bar{X}$。\n\n**样本 $k$ 阶中心矩**：\n$$B_k = \\frac{1}{n}\\sum_{i=1}^{n}(X_i - \\bar{X})^k, \\quad k=2,3,\\ldots$$\n\n注意：$B_2 = \\dfrac{n-1}{n} S^2 \\neq S^2$（$B_2$ 有偏，$S^2$ 无偏）。\n\n**矩估计法**的基础：用样本矩估计总体矩，令 $A_k = \\mu_k$（总体 $k$ 阶矩）求解参数。",
+      "tags": ["样本矩", "原点矩", "中心矩", "矩估计"]
+    },
+    {
+      "title": "经验分布函数",
+      "content": "## 经验分布函数\n\n设样本观测值为 $x_1, x_2, \\ldots, x_n$，**经验分布函数**定义为：\n\n$$F_n(x) = \\frac{1}{n} \\#\\{i: x_i \\leq x\\}, \\quad -\\infty < x < +\\infty$$\n\n即样本中不超过 $x$ 的观测值个数除以 $n$。\n\n**性质**：\n- $F_n(x)$ 是一个阶梯函数，在每个观测值处有跳跃 $1/n$；\n- $F_n(x)$ 是总体分布函数 $F(x)$ 的一个估计；\n- **Glivenko-Cantelli 定理**：当 $n \\to \\infty$ 时，$$\\sup_{x}|F_n(x) - F(x)| \\xrightarrow{P} 0$$\n  即经验分布函数以概率 1 一致收敛于总体分布函数。",
+      "tags": ["经验分布函数", "阶梯函数", "Glivenko-Cantelli"]
+    },
+    {
+      "title": "$\\chi^2$ 分布",
+      "content": "## $\\chi^2$ 分布\n\n**定义**：设 $X_1, X_2, \\ldots, X_n$ 独立同分布，$X_i \\sim N(0,1)$，则\n$$\\chi^2 = X_1^2 + X_2^2 + \\cdots + X_n^2 \\sim \\chi^2(n)$$\n\n$n$ 称为**自由度**。\n\n**期望与方差**：\n$$E(\\chi^2(n)) = n, \\quad D(\\chi^2(n)) = 2n$$\n\n**可加性**：若 $\\chi_1^2 \\sim \\chi^2(m)$，$\\chi_2^2 \\sim \\chi^2(n)$，且二者独立，则\n$$\\chi_1^2 + \\chi_2^2 \\sim \\chi^2(m+n)$$\n\n**密度函数**（$x>0$）：\n$$f(x) = \\frac{1}{2^{n/2}\\Gamma(n/2)} x^{n/2-1} e^{-x/2}$$\n\n$\\chi^2$ 分布是 $\\text{Gamma}(n/2, 1/2)$ 分布的特例。",
+      "tags": ["chi方分布", "自由度", "可加性", "期望方差"]
+    },
+    {
+      "title": "$t$ 分布（学生分布）",
+      "content": "## $t$ 分布\n\n**定义**：设 $X \\sim N(0,1)$，$Y \\sim \\chi^2(n)$，且 $X$ 与 $Y$ 独立，则\n$$T = \\frac{X}{\\sqrt{Y/n}} \\sim t(n)$$\n\n$n$ 称为**自由度**，该分布又称**学生（Student）$t$ 分布**。\n\n**密度函数**：\n$$f(x) = \\frac{\\Gamma\\left(\\frac{n+1}{2}\\right)}{\\sqrt{n\\pi}\\,\\Gamma\\left(\\frac{n}{2}\\right)} \\left(1+\\frac{x^2}{n}\\right)^{-\\frac{n+1}{2}}, \\quad -\\infty < x < +\\infty$$\n\n**对称性**：$f(x)$ 关于 $x=0$ 对称，故 $t_{1-\\alpha}(n) = -t_\\alpha(n)$。\n\n**极限**：当 $n \\to \\infty$ 时，$t(n) \\to N(0,1)$。",
+      "tags": ["t分布", "Student分布", "对称性", "自由度"]
+    },
+    {
+      "title": "$F$ 分布",
+      "content": "## $F$ 分布\n\n**定义**：设 $U \\sim \\chi^2(m)$，$V \\sim \\chi^2(n)$，且 $U$、$V$ 独立，则\n$$F = \\frac{U/m}{V/n} \\sim F(m, n)$$\n\n$(m, n)$ 称为**自由度**（分子自由度 $m$，分母自由度 $n$）。\n\n**重要性质**：\n- 若 $F \\sim F(m,n)$，则 $\\dfrac{1}{F} \\sim F(n,m)$；\n- **分位数关系**：$$F_{1-\\alpha}(m,n) = \\frac{1}{F_\\alpha(n,m)}$$\n  此性质可将下侧分位数转化为上侧分位数查表。\n\n**期望**（$n>2$）：$E(F(m,n)) = \\dfrac{n}{n-2}$。",
+      "tags": ["F分布", "自由度", "分位数关系", "倒数性质"]
+    },
+    {
+      "title": "上侧分位数（临界值）",
+      "content": "## 上侧分位数\n\n设随机变量 $X$ 的分布函数已知，**上侧 $\\alpha$ 分位数**（上 $\\alpha$ 临界值）$x_\\alpha$ 定义为满足\n$$P(X > x_\\alpha) = \\alpha, \\quad 0 < \\alpha < 1$$\n的值。\n\n**各分布的记号**：\n\n| 分布 | 上侧 $\\alpha$ 分位数 |\n|------|---------------------|\n| $N(0,1)$ | $z_\\alpha$（或 $u_\\alpha$）|\n| $\\chi^2(n)$ | $\\chi^2_\\alpha(n)$ |\n| $t(n)$ | $t_\\alpha(n)$ |\n| $F(m,n)$ | $F_\\alpha(m,n)$ |\n\n**$t$ 分布对称性的应用**：\n$$t_{1-\\alpha}(n) = -t_\\alpha(n)$$\n\n**$F$ 分布分位数关系**：\n$$F_{1-\\alpha}(m,n) = \\frac{1}{F_\\alpha(n,m)}$$",
+      "tags": ["上侧分位数", "临界值", "分位数查表"]
+    },
+    {
+      "title": "正态总体的抽样分布定理（单总体）",
+      "content": "## 单正态总体的抽样分布\n\n设总体 $X \\sim N(\\mu, \\sigma^2)$，$(X_1, \\ldots, X_n)$ 为简单随机样本，$\\bar{X}$ 为样本均值，$S^2$ 为样本方差。\n\n**定理 1（样本均值的分布）**：\n$$\\bar{X} \\sim N\\left(\\mu, \\frac{\\sigma^2}{n}\\right) \\quad \\Rightarrow \\quad \\frac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}} \\sim N(0,1)$$\n\n**定理 2（样本方差的分布）**：\n$$\\frac{(n-1)S^2}{\\sigma^2} \\sim \\chi^2(n-1)$$\n\n**定理 3（$\\bar{X}$ 与 $S^2$ 的独立性）**：$\\bar{X}$ 与 $S^2$ 相互独立。\n\n**定理 4（$t$ 统计量）**：\n$$\\frac{\\bar{X}-\\mu}{S/\\sqrt{n}} \\sim t(n-1)$$\n\n> 注记：定理 4 由定理 1、2、3 综合推导得出，其中自由度为 $n-1$（因为估计了一个均值参数）。",
+      "tags": ["正态总体", "抽样分布", "样本均值分布", "样本方差分布", "t统计量"]
+    },
+    {
+      "title": "正态总体的抽样分布定理（两总体）",
+      "content": "## 两正态总体的抽样分布\n\n设 $X \\sim N(\\mu_1, \\sigma_1^2)$，$Y \\sim N(\\mu_2, \\sigma_2^2)$，两总体独立；样本量分别为 $m$、$n$，样本均值为 $\\bar{X}$、$\\bar{Y}$，样本方差为 $S_1^2$、$S_2^2$。\n\n**均值差的正态分布**：\n$$\\bar{X} - \\bar{Y} \\sim N\\left(\\mu_1 - \\mu_2,\\ \\frac{\\sigma_1^2}{m} + \\frac{\\sigma_2^2}{n}\\right)$$\n\n**方差比的 $F$ 统计量**（$\\sigma_1^2 = \\sigma_2^2$ 未必成立）：\n$$F = \\frac{S_1^2/\\sigma_1^2}{S_2^2/\\sigma_2^2} \\sim F(m-1, n-1)$$\n\n**等方差时的 $t$ 统计量**（$\\sigma_1^2 = \\sigma_2^2 = \\sigma^2$）：\n\n合并样本方差：$S_p^2 = \\dfrac{(m-1)S_1^2 + (n-1)S_2^2}{m+n-2}$\n$$T = \\frac{(\\bar{X}-\\bar{Y})-(\\mu_1-\\mu_2)}{S_p\\sqrt{\\frac{1}{m}+\\frac{1}{n}}} \\sim t(m+n-2)$$",
+      "tags": ["两总体", "F统计量", "合并方差", "两样本t统计量"]
+    },
+    {
+      "title": "充分统计量（简介）",
+      "content": "## 充分统计量\n\n**直觉**：充分统计量包含了样本中关于未知参数 $\\theta$ 的全部信息。\n\n**定义（Fisher-Neyman 因子分解定理）**：统计量 $T = T(X_1, \\ldots, X_n)$ 是 $\\theta$ 的充分统计量，当且仅当联合密度（或概率）可以分解为\n$$f(x_1, \\ldots, x_n;\\theta) = g(T(x_1,\\ldots,x_n), \\theta) \\cdot h(x_1,\\ldots,x_n)$$\n\n其中 $g$ 仅通过 $T$ 依赖 $\\theta$，$h$ 与 $\\theta$ 无关。\n\n**例**：正态总体 $N(\\mu, \\sigma^2)$ 中，当 $\\sigma^2$ 已知时，$\\bar{X}$ 是 $\\mu$ 的充分统计量；当 $\\mu$、$\\sigma^2$ 均未知时，$(\\bar{X}, S^2)$ 是 $(\\mu, \\sigma^2)$ 的充分统计量。",
+      "tags": ["充分统计量", "因子分解定理", "Fisher-Neyman"]
+    },
+    {
+      "title": "顺序统计量与样本中位数",
+      "content": "## 顺序统计量\n\n将样本观测值从小到大排列：\n$$X_{(1)} \\leq X_{(2)} \\leq \\cdots \\leq X_{(n)}$$\n\n$X_{(k)}$ 称为第 $k$ **顺序统计量**，其中：\n- $X_{(1)} = \\min(X_1, \\ldots, X_n)$ 为**最小值统计量**；\n- $X_{(n)} = \\max(X_1, \\ldots, X_n)$ 为**最大值统计量**；\n- **极差**：$R = X_{(n)} - X_{(1)}$。\n\n**样本中位数**：\n$$M = \\begin{cases} X_{(\\frac{n+1}{2})}, & n \\text{ 为奇数} \\\\ \\dfrac{X_{(\\frac{n}{2})} + X_{(\\frac{n}{2}+1)}}{2}, & n \\text{ 为偶数} \\end{cases}$$",
+      "tags": ["顺序统计量", "最大值", "最小值", "中位数", "极差"]
+    },
+    {
+      "title": "$\\chi^2$ 分布与 $t$、$F$ 分布的关系",
+      "content": "## 三大分布之间的关系\n\n**$t$ 分布与正态、$\\chi^2$ 的关系**：\n$$T = \\frac{X}{\\sqrt{Y/n}},\\quad X\\sim N(0,1),\\ Y\\sim\\chi^2(n),\\ X\\perp Y \\implies T\\sim t(n)$$\n\n**$F$ 分布与 $\\chi^2$ 的关系**：\n$$F = \\frac{U/m}{V/n},\\quad U\\sim\\chi^2(m),\\ V\\sim\\chi^2(n),\\ U\\perp V \\implies F\\sim F(m,n)$$\n\n**$t^2$ 与 $F$ 的关系**：\n$$T \\sim t(n) \\implies T^2 \\sim F(1, n)$$\n\n这一关系可用于双侧 $t$ 检验与单侧 $F$ 检验之间的转换。\n\n**$\\chi^2$ 与正态的关系**（已在定义中体现）：标准正态随机变量的平方和服从 $\\chi^2$ 分布。",
+      "tags": ["三大分布关系", "t平方等于F", "chi方与正态", "分布关系"]
+    }
+  ],
+  "questions": [
+    {
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "设 $(X_1, X_2, \\ldots, X_n)$ 是来自总体 $X$ 的简单随机样本，下列说法中**正确**的是：",
+      "options": [
+        "$X_1, X_2, \\ldots, X_n$ 相互独立且与 $X$ 同分布",
+        "$X_1, X_2, \\ldots, X_n$ 相互独立但分布可以不同",
+        "$X_1, X_2, \\ldots, X_n$ 同分布但可以不独立",
+        "$X_1, X_2, \\ldots, X_n$ 只需满足有限维分布相同"
+      ],
+      "answer": "A",
+      "explanation": "简单随机样本的两个基本条件：（1）各 $X_i$ 相互独立；（2）每个 $X_i$ 与总体 $X$ 同分布（i.i.d. 条件）。两者缺一不可。"
+    },
+    {
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "下列量中，**不是**统计量的是：",
+      "options": [
+        "$\\bar{X} = \\dfrac{1}{n}\\sum_{i=1}^{n} X_i$",
+        "$S^2 = \\dfrac{1}{n-1}\\sum_{i=1}^{n}(X_i - \\bar{X})^2$",
+        "$T = \\dfrac{\\bar{X} - \\mu}{S/\\sqrt{n}}$（$\\mu$ 未知）",
+        "$X_{(n)} = \\max(X_1, \\ldots, X_n)$"
+      ],
+      "answer": "C",
+      "explanation": "统计量不能含有未知参数。选项 C 中 $\\mu$ 是总体未知均值，因此 $T = (\\bar{X}-\\mu)/(S/\\sqrt{n})$ 不是统计量。其余选项均只含样本观测值，不含未知参数。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "设总体 $X \\sim N(\\mu, \\sigma^2)$，$\\sigma^2$ 已知，$(X_1, \\ldots, X_n)$ 为样本，$\\bar{X}$ 为样本均值，则 $\\bar{X}$ 的分布为：",
+      "options": [
+        "$N(\\mu, \\sigma^2)$",
+        "$N\\left(\\mu, \\dfrac{\\sigma^2}{n}\\right)$",
+        "$N\\left(0, \\dfrac{\\sigma^2}{n}\\right)$",
+        "$t(n-1)$"
+      ],
+      "answer": "B",
+      "explanation": "由正态总体的抽样分布定理：$\\bar{X} = \\frac{1}{n}\\sum X_i$，各 $X_i \\sim N(\\mu,\\sigma^2)$ 且独立，故 $\\bar{X} \\sim N\\left(\\mu, \\frac{\\sigma^2}{n}\\right)$。均值不变，方差缩小为 $\\sigma^2/n$。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "设总体 $X \\sim N(\\mu, \\sigma^2)$，$(X_1, \\ldots, X_n)$ 为样本，$S^2$ 为样本方差，则统计量 $\\dfrac{(n-1)S^2}{\\sigma^2}$ 服从：",
+      "options": [
+        "$N(0,1)$",
+        "$\\chi^2(n)$",
+        "$\\chi^2(n-1)$",
+        "$t(n-1)$"
+      ],
+      "answer": "C",
+      "explanation": "正态总体的抽样定理：$\\frac{(n-1)S^2}{\\sigma^2} = \\frac{\\sum(X_i-\\bar{X})^2}{\\sigma^2} \\sim \\chi^2(n-1)$。自由度为 $n-1$ 而非 $n$，是因为用样本均值 $\\bar{X}$ 替代了总体均值 $\\mu$，损失了 1 个自由度。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "设总体 $X \\sim N(\\mu, \\sigma^2)$，$\\sigma^2$ **未知**，$(X_1, \\ldots, X_n)$ 为样本，$\\bar{X}$、$S^2$ 分别为样本均值和样本方差，则 $\\dfrac{\\bar{X}-\\mu}{S/\\sqrt{n}}$ 服从：",
+      "options": [
+        "$N(0,1)$",
+        "$t(n)$",
+        "$t(n-1)$",
+        "$F(1, n-1)$"
+      ],
+      "answer": "C",
+      "explanation": "当 $\\sigma^2$ 未知时，用 $S$ 代替 $\\sigma$，由正态总体抽样定理：$\\frac{\\bar{X}-\\mu}{S/\\sqrt{n}} \\sim t(n-1)$。这是因为 $\\bar{X}\\sim N(\\mu,\\sigma^2/n)$，$(n-1)S^2/\\sigma^2\\sim\\chi^2(n-1)$，两者独立，由 $t$ 分布定义得自由度为 $n-1$。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "设 $X_1, X_2, \\ldots, X_6$ 独立同分布，$X_i \\sim N(0,1)$，令 $Y = X_1^2 + X_2^2 + X_3^2 + X_4^2 + X_5^2 + X_6^2$，则 $Y$ 服从：",
+      "options": [
+        "$\\chi^2(5)$",
+        "$\\chi^2(6)$",
+        "$t(6)$",
+        "$F(1,5)$"
+      ],
+      "answer": "B",
+      "explanation": "$\\chi^2$ 分布的定义：$n$ 个独立标准正态随机变量的平方和服从 $\\chi^2(n)$ 分布。此处 6 个独立的 $N(0,1)$ 变量的平方和服从 $\\chi^2(6)$。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "$\\chi^2(n)$ 分布的期望和方差分别为：",
+      "options": [
+        "$E=n$，$D=n$",
+        "$E=n$，$D=2n$",
+        "$E=n/2$，$D=n$",
+        "$E=2n$，$D=4n$"
+      ],
+      "answer": "B",
+      "explanation": "$\\chi^2(n) = \\sum_{i=1}^n X_i^2$，其中 $X_i \\sim N(0,1)$ 独立。$E(X_i^2)=1$，$D(X_i^2)=E(X_i^4)-[E(X_i^2)]^2=3-1=2$。由独立性：$E(\\chi^2)=n$，$D(\\chi^2)=2n$。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "设 $T \\sim t(n)$，则 $T^2$ 服从：",
+      "options": [
+        "$\\chi^2(n)$",
+        "$F(n, 1)$",
+        "$F(1, n)$",
+        "$\\chi^2(1)$"
+      ],
+      "answer": "C",
+      "explanation": "设 $X\\sim N(0,1)$，$Y\\sim\\chi^2(n)$ 独立，则 $T=X/\\sqrt{Y/n}\\sim t(n)$。从而 $T^2 = X^2/(Y/n) = (X^2/1)/(Y/n)$。因 $X^2\\sim\\chi^2(1)$，$Y\\sim\\chi^2(n)$，由 $F$ 分布定义知 $T^2\\sim F(1,n)$。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "已知 $F_{0.05}(3, 10) = 3.71$，则 $F_{0.95}(10, 3)$ 等于：",
+      "options": [
+        "$3.71$",
+        "$1/3.71$",
+        "$-3.71$",
+        "无法确定"
+      ],
+      "answer": "B",
+      "explanation": "$F$ 分布分位数性质：$F_{1-\\alpha}(m,n) = 1/F_\\alpha(n,m)$。取 $\\alpha=0.05$，$m=10$，$n=3$：$F_{0.95}(10,3) = 1/F_{0.05}(3,10) = 1/3.71$。"
+    },
+    {
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "设 $X_1, \\ldots, X_m$ 独立同分布于 $N(\\mu_1, \\sigma^2)$，$Y_1, \\ldots, Y_n$ 独立同分布于 $N(\\mu_2, \\sigma^2)$，两组样本相互独立，$S_1^2$、$S_2^2$ 分别为两组的样本方差，则 $\\dfrac{S_1^2}{S_2^2}$ 服从：",
+      "options": [
+        "$F(m-1, n-1)$",
+        "$F(m, n)$",
+        "$\\chi^2(m+n-2)$",
+        "$t(m+n-2)$"
+      ],
+      "answer": "A",
+      "explanation": "由正态总体定理：$(m-1)S_1^2/\\sigma^2\\sim\\chi^2(m-1)$，$(n-1)S_2^2/\\sigma^2\\sim\\chi^2(n-1)$，两者独立。由 $F$ 分布定义：$\\frac{(m-1)S_1^2/\\sigma^2/(m-1)}{(n-1)S_2^2/\\sigma^2/(n-1)} = \\frac{S_1^2}{S_2^2} \\sim F(m-1, n-1)$。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "设 $X_1, X_2, X_3, X_4$ 独立同分布于 $N(0,4)$，令 $Y = \\dfrac{X_1+X_2}{\\sqrt{X_3^2+X_4^2}}$，则 $Y$ 服从何分布？",
+      "options": [
+        "$t(2)$",
+        "$t(4)$",
+        "$N(0,1)$",
+        "$F(2,2)$"
+      ],
+      "answer": "A",
+      "explanation": "设 $Z_i = X_i/2 \\sim N(0,1)$。$X_1+X_2 = 2(Z_1+Z_2)$，$Z_1+Z_2\\sim N(0,2)$，故 $(Z_1+Z_2)/\\sqrt{2}\\sim N(0,1)$。$X_3^2+X_4^2 = 4(Z_3^2+Z_4^2)$，$Z_3^2+Z_4^2\\sim\\chi^2(2)$。于是 $Y = \\frac{X_1+X_2}{\\sqrt{X_3^2+X_4^2}} = \\frac{2(Z_1+Z_2)}{2\\sqrt{Z_3^2+Z_4^2}} = \\frac{(Z_1+Z_2)/\\sqrt{2}}{\\sqrt{(Z_3^2+Z_4^2)/2}} \\sim t(2)$。"
+    },
+    {
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "样本方差 $S^2 = \\dfrac{1}{n-1}\\sum_{i=1}^n (X_i-\\bar{X})^2$ 中分母取 $n-1$ 而非 $n$ 的原因是：",
+      "options": [
+        "使计算更方便",
+        "使 $E(S^2) = \\sigma^2$，保证无偏性",
+        "使 $S^2$ 的方差最小",
+        "使 $S^2$ 的分布更简单"
+      ],
+      "answer": "B",
+      "explanation": "无偏性要求 $E(\\hat\\theta)=\\theta$。可以验证 $E\\left(\\frac{1}{n}\\sum(X_i-\\bar X)^2\\right)=\\frac{n-1}{n}\\sigma^2 \\neq \\sigma^2$，而 $E\\left(\\frac{1}{n-1}\\sum(X_i-\\bar X)^2\\right)=\\sigma^2$。因此分母取 $n-1$ 是为了保证 $S^2$ 是 $\\sigma^2$ 的无偏估计。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "$t$ 分布的密度函数关于 $x=0$ 对称，则下列上侧分位数关系中正确的是：",
+      "options": [
+        "$t_{0.05}(n) = -t_{0.05}(n)$",
+        "$t_{0.95}(n) = -t_{0.05}(n)$",
+        "$t_{0.95}(n) = t_{0.05}(n)$",
+        "$t_{0.05}(n) = 1/t_{0.95}(n)$"
+      ],
+      "answer": "B",
+      "explanation": "$t$ 分布关于 $0$ 对称，对上侧 $\\alpha$ 分位数 $t_\\alpha(n)$ 满足 $P(T>t_\\alpha)=\\alpha$，则 $P(T<-t_\\alpha)=\\alpha$，即 $P(T>-t_\\alpha(n))=1-\\alpha$，故 $t_{1-\\alpha}(n)=-t_\\alpha(n)$。令 $\\alpha=0.05$：$t_{0.95}(n)=-t_{0.05}(n)$。"
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "stem": "关于 $\\chi^2$ 分布的性质，下列说法中**正确**的有（多选）：",
+      "options": [
+        "若 $\\chi_1^2\\sim\\chi^2(m)$，$\\chi_2^2\\sim\\chi^2(n)$ 且独立，则 $\\chi_1^2+\\chi_2^2\\sim\\chi^2(m+n)$",
+        "$\\chi^2(n)$ 的期望为 $n$，方差为 $2n$",
+        "$\\chi^2$ 分布关于 $x=0$ 对称",
+        "当 $n$ 充分大时，$\\chi^2(n)$ 近似正态分布"
+      ],
+      "answer": ["A", "B", "D"],
+      "explanation": "A 正确：$\\chi^2$ 分布的可加性。B 正确：$E(\\chi^2(n))=n$，$D(\\chi^2(n))=2n$。C 错误：$\\chi^2$ 分布只取非负值，密度函数不关于 $0$ 对称，是右偏分布。D 正确：由中心极限定理，$n$ 较大时 $\\chi^2(n)$ 近似 $N(n, 2n)$。"
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "stem": "设总体 $X\\sim N(\\mu,\\sigma^2)$，$(X_1,\\ldots,X_n)$ 为样本，$\\bar X$ 为样本均值，$S^2$ 为样本方差，下列**正确**的有（多选）：",
+      "options": [
+        "$\\bar X$ 与 $S^2$ 相互独立",
+        "$\\dfrac{(n-1)S^2}{\\sigma^2}\\sim\\chi^2(n-1)$",
+        "$\\dfrac{\\bar X - \\mu}{\\sigma/\\sqrt n}\\sim N(0,1)$",
+        "$\\dfrac{\\bar X - \\mu}{S/\\sqrt n}\\sim t(n)$"
+      ],
+      "answer": ["A", "B", "C"],
+      "explanation": "A 正确：正态总体中 $\\bar X$ 与 $S^2$ 独立（重要定理）。B 正确：$(n-1)S^2/\\sigma^2\\sim\\chi^2(n-1)$。C 正确：$\\bar X\\sim N(\\mu,\\sigma^2/n)$，标准化后为 $N(0,1)$。D 错误：自由度应为 $n-1$，即 $(\\bar X-\\mu)/(S/\\sqrt n)\\sim t(n-1)$ 而非 $t(n)$。"
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "stem": "关于经验分布函数 $F_n(x)$，下列说法**正确**的有（多选）：",
+      "options": [
+        "$F_n(x)$ 是一个阶梯函数",
+        "当 $n\\to\\infty$ 时，$F_n(x)$ 以概率 1 一致收敛于总体分布函数 $F(x)$",
+        "$F_n(x)$ 是总体分布函数 $F(x)$ 的无偏估计",
+        "$F_n(x)$ 只在有限个点取非零值"
+      ],
+      "answer": ["A", "B", "C"],
+      "explanation": "A 正确：$F_n(x)$ 在每个观测值处有跳跃，是阶梯函数。B 正确：Glivenko-Cantelli 定理保证了一致收敛。C 正确：$nF_n(x)\\sim B(n,F(x))$，故 $E[F_n(x)]=F(x)$，即 $F_n(x)$ 是 $F(x)$ 的无偏估计。D 错误：$F_n(x)$ 在 $(-\\infty,+\\infty)$ 上处处有定义，当 $x$ 超过最大观测值时 $F_n(x)=1$，当 $x$ 小于最小观测值时 $F_n(x)=0$。"
+    },
+    {
+      "type": "truefalse",
+      "difficulty": "easy",
+      "stem": "设 $X_1, X_2, \\ldots, X_n$ 是来自总体 $X$ 的简单随机样本，则 $\\bar X$ 与 $S^2$ 对任意总体分布都相互独立。",
+      "answer": "false",
+      "explanation": "$\\bar X$ 与 $S^2$ 相互独立是**正态总体特有**的结论。对一般总体，$\\bar X$ 与 $S^2$ 未必独立。例如，对均匀分布 $U(0,\\theta)$，$\\bar X$ 与 $S^2$ 一般不独立。"
+    },
+    {
+      "type": "truefalse",
+      "difficulty": "easy",
+      "stem": "$t$ 分布的密度函数关于 $x=0$ 对称，因此 $t$ 分布与标准正态分布相同。",
+      "answer": "false",
+      "explanation": "$t$ 分布的密度函数确实关于 $0$ 对称，但 $t$ 分布与标准正态分布**不同**：$t$ 分布的尾部更厚（峰态更低），只有当自由度 $n\\to\\infty$ 时，$t(n)$ 才趋近于 $N(0,1)$。有限自由度下两者是不同的分布。"
+    },
+    {
+      "type": "truefalse",
+      "difficulty": "medium",
+      "stem": "若 $F\\sim F(m,n)$，则 $1/F\\sim F(n,m)$。",
+      "answer": "true",
+      "explanation": "设 $F=\\frac{U/m}{V/n}$，其中 $U\\sim\\chi^2(m)$，$V\\sim\\chi^2(n)$ 独立。则 $\\frac{1}{F}=\\frac{V/n}{U/m}$，由 $F$ 分布定义，$1/F\\sim F(n,m)$。这正是 $F$ 分布分位数性质 $F_{1-\\alpha}(m,n)=1/F_\\alpha(n,m)$ 的来源。"
+    },
+    {
+      "type": "truefalse",
+      "difficulty": "medium",
+      "stem": "样本 $k$ 阶中心矩 $B_k = \\dfrac{1}{n}\\sum_{i=1}^n(X_i-\\bar X)^k$ 中，$B_2 = S^2$。",
+      "answer": "false",
+      "explanation": "$B_2 = \\frac{1}{n}\\sum(X_i-\\bar X)^2$，而 $S^2 = \\frac{1}{n-1}\\sum(X_i-\\bar X)^2$，故 $B_2 = \\frac{n-1}{n}S^2 \\neq S^2$（当 $n>1$ 时）。$B_2$ 是有偏估计，$S^2$ 是无偏估计。"
+    },
+    {
+      "type": "short",
+      "difficulty": "medium",
+      "stem": "设总体 $X\\sim N(2, 9)$，$(X_1, X_2, \\ldots, X_{10})$ 为样本，$\\bar X$ 为样本均值，$S^2$ 为样本方差。\n\n（1）写出 $\\bar X$ 的分布；\n（2）写出统计量 $\\dfrac{9S^2}{9}=S^2$ 不对——请写出 $\\dfrac{9S^2}{\\sigma^2}$ 具体对应的 $\\chi^2$ 分布，并给出统计量 $T=\\dfrac{\\bar X - 2}{S/\\sqrt{10}}$ 的分布。",
+      "answer": "（1）$\\bar X \\sim N(2, 9/10)$；（2）$\\frac{9S^2}{9}=S^2$ 对应 $\\frac{(n-1)S^2}{\\sigma^2}=\\frac{9S^2}{9}\\sim\\chi^2(9)$；$T=\\frac{\\bar X-2}{S/\\sqrt{10}}\\sim t(9)$。",
+      "explanation": "（1）$\\mu=2$，$\\sigma^2=9$，$n=10$，由正态总体定理：$\\bar X\\sim N(2, 9/10)$。\n（2）$\\sigma^2=9$，$n-1=9$：$\\frac{(n-1)S^2}{\\sigma^2}=\\frac{9S^2}{9}=S^2\\sim\\chi^2(9)$（即 $S^2/1\\sim\\chi^2(9)$，或说 $S^2\\sim\\chi^2(9)$，此处 $\\sigma^2=9$ 使得化简为 $S^2\\sim\\chi^2(9)$）。统计量 $T=\\frac{\\bar X-\\mu}{S/\\sqrt n}=\\frac{\\bar X-2}{S/\\sqrt{10}}\\sim t(n-1)=t(9)$，因为 $\\sigma^2$ 未知用 $S$ 替代。"
+    },
+    {
+      "type": "short",
+      "difficulty": "hard",
+      "stem": "设 $X_1, X_2, X_3, X_4, X_5$ 独立同分布，$X_i \\sim N(0, \\sigma^2)$，令\n$$W = \\frac{(X_1 - X_2)^2 + (X_3 - X_4)^2}{2X_5^2}$$\n试确定 $W$ 的分布（写出推导过程要点）。",
+      "answer": "$W\\sim F(2,1)$",
+      "explanation": "**推导要点**：\n\n$X_i\\sim N(0,\\sigma^2)$，则 $X_i/\\sigma\\sim N(0,1)$。\n\n- $X_1-X_2\\sim N(0,2\\sigma^2)$，故 $\\dfrac{X_1-X_2}{\\sqrt{2}\\sigma}\\sim N(0,1)$，$(X_1-X_2)^2/(2\\sigma^2)\\sim\\chi^2(1)$；\n- 类似地，$(X_3-X_4)^2/(2\\sigma^2)\\sim\\chi^2(1)$；\n- 两者独立，故 $\\dfrac{(X_1-X_2)^2+(X_3-X_4)^2}{2\\sigma^2}\\sim\\chi^2(2)$；\n- $X_5/\\sigma\\sim N(0,1)$，故 $X_5^2/\\sigma^2\\sim\\chi^2(1)$；\n- $W = \\dfrac{[(X_1-X_2)^2+(X_3-X_4)^2]/(2\\sigma^2)/2}{X_5^2/\\sigma^2/1} = \\dfrac{\\chi^2(2)/2}{\\chi^2(1)/1}\\sim F(2,1)$。"
+    }
+  ]
+}

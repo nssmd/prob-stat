@@ -1,0 +1,368 @@
+{
+  "id": "c9",
+  "title": "回归分析",
+  "subtitle": "Regression Analysis",
+  "summary": "回归分析研究变量之间的统计依赖关系，通过建立回归方程进行预测与控制。本章重点掌握一元线性回归的最小二乘估计、显著性检验（r检验、t检验、F检验）、预测区间，以及非线性回归的线性化方法和多元线性回归的矩阵形式。",
+  "knowledgePoints": [
+    {
+      "title": "回归分析的基本概念",
+      "content": "## 变量关系的两类情形\n\n- **确定性关系**：变量间由精确的函数关系决定，如 $s = vt$\n- **相关关系（统计依赖关系）**：变量间存在关联，但不能由一方精确决定另一方\n\n**回归分析**是研究相关关系的主要统计方法，目标是：\n1. 建立因变量（响应变量）$Y$ 关于自变量（预测变量）$x$ 的回归方程\n2. 用于预测、控制和解释\n\n> 注意：自变量 $x$ 视为可控（非随机）量，$Y$ 是随机变量。",
+      "tags": [
+        "基本概念",
+        "相关关系",
+        "回归分析"
+      ]
+    },
+    {
+      "title": "一元线性回归模型",
+      "content": "## 模型设定\n\n**一元线性回归模型**：\n$$Y = a + bx + \\varepsilon$$\n\n其中：\n- $a$，$b$ 为未知参数（截距与斜率）\n- $x$ 为自变量（非随机）\n- $\\varepsilon$ 为随机误差项，满足 $\\varepsilon \\sim N(0, \\sigma^2)$\n\n**模型假设**：\n1. 线性性：$E(Y|x) = a + bx$\n2. 同方差性：$\\text{Var}(Y|x) = \\sigma^2$（常数）\n3. 正态性：$\\varepsilon \\sim N(0, \\sigma^2)$\n4. 独立性：各观测误差独立\n\n因此 $Y \\sim N(a+bx,\\ \\sigma^2)$，均值为 $a+bx$，方差为 $\\sigma^2$。",
+      "tags": [
+        "一元线性回归",
+        "模型假设",
+        "正态误差"
+      ]
+    },
+    {
+      "title": "基本统计量 $S_{xx}$、$S_{yy}$、$S_{xy}$",
+      "content": "## 离差平方和与离差乘积和\n\n设有 $n$ 对观测值 $(x_i, y_i)$，令 $\\bar{x} = \\frac{1}{n}\\sum x_i$，$\\bar{y} = \\frac{1}{n}\\sum y_i$，定义：\n\n$$S_{xx} = \\sum_{i=1}^n (x_i - \\bar{x})^2 = \\sum x_i^2 - n\\bar{x}^2$$\n\n$$S_{yy} = \\sum_{i=1}^n (y_i - \\bar{y})^2 = \\sum y_i^2 - n\\bar{y}^2$$\n\n$$S_{xy} = \\sum_{i=1}^n (x_i - \\bar{x})(y_i - \\bar{y}) = \\sum x_i y_i - n\\bar{x}\\bar{y}$$\n\n| 记号 | 含义 | 用途 |\n|------|------|------|\n| $S_{xx}$ | $x$ 的离差平方和 | 估计 $\\hat{b}$ 的分母 |\n| $S_{yy}$ | $y$ 的离差平方和 | 计算相关系数、$F$ 检验 |\n| $S_{xy}$ | $x,y$ 的离差乘积和 | 估计 $\\hat{b}$ 的分子 |\n\n> 注：$S_{xx} > 0$；$S_{xy}$ 可正可负。",
+      "tags": [
+        "离差平方和",
+        "离差乘积和",
+        "基本统计量"
+      ]
+    },
+    {
+      "title": "最小二乘估计",
+      "content": "## 最小二乘法（OLS）\n\n**原理**：选择 $a,b$ 使残差平方和最小：\n$$Q(a,b) = \\sum_{i=1}^n (y_i - a - bx_i)^2 \\to \\min$$\n\n对 $a,b$ 分别求偏导并令其为零，解得**最小二乘估计量**：\n\n$$\\hat{b} = \\frac{S_{xy}}{S_{xx}} = \\frac{\\sum(x_i-\\bar{x})(y_i-\\bar{y})}{\\sum(x_i-\\bar{x})^2}$$\n\n$$\\hat{a} = \\bar{y} - \\hat{b}\\bar{x}$$\n\n**样本回归方程（经验回归方程）**：\n$$\\hat{Y} = \\hat{a} + \\hat{b}x$$\n\n**性质**：\n- 回归直线必过点 $(\\bar{x},\\bar{y})$\n- $\\hat{b}$ 是 $b$ 的无偏估计，$\\hat{a}$ 是 $a$ 的无偏估计\n- $\\hat{b} \\sim N\\!\\left(b,\\, \\dfrac{\\sigma^2}{S_{xx}}\\right)$",
+      "tags": [
+        "最小二乘估计",
+        "OLS",
+        "回归系数"
+      ]
+    },
+    {
+      "title": "误差方差 $\\sigma^2$ 的估计",
+      "content": "## 残差与误差方差估计\n\n**残差**：$e_i = y_i - \\hat{y}_i = y_i - \\hat{a} - \\hat{b}x_i$\n\n**残差平方和（误差平方和）**：\n$$SS_e = \\sum_{i=1}^n e_i^2 = S_{yy} - \\hat{b} S_{xy}$$\n\n**$\\sigma^2$ 的无偏估计**：\n$$\\hat{\\sigma}^2 = S^2 = \\frac{SS_e}{n-2}$$\n\n分母 $n-2$ 是因为估计了 $a,b$ 两个参数，损失了2个自由度。\n\n> $\\frac{SS_e}{\\sigma^2} \\sim \\chi^2(n-2)$，这是构造 $t$ 统计量和 $F$ 统计量的基础。",
+      "tags": [
+        "误差方差",
+        "残差平方和",
+        "无偏估计"
+      ]
+    },
+    {
+      "title": "回归方程的显著性检验",
+      "content": "## 三种等价检验方法\n\n检验假设：$H_0: b = 0$（回归关系不显著）\n\n### 1. 相关系数 $r$ 检验\n\n**样本相关系数**：\n$$r = \\frac{S_{xy}}{\\sqrt{S_{xx} S_{yy}}}$$\n\n$r \\in [-1, 1]$，$|r|$ 越大线性相关越强。\n\n检验统计量：$T = \\dfrac{r\\sqrt{n-2}}{\\sqrt{1-r^2}} \\sim t(n-2)$（$H_0$ 成立时）\n\n### 2. $t$ 检验\n\n$$T = \\frac{\\hat{b}}{S/\\sqrt{S_{xx}}} \\sim t(n-2)$$\n\n### 3. $F$ 检验（方差分析）\n\n**回归平方和**：$SS_R = \\hat{b}S_{xy}$（自由度1）\n\n$$F = \\frac{SS_R/1}{SS_e/(n-2)} \\sim F(1, n-2)$$\n\n**三者完全等价**：$T^2 = F$，且 $r^2 = \\dfrac{SS_R}{S_{yy}}$（决定系数 $R^2$）。\n\n> 拒绝域：$|T| > t_{\\alpha/2}(n-2)$ 或 $F > F_\\alpha(1, n-2)$",
+      "tags": [
+        "显著性检验",
+        "r检验",
+        "t检验",
+        "F检验",
+        "决定系数"
+      ]
+    },
+    {
+      "title": "方差分析表（ANOVA）",
+      "content": "## 回归分析方差分析表\n\n总变差分解：$S_{yy} = SS_R + SS_e$\n\n| 来源 | 平方和 | 自由度 | 均方 | $F$ 值 |\n|------|--------|--------|------|--------|\n| 回归 | $SS_R = \\hat{b}S_{xy}$ | $1$ | $SS_R$ | $\\frac{SS_R}{SS_e/(n-2)}$ |\n| 误差 | $SS_e = S_{yy} - SS_R$ | $n-2$ | $\\frac{SS_e}{n-2}$ | — |\n| 总计 | $S_{yy}$ | $n-1$ | — | — |\n\n**决定系数（拟合优度）**：\n$$R^2 = \\frac{SS_R}{S_{yy}} = r^2 \\in [0,1]$$\n\n$R^2$ 越接近1，回归方程拟合越好。",
+      "tags": [
+        "ANOVA",
+        "方差分析表",
+        "决定系数",
+        "拟合优度"
+      ]
+    },
+    {
+      "title": "利用回归方程作预测",
+      "content": "## 点预测与区间预测\n\n### 点预测\n\n给定 $x = x_0$，$Y_0$ 的点预测值：\n$$\\hat{y}_0 = \\hat{a} + \\hat{b}x_0$$\n\n### 预测区间（个体预测）\n\n$Y_0$ 的 $1-\\alpha$ 预测区间：\n$$\\hat{y}_0 \\pm t_{\\alpha/2}(n-2)\\cdot S\\sqrt{1 + \\frac{1}{n} + \\frac{(x_0-\\bar{x})^2}{S_{xx}}}$$\n\n### 均值的置信区间（均值估计）\n\n$E(Y|x_0) = a+bx_0$ 的 $1-\\alpha$ 置信区间：\n$$\\hat{y}_0 \\pm t_{\\alpha/2}(n-2)\\cdot S\\sqrt{\\frac{1}{n} + \\frac{(x_0-\\bar{x})^2}{S_{xx}}}$$\n\n> 预测区间**宽于**均值置信区间（多出根号下的1项）。\n\n**规律**：$x_0$ 距 $\\bar{x}$ 越远，区间越宽；$x_0 = \\bar{x}$ 时区间最窄。",
+      "tags": [
+        "预测",
+        "预测区间",
+        "置信区间",
+        "点预测"
+      ]
+    },
+    {
+      "title": "可线性化的非线性回归",
+      "content": "## 变量变换线性化\n\n许多非线性关系可通过变量变换转化为线性回归：\n\n| 原始模型 | 变换 | 线性化形式 |\n|----------|------|------------|\n| $Y = ae^{bx}$ | $Y' = \\ln Y$ | $Y' = \\ln a + bx$ |\n| $Y = ax^b$ | $Y'=\\ln Y,x'=\\ln x$ | $Y' = \\ln a + bx'$ |\n| $Y = a + b\\ln x$ | $x' = \\ln x$ | $Y = a + bx'$ |\n| $Y = \\frac{1}{a+bx}$ | $Y' = 1/Y$ | $Y' = a + bx$ |\n\n**步骤**：\n1. 根据散点图判断非线性类型\n2. 选取适当变换，令 $Y' = f(Y)$，$x' = g(x)$\n3. 对变换后的数据作线性回归，得 $\\hat{Y}' = \\hat{a} + \\hat{b}x'$\n4. 反变换回原始尺度\n\n> 注意：对 $Y$ 取对数后最小化的是 $\\sum(\\ln y_i - \\ln\\hat{y}_i)^2$，而非 $\\sum(y_i-\\hat{y}_i)^2$，结果不完全等同于原始尺度的OLS。",
+      "tags": [
+        "非线性回归",
+        "线性化",
+        "变量变换",
+        "指数模型",
+        "幂函数模型"
+      ]
+    },
+    {
+      "title": "多元线性回归简介",
+      "content": "## 多元线性回归模型\n\n设有 $p$ 个自变量 $x_1, x_2, \\ldots, x_p$，模型为：\n$$Y = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + \\cdots + \\beta_p x_p + \\varepsilon$$\n\n### 矩阵表示\n\n对 $n$ 个观测：$\\boldsymbol{Y} = X\\boldsymbol{\\beta} + \\boldsymbol{\\varepsilon}$\n\n其中设计矩阵：\n$$X = \\begin{pmatrix} 1 & x_{11} & \\cdots & x_{1p} \\\\ 1 & x_{21} & \\cdots & x_{2p} \\\\ \\vdots & & & \\vdots \\\\ 1 & x_{n1} & \\cdots & x_{np} \\end{pmatrix}$$\n\n### 最小二乘估计（矩阵形式）\n\n$$\\hat{\\boldsymbol{\\beta}} = (X^T X)^{-1} X^T \\boldsymbol{Y}$$\n\n要求 $X^TX$ 可逆（即各自变量不完全共线性）。\n\n**误差方差估计**：$\\hat{\\sigma}^2 = \\dfrac{\\|\\boldsymbol{Y} - X\\hat{\\boldsymbol{\\beta}}\\|^2}{n-p-1}$",
+      "tags": [
+        "多元线性回归",
+        "矩阵形式",
+        "最小二乘估计",
+        "设计矩阵"
+      ]
+    },
+    {
+      "title": "参数的统计推断",
+      "content": "## 回归系数 $b$ 的推断\n\n在一元线性回归中，$\\hat{b}$ 的精确分布：\n$$\\hat{b} \\sim N\\!\\left(b,\\ \\frac{\\sigma^2}{S_{xx}}\\right)$$\n\n以 $S^2 = \\dfrac{SS_e}{n-2}$ 估计 $\\sigma^2$，构造 $t$ 统计量：\n$$T = \\frac{\\hat{b} - b_0}{S/\\sqrt{S_{xx}}} \\sim t(n-2)$$\n\n**$b$ 的 $1-\\alpha$ 置信区间**：\n$$\\hat{b} \\pm t_{\\alpha/2}(n-2) \\cdot \\frac{S}{\\sqrt{S_{xx}}}$$\n\n**$a$ 的推断**类似，$\\hat{a} \\sim N\\!\\left(a,\\ \\sigma^2\\left(\\dfrac{1}{n}+\\dfrac{\\bar{x}^2}{S_{xx}}\\right)\\right)$",
+      "tags": [
+        "参数推断",
+        "置信区间",
+        "t分布"
+      ]
+    },
+    {
+      "title": "残差分析与模型诊断",
+      "content": "## 残差图与模型假设检验\n\n**标准化残差**：$e_i^* = \\dfrac{e_i}{S}$\n\n### 残差图的常见模式\n\n- **随机散布**（无规律）→ 模型假设满足\n- **漏斗形**（方差随 $\\hat{y}$ 增大）→ 异方差性\n- **弓形/二次曲线趋势** → 线性假设不足，应考虑高次项\n- **系统游程** → 误差自相关\n\n### 主要诊断工具\n\n1. **残差对拟合值散点图**：检验线性性和同方差性\n2. **残差正态概率图（Q-Q图）**：检验正态性\n3. **DW统计量**：检验误差自相关\n\n> 良好的回归模型残差应表现为均值为零、方差恒定的随机散布。",
+      "tags": [
+        "残差分析",
+        "模型诊断",
+        "异方差",
+        "残差图"
+      ]
+    },
+    {
+      "title": "相关系数与决定系数",
+      "content": "## 度量线性关系强度\n\n### 皮尔逊相关系数\n\n$$r = \\frac{S_{xy}}{\\sqrt{S_{xx}\\cdot S_{yy}}}$$\n\n- $r > 0$：正相关；$r < 0$：负相关\n- $|r| = 1$：完全线性相关\n- $|r|$ 接近0：线性相关较弱（但可能有非线性相关）\n\n### 决定系数 $R^2$\n\n$$R^2 = r^2 = \\frac{SS_R}{S_{yy}} = 1 - \\frac{SS_e}{S_{yy}}$$\n\n$R^2$ 表示回归方程解释的 $Y$ 变差比例，取值 $[0,1]$。\n\n**注**：$r$ 仅衡量线性相关，$r=0$ 不意味变量独立。多元回归中用调整后的 $R^2$：\n$$\\bar{R}^2 = 1 - \\frac{SS_e/(n-p-1)}{S_{yy}/(n-1)}$$",
+      "tags": [
+        "相关系数",
+        "决定系数",
+        "R平方",
+        "线性相关"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "在一元线性回归模型 $Y = a + bx + \\varepsilon$ 中，关于误差项 $\\varepsilon$ 的基本假设，下列正确的是：",
+      "options": [
+        "$\\varepsilon \\sim N(a, \\sigma^2)$，各误差独立",
+        "$\\varepsilon \\sim N(0, \\sigma^2)$，各误差独立",
+        "$\\varepsilon \\sim N(0, \\sigma^2 x^2)$，各误差独立",
+        "$\\varepsilon$ 服从均匀分布，各误差独立"
+      ],
+      "answer": "B",
+      "explanation": "一元线性回归的标准假设要求误差项 $\\varepsilon \\sim N(0, \\sigma^2)$，即均值为零、方差为常数 $\\sigma^2$（同方差性），且各观测的误差相互独立。选项A均值不为0，选项C方差随 $x$ 变化（异方差），选项D不满足正态性假设。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "设 $n=10$，$\\bar{x}=2$，$\\bar{y}=5$，$S_{xx}=20$，$S_{xy}=30$，则回归方程 $\\hat{Y} = \\hat{a} + \\hat{b}x$ 中 $\\hat{a}$ 的值为：",
+      "options": [
+        "$\\hat{a} = 1.5$",
+        "$\\hat{a} = 2$",
+        "$\\hat{a} = -1$",
+        "$\\hat{a} = 0.5$"
+      ],
+      "answer": "B",
+      "explanation": "先求 $\\hat{b} = S_{xy}/S_{xx} = 30/20 = 1.5$，再由 $\\hat{a} = \\bar{y} - \\hat{b}\\bar{x} = 5 - 1.5 \\times 2 = 5 - 3 = 2$，故 $\\hat{a} = 2$。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "在一元线性回归中，$\\hat{b}$ 的最小二乘估计公式为：",
+      "options": [
+        "$\\hat{b} = \\dfrac{S_{xx}}{S_{xy}}$",
+        "$\\hat{b} = \\dfrac{S_{xy}}{S_{yy}}$",
+        "$\\hat{b} = \\dfrac{S_{xy}}{S_{xx}}$",
+        "$\\hat{b} = \\dfrac{S_{yy}}{S_{xy}}$"
+      ],
+      "answer": "C",
+      "explanation": "最小二乘法对 $Q(a,b)=\\sum(y_i-a-bx_i)^2$ 关于 $b$ 求偏导，令其为零，得 $\\hat{b} = \\dfrac{\\sum(x_i-\\bar{x})(y_i-\\bar{y})}{\\sum(x_i-\\bar{x})^2} = \\dfrac{S_{xy}}{S_{xx}}$。注意分子是 $x,y$ 的离差乘积和，分母是 $x$ 的离差平方和。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "在一元线性回归中，$\\sigma^2$ 的无偏估计量 $S^2$ 的自由度为 $n-2$，原因是：",
+      "options": [
+        "样本量为 $n$，减去1个约束",
+        "估计了 $a,b$ 两个参数，损失了2个自由度",
+        "回归平方和的自由度为2",
+        "残差平方和等于 $S_{yy}$ 减去2项"
+      ],
+      "answer": "B",
+      "explanation": "残差 $e_i = y_i - \\hat{a} - \\hat{b}x_i$ 满足两个约束：$\\sum e_i = 0$ 和 $\\sum x_i e_i = 0$（来自正规方程）。这两个约束对应估计了截距 $a$ 和斜率 $b$ 两个参数，因此损失了2个自由度，残差平方和 $SS_e$ 的自由度为 $n-2$。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "在一元线性回归的显著性检验中，下列说法正确的是：",
+      "options": [
+        "$r$ 检验、$t$ 检验、$F$ 检验是三种不同的检验，结论可能不同",
+        "三种检验等价，$T^2 = F$，且均检验 $H_0: b=0$",
+        "$F$ 检验只能用于多元回归，一元回归只用 $t$ 检验",
+        "$r$ 检验是检验 $\\rho = 1$ 的假设"
+      ],
+      "answer": "B",
+      "explanation": "对于一元线性回归，$r$ 检验、$t$ 检验和 $F$ 检验是完全等价的，均检验 $H_0: b=0$（回归关系不显著）。数量关系为 $T^2 = F$，且 $r^2 = SS_R/S_{yy} = R^2$。三种方法会给出完全相同的结论。"
+    },
+    {
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "设一元线性回归中 $n=15$，$S_{xx}=100$，$S_{yy}=200$，$S_{xy}=120$，则回归平方和 $SS_R$ 的值为：",
+      "options": [
+        "$SS_R = 144$",
+        "$SS_R = 120$",
+        "$SS_R = 100$",
+        "$SS_R = 56$"
+      ],
+      "answer": "A",
+      "explanation": "回归平方和 $SS_R = \\hat{b} S_{xy}$，其中 $\\hat{b} = S_{xy}/S_{xx} = 120/100 = 1.2$。故 $SS_R = 1.2 \\times 120 = 144$。也可用公式 $SS_R = S_{xy}^2/S_{xx} = 120^2/100 = 14400/100 = 144$。残差平方和 $SS_e = S_{yy} - SS_R = 200 - 144 = 56$。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "在回归分析中，个体预测区间与均值估计的置信区间相比：",
+      "options": [
+        "两者完全相同",
+        "个体预测区间更窄",
+        "个体预测区间更宽，多出根号内的1",
+        "均值置信区间更宽，多出根号内的1"
+      ],
+      "answer": "C",
+      "explanation": "给定 $x_0$，均值 $E(Y|x_0)$ 的置信区间半宽含因子 $\\sqrt{\\frac{1}{n}+\\frac{(x_0-\\bar{x})^2}{S_{xx}}}$，个体 $Y_0$ 的预测区间半宽含因子 $\\sqrt{1+\\frac{1}{n}+\\frac{(x_0-\\bar{x})^2}{S_{xx}}}$。区别在于根号内多了1，这反映了个体观测值在均值附近的额外随机性（误差项 $\\varepsilon$ 的方差贡献）。因此个体预测区间始终宽于均值置信区间。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "非线性模型 $Y = ae^{bx}$ 经过变量变换线性化后，正确的做法是令：",
+      "options": [
+        "$Y' = e^Y$，然后对 $(x, Y')$ 作线性回归",
+        "$Y' = \\ln Y$，然后对 $(x, Y')$ 作线性回归，得 $Y' = \\ln a + bx$",
+        "$Y' = \\lg Y$，$x' = \\lg x$，然后对 $(x', Y')$ 作线性回归",
+        "$x' = e^x$，然后对 $(x', Y)$ 作线性回归"
+      ],
+      "answer": "B",
+      "explanation": "对 $Y = ae^{bx}$ 两边取自然对数：$\\ln Y = \\ln a + bx$。令 $Y' = \\ln Y$，$A = \\ln a$，则 $Y' = A + bx$，这是关于 $x$ 的线性方程。对变换后的数据 $(x_i, \\ln y_i)$ 作线性回归，得 $\\hat{A}$ 和 $\\hat{b}$，再还原 $\\hat{a} = e^{\\hat{A}}$。选项C是幂函数 $Y=ax^b$ 的线性化方法。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "样本相关系数 $r = 0$ 意味着：",
+      "options": [
+        "$X$ 与 $Y$ 相互独立",
+        "$X$ 与 $Y$ 之间没有任何关系",
+        "$X$ 与 $Y$ 之间没有线性相关关系，但可能存在非线性关系",
+        "$X$ 与 $Y$ 负相关"
+      ],
+      "answer": "C",
+      "explanation": "样本相关系数 $r$ 衡量的是 $X$ 与 $Y$ 之间的线性相关程度。$r = 0$ 说明两者不存在线性相关关系，但变量间可能存在明显的非线性关系（如 $Y = x^2$ 时，若数据关于 $x=0$ 对称，则 $r=0$，但有确定性的二次关系）。"
+    },
+    {
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "多元线性回归 $\\boldsymbol{Y} = X\\boldsymbol{\\beta} + \\boldsymbol{\\varepsilon}$ 中，参数的最小二乘估计 $\\hat{\\boldsymbol{\\beta}} = (X^TX)^{-1}X^T\\boldsymbol{Y}$ 存在的必要条件是：",
+      "options": [
+        "$X$ 为方阵",
+        "$X^TX$ 可逆，即各自变量列向量线性无关（无完全多重共线性）",
+        "$\\boldsymbol{Y}$ 与 $X$ 的列向量线性无关",
+        "$n = p$（样本量等于参数个数）"
+      ],
+      "answer": "B",
+      "explanation": "最小二乘估计 $\\hat{\\boldsymbol{\\beta}} = (X^TX)^{-1}X^T\\boldsymbol{Y}$ 存在的前提是矩阵 $X^TX$ 可逆（非奇异）。$X^TX$ 不可逆当且仅当 $X$ 的列向量线性相关，即存在完全多重共线性。此时参数无法唯一确定。$X$ 不需要是方阵；一般要求 $n > p+1$。"
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "stem": "在一元线性回归分析中，下列哪些说法是正确的？（多选）",
+      "options": [
+        "样本回归直线必须过点 $(\\bar{x}, \\bar{y})$",
+        "当 $|r|$ 越接近1，说明线性拟合效果越好",
+        "决定系数 $R^2 = r^2$，取值在 $[0,1]$",
+        "$\\hat{b}$ 是 $b$ 的有偏估计"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "A正确：由 $\\hat{a} = \\bar{y} - \\hat{b}\\bar{x}$，代入 $x=\\bar{x}$ 得 $\\hat{y} = \\bar{y}$，故回归直线过 $(\\bar{x},\\bar{y})$。\n\nB正确：相关系数 $|r|$ 越接近1，$x$ 与 $y$ 的线性关系越强，拟合越好。\n\nC正确：$R^2 = SS_R/S_{yy} = r^2 \\in [0,1]$。\n\nD错误：$\\hat{b}$ 是 $b$ 的**无偏**估计，$E(\\hat{b}) = b$。"
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "stem": "下列关于预测区间的说法，哪些正确？（多选）",
+      "options": [
+        "预测区间的宽度与 $x_0$ 的位置有关，$x_0$ 距 $\\bar{x}$ 越远，区间越宽",
+        "$x_0 = \\bar{x}$ 时，预测区间最窄",
+        "个体预测区间与均值估计置信区间宽度相同",
+        "预测区间的计算需要用到 $S = \\sqrt{SS_e/(n-2)}$"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "D"
+      ],
+      "explanation": "A、B正确：预测区间宽度含因子 $\\sqrt{1+\\frac{1}{n}+\\frac{(x_0-\\bar{x})^2}{S_{xx}}}$，$x_0$ 离 $\\bar{x}$ 越远区间越宽，$x_0=\\bar{x}$ 时最窄。\n\nC错误：个体预测区间宽于均值置信区间，差异在于根号内多了1。\n\nD正确：$S = \\sqrt{SS_e/(n-2)}$ 是 $\\sigma$ 的估计量，预测区间中必须用到。"
+    },
+    {
+      "type": "truefalse",
+      "difficulty": "easy",
+      "stem": "判断：在一元线性回归中，若检验结果拒绝 $H_0: b=0$，则说明回归关系显著，$x$ 对 $Y$ 有线性影响。",
+      "answer": true,
+      "explanation": "正确。回归显著性检验的原假设为 $H_0: b=0$（斜率为零，即 $x$ 与 $Y$ 无线性关系）。拒绝 $H_0$ 意味着有统计证据表明 $b \\neq 0$，即 $x$ 对 $Y$ 存在显著的线性影响，建立的回归方程有统计意义。"
+    },
+    {
+      "type": "truefalse",
+      "difficulty": "medium",
+      "stem": "判断：决定系数 $R^2$ 越大，说明回归方程对数据的拟合越好；$R^2 = 1$ 说明所有数据点都在回归直线上。",
+      "answer": true,
+      "explanation": "正确。$R^2 = 1 - SS_e/S_{yy}$，当 $R^2 = 1$ 时 $SS_e = 0$，即所有残差 $e_i = 0$，所有数据点完全落在回归直线上。$R^2$ 越接近1，回归方程解释的变差比例越大，拟合越好。"
+    },
+    {
+      "type": "truefalse",
+      "difficulty": "medium",
+      "stem": "判断：对非线性模型 $Y = ae^{bx}$ 两边取对数线性化后进行回归，得到的估计结果与直接对原始数据用非线性最小二乘得到的结果完全相同。",
+      "answer": false,
+      "explanation": "不正确。取对数线性化后进行OLS回归，最小化的是 $\\sum(\\ln y_i - \\ln a - bx_i)^2$（对数尺度的残差平方和），而直接非线性最小二乘最小化的是 $\\sum(y_i - ae^{bx_i})^2$（原始尺度的残差平方和）。两个优化问题不同，一般结果不同。"
+    },
+    {
+      "type": "truefalse",
+      "difficulty": "easy",
+      "stem": "判断：相关系数 $r = -0.95$ 说明 $x$ 与 $Y$ 之间的线性关系比 $r = 0.8$ 时更强。",
+      "answer": true,
+      "explanation": "正确。相关系数衡量线性相关强度时，看的是 $|r|$ 的大小，而不是其符号。$|-0.95| = 0.95 > 0.8$，说明 $r = -0.95$ 时线性相关性更强（方向为负相关，即 $x$ 增大时 $Y$ 减小）。"
+    },
+    {
+      "type": "short",
+      "difficulty": "hard",
+      "stem": "某实验测得5组数据如下：\n\n| $x_i$ | 1 | 2 | 3 | 4 | 5 |\n|--------|---|---|---|---|---|\n| $y_i$ | 2 | 4 | 5 | 4 | 5 |\n\n请求样本均值 $\\bar{x},\\bar{y}$，计算 $S_{xx},S_{xy}$，写出回归方程 $\\hat{Y}=\\hat{a}+\\hat{b}x$，并计算决定系数 $R^2$。",
+      "answer": "short",
+      "explanation": "**Step 1：计算均值**\n$$\\bar{x} = \\frac{1+2+3+4+5}{5} = 3, \\quad \\bar{y} = \\frac{2+4+5+4+5}{5} = \\frac{20}{5} = 4$$\n\n**Step 2：计算 $S_{xx}$ 和 $S_{xy}$**\n$$S_{xx} = \\sum x_i^2 - n\\bar{x}^2 = (1+4+9+16+25) - 5\\times9 = 55 - 45 = 10$$\n$$S_{xy} = \\sum x_iy_i - n\\bar{x}\\bar{y} = (2+8+15+16+25) - 5\\times3\\times4 = 66 - 60 = 6$$\n\n**Step 3：求回归系数**\n$$\\hat{b} = \\frac{S_{xy}}{S_{xx}} = \\frac{6}{10} = 0.6, \\quad \\hat{a} = \\bar{y} - \\hat{b}\\bar{x} = 4 - 0.6\\times3 = 2.2$$\n\n**回归方程**：$\\hat{Y} = 2.2 + 0.6x$\n\n**Step 4：计算 $R^2$**\n$$S_{yy} = \\sum y_i^2 - n\\bar{y}^2 = (4+16+25+16+25) - 5\\times16 = 86 - 80 = 6$$\n$$SS_R = \\hat{b}S_{xy} = 0.6\\times6 = 3.6, \\quad R^2 = \\frac{SS_R}{S_{yy}} = \\frac{3.6}{6} = 0.6$$\n\n即回归方程解释了60%的 $y$ 变差。"
+    },
+    {
+      "type": "short",
+      "difficulty": "hard",
+      "stem": "已知某产品产量 $x$（百件）与生产成本 $Y$（万元）的数据，计算得：$n=8$，$\\bar{x}=5$，$\\bar{y}=20$，$S_{xx}=40$，$S_{xy}=60$，$S_{yy}=120$，$\\hat{\\sigma}^2 = S^2 = 4.5$。\n\n(1) 写出回归方程；(2) 当 $x_0 = 6$ 时，给出 $Y_0$ 的点预测值；(3) 计算相关系数 $r$ 并说明线性相关程度；(4) 写出检验 $H_0:b=0$ 的 $t$ 统计量（不需查表）。",
+      "answer": "short",
+      "explanation": "**(1) 回归方程**\n$$\\hat{b} = \\frac{S_{xy}}{S_{xx}} = \\frac{60}{40} = 1.5, \\quad \\hat{a} = \\bar{y} - \\hat{b}\\bar{x} = 20 - 1.5\\times5 = 12.5$$\n$$\\hat{Y} = 12.5 + 1.5x$$\n\n**(2) 点预测**\n$$\\hat{y}_0 = 12.5 + 1.5\\times6 = 21.5 \\text{（万元）}$$\n\n**(3) 相关系数**\n$$r = \\frac{S_{xy}}{\\sqrt{S_{xx}\\cdot S_{yy}}} = \\frac{60}{\\sqrt{40\\times120}} = \\frac{60}{\\sqrt{4800}} = \\frac{60}{40\\sqrt{3}} = \\frac{\\sqrt{3}}{2} \\approx 0.866$$\n\n$|r| = 0.866$ 较接近1，说明产量与成本之间有较强的正线性相关关系。\n\n**(4) $t$ 统计量**\n$$S = \\sqrt{4.5} \\approx 2.121, \\quad T = \\frac{\\hat{b}}{S/\\sqrt{S_{xx}}} = \\frac{1.5}{2.121/\\sqrt{40}} = \\frac{1.5\\times\\sqrt{40}}{2.121} \\approx 4.47$$\n\n自由度为 $n-2 = 6$，需将 $|T| = 4.47$ 与 $t_{\\alpha/2}(6)$ 比较以作出判断。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "在一元线性回归中，总变差 $S_{yy}$、回归平方和 $SS_R$、残差平方和 $SS_e$ 满足：",
+      "options": [
+        "$S_{yy} = SS_R \\times SS_e$",
+        "$S_{yy} = SS_R + SS_e$",
+        "$SS_R = S_{yy} + SS_e$",
+        "$SS_e = SS_R + S_{yy}$"
+      ],
+      "answer": "B",
+      "explanation": "这是回归分析中的变差分解公式（总变差分解）：\n$$\\sum(y_i-\\bar{y})^2 = \\sum(\\hat{y}_i-\\bar{y})^2 + \\sum(y_i-\\hat{y}_i)^2$$\n即 $S_{yy} = SS_R + SS_e$。\n\n回归平方和 $SS_R$ 是回归方程能解释的变差，残差平方和 $SS_e$ 是不能解释的变差，两者之和等于总变差。"
+    },
+    {
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "幂函数模型 $Y = ax^b$（$x > 0, Y > 0$）线性化后应对哪组数据作线性回归？",
+      "options": [
+        "$(x, \\ln Y)$",
+        "$(\\ln x, Y)$",
+        "$(\\ln x, \\ln Y)$",
+        "$(e^x, e^Y)$"
+      ],
+      "answer": "C",
+      "explanation": "对 $Y = ax^b$ 两边取自然对数：$\\ln Y = \\ln a + b \\ln x$。令 $Y' = \\ln Y$，$x' = \\ln x$，$A = \\ln a$，则 $Y' = A + bx'$，这是 $Y'$ 关于 $x'$ 的线性方程。因此应对 $(\\ln x_i, \\ln y_i)$ 作线性回归。注意幂函数需要对 $x$ 和 $Y$ 同时取对数，而指数函数 $Y=ae^{bx}$ 只需对 $Y$ 取对数。"
+    }
+  ]
+}

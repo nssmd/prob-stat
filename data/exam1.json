@@ -1,0 +1,189 @@
+{
+  "id": "exam1",
+  "title": "概率论与数理统计 期末模拟试卷（一）",
+  "code": "A卷",
+  "totalPoints": 100,
+  "duration": "120分钟",
+  "note": "闭卷",
+  "sections": [
+    {
+      "name": "一、单项选择题",
+      "desc": "每小题3分，共24分。",
+      "type": "single",
+      "questions": [
+        {
+          "stem": "设事件 $A$、$B$ 满足 $P(A)=0.6$，$P(B)=0.4$，$P(A\\cup B)=0.7$，则 $P(A|B)$ 等于",
+          "options": [
+            "$\\frac{1}{4}$",
+            "$\\frac{3}{4}$",
+            "$\\frac{1}{2}$",
+            "$\\frac{3}{8}$"
+          ],
+          "answer": "B",
+          "explanation": "$P(AB)=P(A)+P(B)-P(A\\cup B)=0.6+0.4-0.7=0.3$，故 $P(A|B)=\\frac{P(AB)}{P(B)}=\\frac{0.3}{0.4}=\\frac{3}{4}$。",
+          "points": 3
+        },
+        {
+          "stem": "设随机变量 $X\\sim B(n,p)$，已知 $E(X)=2$，$D(X)=1.6$，则 $n$、$p$ 的值为",
+          "options": [
+            "$n=10,\\ p=0.2$",
+            "$n=5,\\ p=0.4$",
+            "$n=8,\\ p=0.25$",
+            "$n=4,\\ p=0.5$"
+          ],
+          "answer": "A",
+          "explanation": "由 $np=2$，$np(1-p)=1.6$ 得 $1-p=0.8$，即 $p=0.2$，$n=10$。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X\\sim N(0,1)$，$Y=2X^2+1$，则 $E(Y)$ 等于",
+          "options": [
+            "$1$",
+            "$2$",
+            "$3$",
+            "$5$"
+          ],
+          "answer": "C",
+          "explanation": "因 $X\\sim N(0,1)$，有 $E(X^2)=D(X)+(E(X))^2=1$，故 $E(Y)=2E(X^2)+1=2\\cdot1+1=3$。",
+          "points": 3
+        },
+        {
+          "stem": "设总体 $X\\sim N(\\mu,\\sigma^2)$，$X_1,X_2,\\cdots,X_n$ 为简单随机样本，$\\bar{X}$ 为样本均值，$S^2$ 为样本方差，则下列服从 $t$ 分布的统计量是",
+          "options": [
+            "$\\dfrac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}}$",
+            "$\\dfrac{\\bar{X}-\\mu}{S/\\sqrt{n}}$",
+            "$\\dfrac{(n-1)S^2}{\\sigma^2}$",
+            "$\\dfrac{\\bar{X}_1-\\bar{X}_2}{S_p\\sqrt{1/n_1+1/n_2}}$（两样本方差不等时）"
+          ],
+          "answer": "B",
+          "explanation": "$\\frac{\\bar{X}-\\mu}{S/\\sqrt{n}}\\sim t(n-1)$，这是正态总体均值检验的基本统计量。",
+          "points": 3
+        },
+        {
+          "stem": "设 $(X,Y)$ 的联合概率密度为 $f(x,y)=ce^{-(2x+3y)}$（$x>0,y>0$），其余为0，则常数 $c$ 等于",
+          "options": [
+            "$1$",
+            "$5$",
+            "$6$",
+            "$\\frac{1}{6}$"
+          ],
+          "answer": "C",
+          "explanation": "$\\int_0^\\infty\\int_0^\\infty ce^{-(2x+3y)}\\,dx\\,dy=c\\cdot\\frac{1}{2}\\cdot\\frac{1}{3}=\\frac{c}{6}=1$，故 $c=6$。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X_1,X_2,\\cdots,X_{16}$ 是来自正态总体 $N(\\mu,4)$ 的简单随机样本，$\\bar{X}$ 为样本均值，则 $\\mu$ 的置信度为 $0.95$ 的置信区间长度为（$z_{0.025}=1.96$）",
+          "options": [
+            "$0.98$",
+            "$1.96$",
+            "$3.92$",
+            "$0.49$"
+          ],
+          "answer": "A",
+          "explanation": "置信区间为 $\\bar{X}\\pm z_{0.025}\\cdot\\frac{\\sigma}{\\sqrt{n}}=\\bar{X}\\pm 1.96\\cdot\\frac{2}{4}=\\bar{X}\\pm 0.98$，区间长度为 $2\\times0.49=0.98$。",
+          "points": 3
+        },
+        {
+          "stem": "在一元线性回归模型 $Y=\\beta_0+\\beta_1 x+\\varepsilon$ 中，$\\varepsilon\\sim N(0,\\sigma^2)$，$\\hat{\\beta}_1$ 的最小二乘估计量 $\\hat{\\beta}_1=\\dfrac{S_{xy}}{S_{xx}}$，其中 $S_{xx}=\\sum_{i=1}^n(x_i-\\bar{x})^2$，$S_{xy}=\\sum_{i=1}^n(x_i-\\bar{x})(y_i-\\bar{y})$。下列关于 $\\hat{\\beta}_1$ 的说法**错误**的是",
+          "options": [
+            "$\\hat{\\beta}_1$ 是 $\\beta_1$ 的无偏估计",
+            "$D(\\hat{\\beta}_1)=\\dfrac{\\sigma^2}{S_{xx}}$",
+            "$\\hat{\\beta}_1$ 与 $\\bar{Y}$ 相关",
+            "$\\hat{\\beta}_1$ 是 $\\beta_1$ 的线性无偏最小方差估计"
+          ],
+          "answer": "C",
+          "explanation": "可以证明 $\\hat{\\beta}_1=\\sum c_i Y_i$（$c_i=(x_i-\\bar{x})/S_{xx}$），而 $\\bar{Y}=\\frac{1}{n}\\sum Y_i$，两者的协方差 $\\text{Cov}(\\hat{\\beta}_1,\\bar{Y})=\\frac{\\sigma^2}{S_{xx}}\\sum c_i=0$，故二者不相关。C 说法错误。",
+          "points": 3
+        },
+        {
+          "stem": "设随机变量 $X$ 服从泊松分布 $P(\\lambda)$，则 $P(X\\geq1)$ 等于",
+          "options": [
+            "$1-e^{-\\lambda}$",
+            "$e^{-\\lambda}$",
+            "$1-e^{-\\lambda}\\lambda$",
+            "$e^{-\\lambda}(1+\\lambda)$"
+          ],
+          "answer": "A",
+          "explanation": "$P(X\\geq1)=1-P(X=0)=1-e^{-\\lambda}\\frac{\\lambda^0}{0!}=1-e^{-\\lambda}$。",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "name": "二、填空题",
+      "desc": "每小题3分，共15分。",
+      "type": "fill",
+      "questions": [
+        {
+          "stem": "设 $A$、$B$ 为两独立事件，$P(A)=0.3$，$P(B)=0.4$，则 $P(\\bar{A}\\cup\\bar{B})=$ ____。",
+          "answer": "$P(\\bar{A}\\cup\\bar{B})=1-P(AB)=1-P(A)P(B)=1-0.3\\times0.4=0.88$",
+          "points": 3
+        },
+        {
+          "stem": "设 $X\\sim U(0,4)$（均匀分布），则 $P(1<X<3)=$ ____，$D(X)=$ ____。",
+          "answer": "$P(1<X<3)=\\frac{3-1}{4-0}=\\frac{1}{2}$；$D(X)=\\frac{(4-0)^2}{12}=\\frac{4}{3}$",
+          "points": 3
+        },
+        {
+          "stem": "设二维随机变量 $(X,Y)$ 中 $X$ 与 $Y$ 相互独立，$E(X)=2$，$E(Y)=3$，$D(X)=1$，$D(Y)=4$，则 $E(XY)=$ ____，$D(2X-Y+1)=$ ____。",
+          "answer": "$E(XY)=E(X)E(Y)=2\\times3=6$；$D(2X-Y+1)=4D(X)+D(Y)=4\\times1+4=8$",
+          "points": 3
+        },
+        {
+          "stem": "设 $X_1,X_2,\\cdots,X_n$ 是来自总体 $X\\sim E(\\lambda)$（指数分布，均值为 $1/\\lambda$）的简单随机样本，则 $\\lambda$ 的矩估计量 $\\hat{\\lambda}=$ ____。",
+          "answer": "由 $E(X)=1/\\lambda$，令 $\\bar{X}=1/\\hat{\\lambda}$，故 $\\hat{\\lambda}=1/\\bar{X}$",
+          "points": 3
+        },
+        {
+          "stem": "设 $X\\sim N(0,1)$，查表知 $\\Phi(1.96)=0.975$，则 $P(|X|>1.96)=$ ____，$P(-1\\leq X\\leq 2)=$ ____（用 $\\Phi$ 表示）。",
+          "answer": "$P(|X|>1.96)=2(1-\\Phi(1.96))=2\\times0.025=0.05$；$P(-1\\leq X\\leq 2)=\\Phi(2)-\\Phi(-1)=\\Phi(2)+\\Phi(1)-1$",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "name": "三、计算题",
+      "desc": "共43分，写出主要步骤。",
+      "type": "calc",
+      "questions": [
+        {
+          "stem": "（10分）某工厂有三条生产线 $L_1$、$L_2$、$L_3$，生产同一种产品，产量分别占总产量的 40%、35%、25%，各生产线的次品率分别为 2%、3%、5%。\n\n（1）从出厂产品中随机取一件，求其为次品的概率。\n\n（2）已知取到的是次品，求它来自 $L_2$ 的概率。",
+          "answer": "设 $B$ 为事件\"取到次品\"，$A_i$ 为事件\"产品来自 $L_i$\"（$i=1,2,3$）。\n\n已知：$P(A_1)=0.4$，$P(A_2)=0.35$，$P(A_3)=0.25$；$P(B|A_1)=0.02$，$P(B|A_2)=0.03$，$P(B|A_3)=0.05$。\n\n**（1）全概率公式：**\n\n$$P(B)=\\sum_{i=1}^3 P(A_i)P(B|A_i)$$\n\n$$=0.4\\times0.02+0.35\\times0.03+0.25\\times0.05$$\n\n$$=0.008+0.0105+0.0125=0.031$$\n\n**（2）贝叶斯公式：**\n\n$$P(A_2|B)=\\frac{P(A_2)P(B|A_2)}{P(B)}=\\frac{0.35\\times0.03}{0.031}=\\frac{0.0105}{0.031}\\approx0.3387$$",
+          "points": 10
+        },
+        {
+          "stem": "（11分）设连续型随机变量 $X$ 的概率密度为\n$$f(x)=\\begin{cases}ax^2, & 0<x<3,\\\\ 0, & \\text{其他}.\\end{cases}$$\n（1）求常数 $a$；\n\n（2）求 $X$ 的分布函数 $F(x)$；\n\n（3）求 $E(X)$ 和 $D(X)$；\n\n（4）求 $P(1<X<2)$。",
+          "answer": "**（1）确定常数 $a$：**\n\n由 $\\int_{-\\infty}^{+\\infty}f(x)\\,dx=1$，得\n$$\\int_0^3 ax^2\\,dx=a\\cdot\\frac{x^3}{3}\\Big|_0^3=a\\cdot9=1$$\n故 $a=\\dfrac{1}{9}$。\n\n**（2）分布函数 $F(x)$：**\n\n$$F(x)=\\begin{cases}0, & x\\leq0,\\\\ \\displaystyle\\int_0^x\\frac{t^2}{9}\\,dt=\\frac{x^3}{27}, & 0<x<3,\\\\ 1, & x\\geq3.\\end{cases}$$\n\n**（3）期望与方差：**\n\n$$E(X)=\\int_0^3 x\\cdot\\frac{x^2}{9}\\,dx=\\frac{1}{9}\\cdot\\frac{x^4}{4}\\Big|_0^3=\\frac{81}{36}=\\frac{9}{4}$$\n\n$$E(X^2)=\\int_0^3 x^2\\cdot\\frac{x^2}{9}\\,dx=\\frac{1}{9}\\cdot\\frac{x^5}{5}\\Big|_0^3=\\frac{243}{45}=\\frac{27}{5}$$\n\n$$D(X)=E(X^2)-[E(X)]^2=\\frac{27}{5}-\\left(\\frac{9}{4}\\right)^2=\\frac{27}{5}-\\frac{81}{16}=\\frac{432-405}{80}=\\frac{27}{80}$$\n\n**（4）**\n\n$$P(1<X<2)=F(2)-F(1)=\\frac{8}{27}-\\frac{1}{27}=\\frac{7}{27}$$",
+          "points": 11
+        },
+        {
+          "stem": "（11分）设总体 $X\\sim N(\\mu,\\sigma^2)$，抽取样本量 $n=16$ 的样本，测得样本均值 $\\bar{x}=62$，样本标准差 $s=8$。\n\n（1）求 $\\mu$ 的置信度为 $0.95$ 的置信区间（$\\sigma^2$ 未知，查 $t$ 分布表：$t_{0.025}(15)=2.131$）。\n\n（2）用极大似然估计法估计 $\\mu$ 和 $\\sigma^2$。",
+          "answer": "**（1）$\\mu$ 的置信区间（$\\sigma^2$ 未知）：**\n\n选取枢轴量 $T=\\dfrac{\\bar{X}-\\mu}{S/\\sqrt{n}}\\sim t(n-1)=t(15)$。\n\n置信区间为：\n$$\\left(\\bar{x}-t_{0.025}(15)\\cdot\\frac{s}{\\sqrt{n}},\\ \\bar{x}+t_{0.025}(15)\\cdot\\frac{s}{\\sqrt{n}}\\right)$$\n\n$$=\\left(62-2.131\\times\\frac{8}{4},\\ 62+2.131\\times\\frac{8}{4}\\right)$$\n\n$$=(62-4.262,\\ 62+4.262)=(57.738,\\ 66.262)$$\n\n**（2）极大似然估计：**\n\n正态总体 $N(\\mu,\\sigma^2)$ 的对数似然函数为：\n$$\\ln L=-\\frac{n}{2}\\ln(2\\pi)-\\frac{n}{2}\\ln\\sigma^2-\\frac{1}{2\\sigma^2}\\sum_{i=1}^n(x_i-\\mu)^2$$\n\n对 $\\mu$ 求导令其为零：\n$$\\frac{\\partial\\ln L}{\\partial\\mu}=\\frac{1}{\\sigma^2}\\sum_{i=1}^n(x_i-\\mu)=0\\implies\\hat{\\mu}=\\bar{x}=62$$\n\n对 $\\sigma^2$ 求导令其为零：\n$$\\frac{\\partial\\ln L}{\\partial\\sigma^2}=-\\frac{n}{2\\sigma^2}+\\frac{1}{2\\sigma^4}\\sum_{i=1}^n(x_i-\\mu)^2=0$$\n\n$$\\implies\\hat{\\sigma}^2=\\frac{1}{n}\\sum_{i=1}^n(x_i-\\bar{x})^2=\\frac{(n-1)s^2}{n}=\\frac{15\\times64}{16}=60$$",
+          "points": 11
+        },
+        {
+          "stem": "（11分）某工厂声称其生产的灯泡平均寿命不低于 1000 小时（$\\sigma=50$ 小时已知）。随机抽取 25 只灯泡，测得平均寿命 $\\bar{x}=980$ 小时。在显著性水平 $\\alpha=0.05$ 下，检验该厂的声称是否可信（$z_{0.05}=1.645$）。",
+          "answer": "**建立假设：**\n\n$$H_0:\\mu\\geq1000\\quad\\text{v.s.}\\quad H_1:\\mu<1000$$\n\n这是**左侧检验**。\n\n**选取检验统计量：**\n\n由于 $\\sigma=50$ 已知，使用 $Z$ 检验：\n$$Z=\\frac{\\bar{X}-\\mu_0}{\\sigma/\\sqrt{n}}=\\frac{\\bar{X}-1000}{50/\\sqrt{25}}=\\frac{\\bar{X}-1000}{10}$$\n\n在 $H_0$ 成立（取等号 $\\mu_0=1000$）时，$Z\\sim N(0,1)$。\n\n**拒绝域：**\n\n左侧检验的拒绝域为 $W=\\{Z<-z_{0.05}\\}=\\{Z<-1.645\\}$。\n\n**计算检验统计量的观测值：**\n\n$$z=\\frac{980-1000}{10}=\\frac{-20}{10}=-2$$\n\n**判断：**\n\n因为 $z=-2<-1.645$，$z$ 落入拒绝域 $W$，故在显著性水平 $\\alpha=0.05$ 下，**拒绝 $H_0$**。\n\n**结论：** 有充分理由认为该厂灯泡的平均寿命低于 1000 小时，其声称不可信。",
+          "points": 11
+        }
+      ]
+    },
+    {
+      "name": "四、综合题",
+      "desc": "共18分，写出完整推导过程。",
+      "type": "proof",
+      "questions": [
+        {
+          "stem": "（6分）设随机变量 $X$ 的期望 $E(X)=\\mu$，方差 $D(X)=\\sigma^2>0$。利用切比雪夫不等式证明：对任意 $\\varepsilon>0$，\n$$P(|X-\\mu|\\geq\\varepsilon)\\leq\\frac{\\sigma^2}{\\varepsilon^2}.$$",
+          "answer": "**证明：**\n\n设 $g(x)=(x-\\mu)^2$，则对任意 $\\varepsilon>0$，有\n\n$$\\{|X-\\mu|\\geq\\varepsilon\\}=\\{(X-\\mu)^2\\geq\\varepsilon^2\\}$$\n\n由马尔可夫不等式（对非负随机变量 $Y=(X-\\mu)^2$，$P(Y\\geq a)\\leq E(Y)/a$），取 $a=\\varepsilon^2$：\n\n$$P\\left((X-\\mu)^2\\geq\\varepsilon^2\\right)\\leq\\frac{E\\left[(X-\\mu)^2\\right]}{\\varepsilon^2}=\\frac{D(X)}{\\varepsilon^2}=\\frac{\\sigma^2}{\\varepsilon^2}$$\n\n即\n$$P(|X-\\mu|\\geq\\varepsilon)\\leq\\frac{\\sigma^2}{\\varepsilon^2}\\qquad\\square$$\n\n**（补充马尔可夫不等式的推导）**\n\n对非负随机变量 $Y\\geq0$，$a>0$：\n$$E(Y)=\\int_0^{+\\infty}y\\,f_Y(y)\\,dy\\geq\\int_a^{+\\infty}y\\,f_Y(y)\\,dy\\geq a\\int_a^{+\\infty}f_Y(y)\\,dy=a\\cdot P(Y\\geq a)$$\n\n故 $P(Y\\geq a)\\leq E(Y)/a$，由此推得切比雪夫不等式。",
+          "points": 6
+        },
+        {
+          "stem": "（12分）设在一元线性回归模型 $y_i=\\beta_0+\\beta_1 x_i+\\varepsilon_i$（$i=1,2,\\cdots,n$）中，$\\varepsilon_i$ 独立同分布于 $N(0,\\sigma^2)$。令\n$$S_{xx}=\\sum_{i=1}^n(x_i-\\bar{x})^2,\\quad S_{xy}=\\sum_{i=1}^n(x_i-\\bar{x})y_i.$$\n（1）用最小二乘法推导 $\\beta_0$ 和 $\\beta_1$ 的估计量 $\\hat{\\beta}_0$、$\\hat{\\beta}_1$ 的表达式；\n\n（2）证明 $\\hat{\\beta}_1=S_{xy}/S_{xx}$ 是 $\\beta_1$ 的无偏估计量；\n\n（3）已知 5 组数据如下：$x$：1, 2, 3, 4, 5；$y$：2.1, 3.9, 6.2, 7.8, 10.0。计算 $\\hat{\\beta}_0$、$\\hat{\\beta}_1$，写出回归方程。",
+          "answer": "**（1）最小二乘法推导：**\n\n残差平方和为 $Q(\\beta_0,\\beta_1)=\\sum_{i=1}^n(y_i-\\beta_0-\\beta_1 x_i)^2$，对 $\\beta_0$、$\\beta_1$ 求偏导并令其为零：\n\n$$\\frac{\\partial Q}{\\partial\\beta_0}=-2\\sum_{i=1}^n(y_i-\\beta_0-\\beta_1 x_i)=0 \\implies n\\beta_0+\\beta_1\\sum x_i=\\sum y_i \\quad (1)$$\n\n$$\\frac{\\partial Q}{\\partial\\beta_1}=-2\\sum_{i=1}^n x_i(y_i-\\beta_0-\\beta_1 x_i)=0 \\implies \\beta_0\\sum x_i+\\beta_1\\sum x_i^2=\\sum x_iy_i \\quad (2)$$\n\n由 (1)：$\\hat{\\beta}_0=\\bar{y}-\\hat{\\beta}_1\\bar{x}$。\n\n将 (1) 代入 (2) 化简得：\n$$\\sum(x_i-\\bar{x})(y_i-\\bar{y})=\\hat{\\beta}_1\\sum(x_i-\\bar{x})^2 \\implies \\hat{\\beta}_1=\\frac{S_{xy}}{S_{xx}}$$\n\n故\n$$\\boxed{\\hat{\\beta}_1=\\frac{S_{xy}}{S_{xx}},\\quad \\hat{\\beta}_0=\\bar{y}-\\hat{\\beta}_1\\bar{x}}$$\n\n**（2）$\\hat{\\beta}_1$ 的无偏性：**\n\n将 $y_i=\\beta_0+\\beta_1 x_i+\\varepsilon_i$ 代入 $S_{xy}=\\sum(x_i-\\bar{x})y_i$：\n\n$$S_{xy}=\\sum(x_i-\\bar{x})(\\beta_0+\\beta_1 x_i+\\varepsilon_i)=\\beta_1\\sum(x_i-\\bar{x})x_i+\\sum(x_i-\\bar{x})\\varepsilon_i$$\n\n注意 $\\sum(x_i-\\bar{x})\\cdot1=0$，故 $\\sum(x_i-\\bar{x})x_i=\\sum(x_i-\\bar{x})(x_i-\\bar{x})=S_{xx}$，于是：\n\n$$\\hat{\\beta}_1=\\frac{S_{xy}}{S_{xx}}=\\beta_1+\\frac{\\sum(x_i-\\bar{x})\\varepsilon_i}{S_{xx}}$$\n\n由 $E(\\varepsilon_i)=0$，得\n$$E(\\hat{\\beta}_1)=\\beta_1+\\frac{\\sum(x_i-\\bar{x})E(\\varepsilon_i)}{S_{xx}}=\\beta_1$$\n\n故 $\\hat{\\beta}_1$ 是 $\\beta_1$ 的无偏估计。$\\square$\n\n**（3）计算：**\n\n$n=5$，$\\bar{x}=3$，$\\bar{y}=(2.1+3.9+6.2+7.8+10.0)/5=30/5=6.0$。\n\n$$S_{xx}=\\sum(x_i-3)^2=(-2)^2+(-1)^2+0^2+1^2+2^2=4+1+0+1+4=10$$\n\n$$S_{xy}=\\sum(x_i-3)y_i=(-2)(2.1)+(-1)(3.9)+(0)(6.2)+(1)(7.8)+(2)(10.0)$$\n$$=-4.2-3.9+0+7.8+20.0=19.7$$\n\n$$\\hat{\\beta}_1=\\frac{19.7}{10}=1.97,\\quad \\hat{\\beta}_0=6.0-1.97\\times3=6.0-5.91=0.09$$\n\n**回归方程：** $\\hat{y}=0.09+1.97x$",
+          "points": 12
+        }
+      ]
+    }
+  ]
+}

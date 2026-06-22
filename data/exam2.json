@@ -1,0 +1,202 @@
+{
+  "id": "exam2",
+  "title": "概率论与数理统计 期末模拟试卷（二）",
+  "code": "B卷",
+  "totalPoints": 100,
+  "duration": "120分钟",
+  "note": "闭卷",
+  "sections": [
+    {
+      "name": "一、判断题",
+      "desc": "每小题2分，共10分。正确记√，错误记×。",
+      "type": "truefalse",
+      "questions": [
+        {
+          "stem": "若事件 $A$ 与 $B$ 满足 $P(A \\cup B) = P(A) + P(B)$，则 $A$ 与 $B$ 一定互斥。",
+          "answer": true,
+          "explanation": "$P(A \\cup B) = P(A)+P(B)-P(AB)$，故 $P(A \\cup B)=P(A)+P(B)$ 当且仅当 $P(AB)=0$，即 $AB=\\emptyset$，即 $A$ 与 $B$ 互斥。",
+          "points": 2
+        },
+        {
+          "stem": "设随机变量 $X$ 的方差 $D(X)$ 存在，则对任意常数 $c$，有 $D(X+c)=D(X)+c$。",
+          "answer": false,
+          "explanation": "方差的性质：$D(X+c)=D(X)$，平移不影响方差。",
+          "points": 2
+        },
+        {
+          "stem": "若 $X \\sim N(0,1)$，则 $P(X > 1.96) = 0.025$。",
+          "answer": true,
+          "explanation": "标准正态分布的对称性与查表知 $\\Phi(1.96)=0.975$，故 $P(X>1.96)=1-0.975=0.025$。",
+          "points": 2
+        },
+        {
+          "stem": "总体均值 $\\mu$ 的置信区间越宽，估计的精度越高。",
+          "answer": false,
+          "explanation": "置信区间越宽，精度越低（区间越宽说明估计越不精确）；置信区间越窄，精度越高。",
+          "points": 2
+        },
+        {
+          "stem": "在一元线性回归中，若回归系数 $\\hat{\\beta}_1 = 0$，则样本相关系数 $r = 0$。",
+          "answer": true,
+          "explanation": "$\\hat{\\beta}_1 = r \\cdot \\dfrac{S_y}{S_x}$，故 $\\hat{\\beta}_1=0 \\Leftrightarrow r=0$（$S_x,S_y>0$）。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "name": "二、单项选择题",
+      "desc": "每小题3分，共21分。",
+      "type": "single",
+      "questions": [
+        {
+          "stem": "将3封信随机投入4个信箱，每封信等可能地投入任一信箱。恰好有3个信箱各有1封信的概率为",
+          "options": [
+            "$\\dfrac{3}{8}$",
+            "$\\dfrac{3}{16}$",
+            "$\\dfrac{9}{32}$",
+            "$\\dfrac{3}{32}$"
+          ],
+          "answer": "A",
+          "explanation": "总投法 $4^3=64$。恰有3个信箱各1封：先从4个信箱中选3个（$\\binom{4}{3}=4$种），再将3封信分配到这3个信箱（$3!=6$种），共 $4 \\times 6=24$。概率 $=24/64=3/8$，对应选项A。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X \\sim B(n,p)$，已知 $E(X)=2$，$D(X)=1.6$，则参数 $n, p$ 分别为",
+          "options": [
+            "$n=10,\\ p=0.2$",
+            "$n=8,\\ p=0.25$",
+            "$n=5,\\ p=0.4$",
+            "$n=4,\\ p=0.5$"
+          ],
+          "answer": "A",
+          "explanation": "$E(X)=np=2$，$D(X)=np(1-p)=1.6$，则 $1-p=0.8$，$p=0.2$，$n=10$。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X$ 服从参数为 $\\lambda=2$ 的泊松分布，则 $P(X \\geq 2)=$",
+          "options": [
+            "$1 - 3e^{-2}$",
+            "$1 - e^{-2}$",
+            "$3e^{-2}$",
+            "$e^{-2}$"
+          ],
+          "answer": "A",
+          "explanation": "$P(X \\geq 2)=1-P(X=0)-P(X=1)=1-e^{-2}-2e^{-2}=1-3e^{-2}$。",
+          "points": 3
+        },
+        {
+          "stem": "设 $(X, Y)$ 的联合概率密度为 $f(x,y)=e^{-(x+y)},\\ x>0,y>0$（其余为0）。则 $X$ 与 $Y$",
+          "options": [
+            "不独立，且不相关",
+            "不独立，但不相关",
+            "相互独立",
+            "相关但独立"
+          ],
+          "answer": "C",
+          "explanation": "$f(x,y)=e^{-x} \\cdot e^{-y}=f_X(x) \\cdot f_Y(y)$，故 $X$ 与 $Y$ 相互独立（均服从指数分布 $\\lambda=1$）。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X_1, X_2, \\ldots, X_n$ 是来自正态总体 $N(\\mu, \\sigma^2)$ 的简单随机样本，$\\bar{X}$ 为样本均值，$S^2$ 为样本方差，则统计量 $\\dfrac{\\bar{X}-\\mu}{S/\\sqrt{n}}$ 服从",
+          "options": [
+            "$N(0,1)$",
+            "$t(n)$",
+            "$t(n-1)$",
+            "$\\chi^2(n-1)$"
+          ],
+          "answer": "C",
+          "explanation": "当总体方差未知时，$\\dfrac{\\bar{X}-\\mu}{S/\\sqrt{n}} \\sim t(n-1)$，这是 $t$ 分布的基本定理。",
+          "points": 3
+        },
+        {
+          "stem": "对总体均值 $\\mu$ 作假设检验 $H_0: \\mu=\\mu_0$（$\\sigma^2$ 未知），在显著性水平 $\\alpha=0.05$ 下采用双侧 $t$ 检验，若 $|t| > t_{0.025}(n-1)$，则",
+          "options": [
+            "接受 $H_0$",
+            "拒绝 $H_0$",
+            "无法判断",
+            "需增大样本量"
+          ],
+          "answer": "B",
+          "explanation": "双侧 $t$ 检验的拒绝域为 $|t|>t_{\\alpha/2}(n-1)$，此处 $|t|>t_{0.025}(n-1)$，落入拒绝域，故拒绝 $H_0$。",
+          "points": 3
+        },
+        {
+          "stem": "在一元线性回归 $\\hat{y}=\\hat{\\beta}_0+\\hat{\\beta}_1 x$ 中，设 $S_{xx}=\\sum(x_i-\\bar{x})^2$，$S_{xy}=\\sum(x_i-\\bar{x})(y_i-\\bar{y})$，则 $\\hat{\\beta}_1=$",
+          "options": [
+            "$\\dfrac{S_{xx}}{S_{xy}}$",
+            "$\\dfrac{S_{xy}}{S_{xx}}$",
+            "$\\dfrac{\\bar{y}}{\\bar{x}}$",
+            "$S_{xy} \\cdot S_{xx}$"
+          ],
+          "answer": "B",
+          "explanation": "最小二乘估计：$\\hat{\\beta}_1 = \\dfrac{S_{xy}}{S_{xx}} = \\dfrac{\\sum(x_i-\\bar{x})(y_i-\\bar{y})}{\\sum(x_i-\\bar{x})^2}$。",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "name": "三、填空题",
+      "desc": "每小题3分，共15分。",
+      "type": "fill",
+      "questions": [
+        {
+          "stem": "设事件 $A$ 与 $B$ 满足 $P(A)=0.4$，$P(B)=0.5$，$P(A \\cup B)=0.7$，则 $P(B | A) = $ ____。",
+          "answer": "$P(AB)=P(A)+P(B)-P(A\\cup B)=0.4+0.5-0.7=0.2$，故 $P(B|A)=\\dfrac{P(AB)}{P(A)}=\\dfrac{0.2}{0.4}=0.5$。",
+          "points": 3
+        },
+        {
+          "stem": "设连续型随机变量 $X$ 的概率密度为 $f(x)=\\begin{cases}kx^2, & 0<x<3 \\\\ 0, & \\text{其他}\\end{cases}$，则常数 $k = $ ____。",
+          "answer": "$\\int_0^3 kx^2\\,dx=k \\cdot \\dfrac{27}{3}=9k=1$，故 $k=\\dfrac{1}{9}$。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X \\sim U(0, 4)$（均匀分布），则 $E(X^2) = $ ____。",
+          "answer": "$E(X^2)=D(X)+[E(X)]^2$。$E(X)=2$，$D(X)=\\dfrac{(4-0)^2}{12}=\\dfrac{4}{3}$，故 $E(X^2)=\\dfrac{4}{3}+4=\\dfrac{16}{3}$。",
+          "points": 3
+        },
+        {
+          "stem": "设总体 $X \\sim N(\\mu, 4)$，$\\sigma^2=4$ 已知，从中抽取样本量 $n=16$ 的样本，样本均值 $\\bar{X}=10.5$。则 $\\mu$ 的置信度为 $0.95$ 的置信区间为 ____。（$z_{0.025}=1.96$）",
+          "answer": "总体标准差 $\\sigma=2$，$\\dfrac{\\sigma}{\\sqrt{n}}=\\dfrac{2}{4}=0.5$。置信区间为 $\\left(\\bar{X}-z_{0.025}\\cdot\\dfrac{\\sigma}{\\sqrt{n}},\\ \\bar{X}+z_{0.025}\\cdot\\dfrac{\\sigma}{\\sqrt{n}}\\right)=(10.5-1.96\\times0.5,\\ 10.5+1.96\\times0.5)=(9.52,\\ 11.48)$。",
+          "points": 3
+        },
+        {
+          "stem": "设二维随机变量 $(X,Y)$ 的协方差 $\\text{Cov}(X,Y)=3$，$D(X)=4$，$D(Y)=9$，则 $X$ 与 $Y$ 的相关系数 $\\rho_{XY} = $ ____。",
+          "answer": "$\\rho_{XY}=\\dfrac{\\text{Cov}(X,Y)}{\\sqrt{D(X)}\\sqrt{D(Y)}}=\\dfrac{3}{\\sqrt{4}\\cdot\\sqrt{9}}=\\dfrac{3}{2 \\times 3}=\\dfrac{1}{2}$。",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "name": "四、计算题",
+      "desc": "写出主要步骤。",
+      "type": "calc",
+      "questions": [
+        {
+          "stem": "（古典概型/全概率）某工厂有三条生产线 $A_1, A_2, A_3$ 分别生产同一种产品，产量分别占总产量的 $50\\%$、$30\\%$、$20\\%$，各生产线的次品率分别为 $2\\%$、$3\\%$、$5\\%$。\n\n（1）求从所有产品中随机取一件，该件产品为次品的概率；\n\n（2）若已知取出的一件产品为次品，求该次品来自生产线 $A_2$ 的概率（保留4位小数）。",
+          "answer": "设 $B$ 为事件【取出次品】，$A_i$ 为事件【来自生产线 $A_i$】（$i=1,2,3$）。\n\n**（1）全概率公式：**\n\n$$P(B)=\\sum_{i=1}^3 P(A_i)P(B|A_i)$$\n\n$$=0.5 \\times 0.02 + 0.3 \\times 0.03 + 0.2 \\times 0.05$$\n\n$$=0.010 + 0.009 + 0.010 = 0.029$$\n\n**（2）贝叶斯公式：**\n\n$$P(A_2|B)=\\frac{P(A_2)P(B|A_2)}{P(B)}=\\frac{0.3 \\times 0.03}{0.029}=\\frac{0.009}{0.029} \\approx 0.3103$$",
+          "points": 11
+        },
+        {
+          "stem": "（连续随机变量的函数分布）设随机变量 $X$ 的概率密度为\n$$f_X(x)=\\begin{cases}2x, & 0<x<1 \\\\ 0, & \\text{其他}\\end{cases}$$\n\n（1）求 $X$ 的分布函数 $F_X(x)$；\n\n（2）设 $Y = -2\\ln X$，求 $Y$ 的概率密度 $f_Y(y)$。",
+          "answer": "**（1）分布函数：**\n\n$$F_X(x)=\\begin{cases}0, & x \\leq 0 \\\\ x^2, & 0<x<1 \\\\ 1, & x \\geq 1\\end{cases}$$\n\n**（2）求 $Y=-2\\ln X$ 的密度：**\n\n当 $0<x<1$ 时，$\\ln x < 0$，故 $y=-2\\ln x > 0$。\n\n$Y$ 的取值范围为 $(0,+\\infty)$。\n\n$Y$ 的分布函数：\n$$F_Y(y)=P(Y \\leq y)=P(-2\\ln X \\leq y)=P\\!\\left(\\ln X \\geq -\\frac{y}{2}\\right)=P\\!\\left(X \\geq e^{-y/2}\\right)$$\n\n$$=1-F_X\\!\\left(e^{-y/2}\\right)=1-e^{-y},\\quad y>0$$\n\n对 $F_Y(y)$ 求导：\n$$f_Y(y)=\\begin{cases}e^{-y}, & y>0 \\\\ 0, & y \\leq 0\\end{cases}$$\n\n即 $Y \\sim \\text{Exp}(1)$（参数为1的指数分布）。",
+          "points": 11
+        },
+        {
+          "stem": "（二维随机变量）设 $(X,Y)$ 的联合概率密度为\n$$f(x,y)=\\begin{cases}6x, & 0<x<1,\\ 0<y<1-x \\\\ 0, & \\text{其他}\\end{cases}$$\n\n（1）验证 $f(x,y)$ 是合法的联合密度；\n\n（2）求 $X$ 的边缘密度 $f_X(x)$；\n\n（3）求 $E(X)$ 与 $E(Y)$。",
+          "answer": "**（1）验证：**\n\n$$\\int_0^1\\int_0^{1-x}6x\\,dy\\,dx=\\int_0^1 6x(1-x)\\,dx=6\\int_0^1(x-x^2)\\,dx=6\\left(\\frac{1}{2}-\\frac{1}{3}\\right)=6 \\cdot \\frac{1}{6}=1 \\checkmark$$\n\n**（2）$X$ 的边缘密度：**\n\n当 $0<x<1$ 时，\n$$f_X(x)=\\int_0^{1-x}6x\\,dy=6x(1-x)$$\n\n$$f_X(x)=\\begin{cases}6x(1-x), & 0<x<1 \\\\ 0, & \\text{其他}\\end{cases}$$\n\n**（3）期望：**\n\n$$E(X)=\\int_0^1 x \\cdot 6x(1-x)\\,dx=6\\int_0^1(x^2-x^3)\\,dx=6\\left(\\frac{1}{3}-\\frac{1}{4}\\right)=6 \\cdot \\frac{1}{12}=\\frac{1}{2}$$\n\n由对称性（或直接计算）：\n\n$$E(Y)=\\int_0^1\\int_0^{1-x}6xy\\,dy\\,dx=\\int_0^1 6x \\cdot \\frac{(1-x)^2}{2}\\,dx=3\\int_0^1 x(1-x)^2\\,dx$$\n\n$$=3\\int_0^1(x-2x^2+x^3)\\,dx=3\\left(\\frac{1}{2}-\\frac{2}{3}+\\frac{1}{4}\\right)=3 \\times \\frac{1}{12}=\\frac{1}{4}$$",
+          "points": 11
+        },
+        {
+          "stem": "（假设检验）某地区以往儿童身高（cm）服从正态分布，已知标准差 $\\sigma=6$。现抽取 $n=36$ 名儿童，测得平均身高 $\\bar{x}=123.5$ cm。试在显著性水平 $\\alpha=0.05$ 下，检验该地区儿童平均身高是否为 $120$ cm（即检验 $H_0:\\mu=120$ vs $H_1:\\mu \\neq 120$）。（$z_{0.025}=1.96$）",
+          "answer": "**建立假设：**\n\n$H_0:\\mu=120$，$H_1:\\mu \\neq 120$（双侧检验）。\n\n**选取检验统计量：**\n\n$\\sigma=6$ 已知，用 $Z$ 检验：\n$$Z=\\frac{\\bar{X}-\\mu_0}{\\sigma/\\sqrt{n}} \\sim N(0,1) \\quad (\\text{在}H_0\\text{下})$$\n\n**计算检验统计量的值：**\n\n$$z=\\frac{123.5-120}{6/\\sqrt{36}}=\\frac{3.5}{1}=3.5$$\n\n**作出判断：**\n\n拒绝域为 $|z|>z_{0.025}=1.96$。\n\n由于 $|z|=3.5 > 1.96$，故**拒绝 $H_0$**。\n\n**结论：** 在显著性水平 $\\alpha=0.05$ 下，有充分理由认为该地区儿童平均身高不是120 cm。",
+          "points": 10
+        },
+        {
+          "stem": "（一元线性回归）为研究某产品的销售量 $y$（百件）与广告费 $x$（万元）的关系，收集了6组数据如下：\n\n| $x$ | 1 | 2 | 3 | 4 | 5 | 6 |\n|---|---|---|---|---|---|---|\n| $y$ | 3 | 5 | 4 | 7 | 8 | 9 |\n\n已知：$\\sum x_i=21$，$\\sum y_i=36$，$\\sum x_i^2=91$，$\\sum x_i y_i=141$，$\\sum y_i^2=244$。\n\n（1）求 $\\hat{\\beta}_1$ 和 $\\hat{\\beta}_0$（回归方程的斜率和截距）；\n\n（2）写出样本回归方程；\n\n（3）计算样本相关系数 $r$，并判断线性相关性。",
+          "answer": "**基本量计算：**\n\n$n=6$，$\\bar{x}=\\dfrac{21}{6}=3.5$，$\\bar{y}=\\dfrac{36}{6}=6$\n\n$$S_{xx}=\\sum x_i^2 - n\\bar{x}^2=91-6\\times12.25=91-73.5=17.5$$\n\n$$S_{xy}=\\sum x_i y_i - n\\bar{x}\\bar{y}=141-6\\times3.5\\times6=141-126=15$$\n\n$$S_{yy}=\\sum y_i^2 - n\\bar{y}^2=244-6\\times36=244-216=28$$\n\n**（1）回归系数：**\n\n$$\\hat{\\beta}_1=\\frac{S_{xy}}{S_{xx}}=\\frac{15}{17.5}=\\frac{6}{7} \\approx 0.857$$\n\n$$\\hat{\\beta}_0=\\bar{y}-\\hat{\\beta}_1\\bar{x}=6-\\frac{6}{7}\\times3.5=6-3=3$$\n\n**（2）样本回归方程：**\n\n$$\\hat{y}=3+\\frac{6}{7}x \\approx 3+0.857x$$\n\n**（3）样本相关系数：**\n\n$$r=\\frac{S_{xy}}{\\sqrt{S_{xx} \\cdot S_{yy}}}=\\frac{15}{\\sqrt{17.5\\times28}}=\\frac{15}{\\sqrt{490}}=\\frac{15}{7\\sqrt{10}}=\\frac{15}{22.136} \\approx 0.978$$\n\n$r \\approx 0.978$ 接近于1，说明销售量与广告费之间有**强正线性相关关系**，线性回归方程拟合效果良好。",
+          "points": 11
+        }
+      ]
+    }
+  ]
+}

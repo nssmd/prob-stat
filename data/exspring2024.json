@@ -1,0 +1,203 @@
+{
+  "id": "exspring2024",
+  "title": "概率论与数理统计 期末真题（2024 春）",
+  "code": "2024春·真题",
+  "totalPoints": 100,
+  "duration": "120分钟",
+  "note": "闭卷 · 上海交通大学期末考试真题（2023–2024 学年第二学期），附完整参考解答",
+  "sections": [
+    {
+      "name": "一、单项选择题",
+      "desc": "每小题 3 分，共 36 分。每题只有一个正确选项。",
+      "type": "single",
+      "questions": [
+        {
+          "stem": "设随机变量 $(X,Y)\\sim N(0,1;0,4;-0.5)$，以下随机变量中服从标准正态分布且与随机变量 $X$ 不相关的是",
+          "options": [
+            "$\\dfrac{\\sqrt5}{5}(X+Y)$",
+            "$\\dfrac{\\sqrt5}{5}(X-Y)$",
+            "$\\dfrac{\\sqrt3}{3}(X+Y)$",
+            "$\\dfrac{\\sqrt7}{7}(X-Y)$"
+          ],
+          "answer": "C",
+          "explanation": "由参数知 $\\operatorname{Var}X=1,\\ \\operatorname{Var}Y=4,\\ \\operatorname{Cov}(X,Y)=\\rho\\sigma_X\\sigma_Y=-0.5\\times1\\times2=-1$。先看与 $X$ 是否不相关：$\\operatorname{Cov}(X+Y,X)=\\operatorname{Var}X+\\operatorname{Cov}(X,Y)=1-1=0$（不相关），而 $\\operatorname{Cov}(X-Y,X)=1+1=2\\ne0$。故应取 $X+Y$。又 $\\operatorname{Var}(X+Y)=1+4+2(-1)=3$，乘以系数 $\\tfrac{1}{\\sqrt3}=\\tfrac{\\sqrt3}{3}$ 后方差为 $1$，且为正态线性组合，服从 $N(0,1)$。故选 C。",
+          "points": 3
+        },
+        {
+          "stem": "设随机变量 $X$ 的概率密度 $f(x)$ 满足 $f(2+x)=f(2-x)$，且 $\\displaystyle\\int_0^2 f(x)\\,dx=0.3$，则 $P(X<0)=$",
+          "options": [
+            "$0.2$",
+            "$0.3$",
+            "$0.4$",
+            "$0.5$"
+          ],
+          "answer": "A",
+          "explanation": "$f(2+x)=f(2-x)$ 表明密度关于 $x=2$ 对称，故 $P(X<2)=\\tfrac12$。又 $\\int_0^2 f\\,dx=P(0<X<2)=0.3$，于是 $P(X<0)=P(X<2)-P(0<X<2)=0.5-0.3=0.2$。故选 A。",
+          "points": 3
+        },
+        {
+          "stem": "设随机变量 $X_1,X_2,X_3$ 独立同分布，均服从参数 $p$ 的 $(0\\text{-}1)$ 分布，即 $P(X_i=1)=p$。令 $Y_1=\\begin{cases}1,&X_1+X_2\\text{为奇数}\\\\0,&X_1+X_2\\text{为偶数}\\end{cases}$，$Y_2=\\begin{cases}1,&X_2+X_3\\text{为奇数}\\\\0,&X_2+X_3\\text{为偶数}\\end{cases}$，则 $P(Y_1Y_2=1)=$",
+          "options": [
+            "$p(1-p)$",
+            "$1-p(1-p)$",
+            "$p$",
+            "$1-p$"
+          ],
+          "answer": "A",
+          "explanation": "$Y_1Y_2=1$ 要求 $X_1+X_2$ 与 $X_2+X_3$ 同时为奇数，即 $X_1\\ne X_2$ 且 $X_2\\ne X_3$，于是 $X_1=X_3\\ne X_2$。两种情形：$X_2=0,\\,X_1=X_3=1$，概率 $(1-p)p^2$；$X_2=1,\\,X_1=X_3=0$，概率 $p(1-p)^2$。两者相加得 $p(1-p)[p+(1-p)]=p(1-p)$。故选 A。",
+          "points": 3
+        },
+        {
+          "stem": "设离散型随机变量 $X$ 的分布律为 $P(X=k)=a\\lambda^{k},\\ (k=1,2,\\cdots),\\ a>0$，则 $\\lambda$ 为",
+          "options": [
+            "大于 $0$ 的任意实数",
+            "$\\lambda=1+a$",
+            "$\\lambda=\\dfrac{1}{1+a}$",
+            "$\\lambda=\\dfrac{1}{a-1}$"
+          ],
+          "answer": "C",
+          "explanation": "由规范性 $\\sum_{k=1}^{\\infty}a\\lambda^{k}=1$。需 $0<\\lambda<1$ 级数才收敛，此时 $\\sum_{k=1}^{\\infty}a\\lambda^{k}=\\dfrac{a\\lambda}{1-\\lambda}=1$，解得 $a\\lambda=1-\\lambda$，即 $\\lambda(1+a)=1$，$\\lambda=\\dfrac{1}{1+a}$。故选 C。",
+          "points": 3
+        },
+        {
+          "stem": "设总体 $X$ 的概率分布为 $P(X=-1)=\\tfrac12,\\ P(X=0)=\\tfrac14,\\ P(X=1)=\\tfrac14$。$(X_1,X_2,X_3)$ 为来自总体 $X$ 的简单样本，$M=\\max\\limits_{1\\le i\\le3}X_i$，则 $E(M)=$",
+          "options": [
+            "$-\\dfrac{35}{64}$",
+            "$\\dfrac{35}{64}$",
+            "$\\dfrac{29}{64}$",
+            "$-\\dfrac{29}{64}$"
+          ],
+          "answer": "C",
+          "explanation": "由独立同分布，$P(M\\le-1)=(\\tfrac12)^3=\\tfrac{8}{64}$，$P(M\\le0)=(\\tfrac34)^3=\\tfrac{27}{64}$，$P(M\\le1)=1$。故 $P(M=-1)=\\tfrac{8}{64}$，$P(M=0)=\\tfrac{19}{64}$，$P(M=1)=\\tfrac{37}{64}$。于是 $E(M)=(-1)\\cdot\\tfrac{8}{64}+0\\cdot\\tfrac{19}{64}+1\\cdot\\tfrac{37}{64}=\\tfrac{29}{64}$。故选 C。",
+          "points": 3
+        },
+        {
+          "stem": "某小组有 $5$ 位同学，开学时每人准备一个礼物放在一起，大家在礼物中随机各抽取一个作为自己的礼物。假设每位学生抽到每个礼物是等可能的，则抽到自己准备的礼物的学生数 $X$ 的期望为",
+          "options": [
+            "$1$",
+            "$\\dfrac15$",
+            "$\\dfrac45$",
+            "$4$"
+          ],
+          "answer": "A",
+          "explanation": "设 $I_i$ 为第 $i$ 位同学抽到自己礼物的示性变量，则 $X=\\sum_{i=1}^5 I_i$，且 $E(I_i)=P(\\text{第 }i\\text{ 人抽到自己})=\\tfrac15$。由期望线性性 $E(X)=5\\times\\tfrac15=1$（与是否独立无关）。故选 A。",
+          "points": 3
+        },
+        {
+          "stem": "设二维正态总体 $(X,Y)\\sim N(0,1;0,4;-0.5)$，$(X_1,Y_1),(X_2,Y_2),\\cdots,(X_n,Y_n)$ 为来自该总体的简单样本，$\\bar X=\\tfrac1n\\sum_{k=1}^n X_k,\\ \\bar Y=\\tfrac1n\\sum_{k=1}^n Y_k$，则 $\\bar X$ 与 $\\bar Y$ 的相关系数 $\\rho_{\\bar X\\bar Y}=$",
+          "options": [
+            "$-\\dfrac{1}{2n}$",
+            "$-\\dfrac12$",
+            "$-\\dfrac{1}{2n^2}$",
+            "$-\\dfrac{1}{n^2}$"
+          ],
+          "answer": "B",
+          "explanation": "$\\operatorname{Cov}(X,Y)=-0.5\\times1\\times2=-1$。各对独立，故 $\\operatorname{Cov}(\\bar X,\\bar Y)=\\tfrac1{n^2}\\sum_{k=1}^n\\operatorname{Cov}(X_k,Y_k)=\\tfrac{\\operatorname{Cov}(X,Y)}{n}=-\\tfrac1n$；$\\operatorname{Var}(\\bar X)=\\tfrac1n,\\ \\operatorname{Var}(\\bar Y)=\\tfrac4n$。于是 $\\rho_{\\bar X\\bar Y}=\\dfrac{-1/n}{\\sqrt{1/n}\\,\\sqrt{4/n}}=\\dfrac{-1/n}{2/n}=-\\tfrac12$（取均值不改变相关系数）。故选 B。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X_1,X_2,\\cdots,X_n$ 相互独立同分布，其分布密度函数为 $f(x)$，$g(x)$ 是 $(-\\infty,+\\infty)$ 上严格单调增加的可微函数，则 $\\dfrac1n\\sum_{i=1}^n g(X_i)$ 依概率收敛于",
+          "options": [
+            "$\\displaystyle\\int_{-\\infty}^{+\\infty} g(x)\\,dx$",
+            "$\\displaystyle\\int_{-\\infty}^{+\\infty} f(x)\\,dx$",
+            "$f(x)$",
+            "$\\displaystyle\\int_{-\\infty}^{+\\infty} f(x)g(x)\\,dx$"
+          ],
+          "answer": "D",
+          "explanation": "$g(X_1),\\cdots,g(X_n)$ 独立同分布，由大数定律 $\\dfrac1n\\sum_{i=1}^n g(X_i)\\xrightarrow{P}E[g(X)]=\\displaystyle\\int_{-\\infty}^{+\\infty} g(x)f(x)\\,dx$。故选 D。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X_1,X_2,\\cdots,X_n$ 是来自总体 $X\\sim N(\\mu,4)$ 的样本，$\\mu$ 未知，则 $\\left(\\bar X-\\dfrac{2}{\\sqrt n}u_{0.05},\\ \\bar X+\\dfrac{2}{\\sqrt n}u_{0.05}\\right)$ 作为 $\\mu$ 的置信区间，其置信度为多少？要使估计精度不超过 $1$，样本容量至少为多少？$(u_{0.05}=1.645)$",
+          "options": [
+            "$90\\%,\\ 24$",
+            "$90\\%,\\ 44$",
+            "$95\\%,\\ 44$",
+            "$95\\%,\\ 24$"
+          ],
+          "answer": "B",
+          "explanation": "$\\sigma=2$，标准区间半宽为 $\\dfrac{\\sigma}{\\sqrt n}u_{\\alpha/2}$。此处半宽 $=\\dfrac{2}{\\sqrt n}u_{0.05}$，故 $u_{\\alpha/2}=u_{0.05}=1.645$，即 $\\alpha/2=0.05,\\ \\alpha=0.10$，置信度 $=90\\%$。所谓估计精度（区间长度）$=2\\cdot\\dfrac{2}{\\sqrt n}\\times1.645=\\dfrac{6.58}{\\sqrt n}\\le1$，得 $\\sqrt n\\ge6.58,\\ n\\ge43.3$，故 $n$ 至少 $44$。故选 B。",
+          "points": 3
+        },
+        {
+          "stem": "设 $F\\sim F(m,m)$，则概率 $P(F>1)$",
+          "options": [
+            "$=\\dfrac12$",
+            "$=\\dfrac14$",
+            "$>\\dfrac12$",
+            "$>\\dfrac14$"
+          ],
+          "answer": "A",
+          "explanation": "若 $F\\sim F(m,m)$，则 $\\dfrac1F\\sim F(m,m)$ 同分布。于是 $P(F>1)=P\\!\\left(\\dfrac1F>1\\right)=P(F<1)$，而 $P(F>1)+P(F<1)=1$（连续分布 $P(F=1)=0$），故 $P(F>1)=\\tfrac12$。故选 A。",
+          "points": 3
+        },
+        {
+          "stem": "向某一个目标发射炮弹，设炮弹弹着点离目标的距离为 $R$（单位：米），其概率密度为 $f_R(r)=\\begin{cases}\\dfrac{2r}{25}e^{-r^2/25},&r>0\\\\[4pt]0,&\\text{其他}\\end{cases}$。若弹着点离目标不超过 $5$ 米时目标被摧毁。同时向目标独立发射 $n$ 枚炮弹，要使目标被摧毁的概率不小于 $0.94$，则 $n$ 至少为",
+          "options": [
+            "$6$",
+            "$2$",
+            "$5$",
+            "$3$"
+          ],
+          "answer": "D",
+          "explanation": "单枚炮弹摧毁目标的概率 $P(R\\le5)=\\int_0^5\\dfrac{2r}{25}e^{-r^2/25}\\,dr=1-e^{-25/25}=1-e^{-1}$。$n$ 枚独立，至少一枚命中即摧毁，$P(\\text{摧毁})=1-(e^{-1})^n=1-e^{-n}\\ge0.94$，即 $e^{-n}\\le0.06$，$n\\ge-\\ln0.06\\approx2.81$，故 $n=3$（$n=3$ 时为 $0.950\\ge0.94$，$n=2$ 时为 $0.865<0.94$）。故选 D。",
+          "points": 3
+        },
+        {
+          "stem": "设 $A,B$ 为随机事件，$P(A)>0,P(B)>0$，对于以下结论：① $P(AB|A)\\ge P(AB|A\\cup B)$；② 若 $P(A|B)=1$，则 $P(\\bar B|\\bar A)=1$；③ 若 $A\\bar B=\\bar A B$，则 $A=B$；④ 事件 $A$ 和事件 $B$ 恰有一个发生的概率为 $P(A)+P(B)-2P(AB)$。正确的个数为",
+          "options": [
+            "$1$",
+            "$2$",
+            "$3$",
+            "$4$"
+          ],
+          "answer": "D",
+          "explanation": "①$P(AB|A)=\\dfrac{P(AB)}{P(A)}$，$P(AB|A\\cup B)=\\dfrac{P(AB)}{P(A\\cup B)}$，因 $P(A)\\le P(A\\cup B)$，故 $\\ge$ 成立，正确。②$P(A|B)=1\\Rightarrow P(AB)=P(B)\\Rightarrow P(\\bar A B)=0$，于是 $P(\\bar B|\\bar A)=\\dfrac{P(\\bar A)-P(\\bar A B)}{P(\\bar A)}=1$，正确。③$A\\bar B=\\bar A B$ 即 $A\\setminus B=B\\setminus A$，前者中的点属于 $A$ 不属于 $B$，后者中的点属于 $B$ 不属于 $A$，两集合相等只能都为空集，故 $A=B$，正确。④恰有一个发生 $=(A\\bar B)\\cup(\\bar A B)$，概率 $=[P(A)-P(AB)]+[P(B)-P(AB)]=P(A)+P(B)-2P(AB)$，正确。四个全对。故选 D。",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "name": "二、计算与证明题",
+      "desc": "共 64 分，写出主要步骤与推导过程。",
+      "type": "calc",
+      "questions": [
+        {
+          "stem": "甲、乙、丙三门高射炮独立地向同一目标射击，设甲、乙、丙击中目标的概率分别为 $0.4$、$0.5$、$0.7$。若只有一门炮击中目标，目标被摧毁的概率为 $0.2$；若有两门炮击中，目标被摧毁的概率为 $0.6$；若三门炮都击中，目标必被摧毁。求：(1) 目标被摧毁的概率；(2) 已知目标被摧毁，目标被两门炮击中的概率。",
+          "answer": "记 $A=\\{$甲击中$\\}$、$B=\\{$乙击中$\\}$、$C=\\{$丙击中$\\}$，$P(A)=0.4,\\ P(B)=0.5,\\ P(C)=0.7$，三者独立。设 $H_k=\\{$恰有 $k$ 门击中$\\}$，$k=0,1,2,3$。\\n\\n**计算各 $H_k$ 的概率**\\n\\n恰有一门击中：\\n$$P(H_1)=P(A\\bar B\\bar C)+P(\\bar A B\\bar C)+P(\\bar A\\bar B C)=0.4\\cdot0.5\\cdot0.3+0.6\\cdot0.5\\cdot0.3+0.6\\cdot0.5\\cdot0.7=0.06+0.09+0.21=0.36.$$\\n\\n恰有两门击中：\\n$$P(H_2)=P(AB\\bar C)+P(A\\bar B C)+P(\\bar A BC)=0.4\\cdot0.5\\cdot0.3+0.4\\cdot0.5\\cdot0.7+0.6\\cdot0.5\\cdot0.7=0.06+0.14+0.21=0.41.$$\\n\\n三门都击中：\\n$$P(H_3)=0.4\\cdot0.5\\cdot0.7=0.14.$$\\n（零门：$P(H_0)=0.6\\cdot0.5\\cdot0.3=0.09$，四项之和 $=1$，校验通过。）\\n\\n**(1) 目标被摧毁的概率**\\n\\n记 $D=\\{$目标被摧毁$\\}$，已知 $P(D\\mid H_1)=0.2,\\ P(D\\mid H_2)=0.6,\\ P(D\\mid H_3)=1,\\ P(D\\mid H_0)=0$。由全概率公式：\\n$$P(D)=\\sum_{k} P(H_k)P(D\\mid H_k)=0.36\\times0.2+0.41\\times0.6+0.14\\times1=0.072+0.246+0.14=0.458.$$\\n\\n**(2) 已知目标被摧毁，被两门炮击中的概率**\\n\\n由贝叶斯公式：\\n$$P(H_2\\mid D)=\\frac{P(H_2)P(D\\mid H_2)}{P(D)}=\\frac{0.41\\times0.6}{0.458}=\\frac{0.246}{0.458}\\approx 0.5371.$$\\n\\n**答：** (1) $P(D)=0.458$；(2) $P(H_2\\mid D)=\\dfrac{0.246}{0.458}\\approx 0.537$。",
+          "points": 9
+        },
+        {
+          "stem": "设随机变量 $(X,Y)$ 的概率密度为 $f(x,y)=\\begin{cases} e^{-x}, & 0<y<x,\\\\ 0, & \\text{其他.}\\end{cases}$ (1) 求条件概率密度 $f_{X\\mid Y}(x\\mid y)$；(2) 分别求 $F_{X\\mid Y}(2\\mid y=1)$ 和条件概率 $P(X\\le 2\\mid Y\\le 1)$。",
+          "answer": "**求 $Y$ 的边缘密度**\\n\\n对固定 $y>0$，积分区域为 $x>y$：\\n$$f_Y(y)=\\int_{y}^{+\\infty} e^{-x}\\,dx=e^{-y},\\qquad y>0.$$\\n（当 $y\\le 0$ 时 $f_Y(y)=0$。）\\n\\n**(1) 条件概率密度**\\n\\n对 $y>0$，当 $x>y$ 时：\\n$$f_{X\\mid Y}(x\\mid y)=\\frac{f(x,y)}{f_Y(y)}=\\frac{e^{-x}}{e^{-y}}=e^{-(x-y)},\\qquad x>y;$$\\n当 $x\\le y$ 时 $f_{X\\mid Y}(x\\mid y)=0$。即\\n$$f_{X\\mid Y}(x\\mid y)=\\begin{cases} e^{-(x-y)}, & x>y,\\\\ 0, & x\\le y.\\end{cases}$$\\n\\n**(2a) 求 $F_{X\\mid Y}(2\\mid y=1)$**\\n\\n$$F_{X\\mid Y}(2\\mid y=1)=\\int_{-\\infty}^{2} f_{X\\mid Y}(x\\mid 1)\\,dx=\\int_{1}^{2} e^{-(x-1)}\\,dx=\\big[-e^{-(x-1)}\\big]_{1}^{2}=1-e^{-1}\\approx 0.6321.$$\\n\\n**(2b) 求 $P(X\\le 2\\mid Y\\le 1)$**（注意这是事件 $\\{Y\\le1\\}$ 上的条件概率，与 (2a) 不同）\\n\\n$$P(Y\\le 1)=\\int_{0}^{1} f_Y(y)\\,dy=\\int_{0}^{1} e^{-y}\\,dy=1-e^{-1}.$$\\n\\n联合概率（积分区域 $0<y<x,\\ x\\le 2,\\ y\\le 1$，即 $0<y<1,\\ y<x\\le 2$）：\\n$$P(X\\le 2,\\,Y\\le 1)=\\int_{0}^{1}\\!\\!\\int_{y}^{2} e^{-x}\\,dx\\,dy=\\int_{0}^{1}\\big(e^{-y}-e^{-2}\\big)\\,dy=(1-e^{-1})-e^{-2}.$$\\n\\n故\\n$$P(X\\le 2\\mid Y\\le 1)=\\frac{(1-e^{-1})-e^{-2}}{1-e^{-1}}=1-\\frac{e^{-2}}{1-e^{-1}}\\approx 0.7859.$$\\n\\n**答：** (1) $f_{X\\mid Y}(x\\mid y)=e^{-(x-y)}\\ (x>y)$，其余为 $0$；(2) $F_{X\\mid Y}(2\\mid y=1)=1-e^{-1}\\approx0.632$，$P(X\\le2\\mid Y\\le1)=1-\\dfrac{e^{-2}}{1-e^{-1}}\\approx0.786$。",
+          "points": 9
+        },
+        {
+          "stem": "设一个矩形的长和宽分别用随机变量 $X,Y$ 表示，$X,Y$ 相互独立，且均服从 $U(0,1)$。求该矩形周长 $Z$ 的概率密度。",
+          "answer": "周长 $Z=2(X+Y)$。先求 $W=X+Y$ 的密度，再作线性变换。\\n\\n**求 $W=X+Y$ 的密度（三角分布）**\\n\\n$X,Y$ 独立且同服从 $U(0,1)$，由卷积公式 $f_W(w)=\\int_{-\\infty}^{+\\infty} f_X(t)f_Y(w-t)\\,dt$，被积非零要求 $0<t<1$ 且 $0<w-t<1$，得\\n$$f_W(w)=\\begin{cases} w, & 0<w<1,\\\\ 2-w, & 1\\le w<2,\\\\ 0, & \\text{其他.}\\end{cases}$$\\n\\n**变换到 $Z=2W$**\\n\\n$W=Z/2$，$\\left|\\dfrac{dw}{dz}\\right|=\\dfrac12$，故 $f_Z(z)=f_W\\!\\left(\\dfrac z2\\right)\\cdot\\dfrac12$。当 $0<w<1$ 对应 $0<z<2$，当 $1\\le w<2$ 对应 $2\\le z<4$：\\n\\n- $0<z<2$：$f_Z(z)=\\dfrac12\\cdot\\dfrac z2=\\dfrac z4$；\\n- $2\\le z<4$：$f_Z(z)=\\dfrac12\\left(2-\\dfrac z2\\right)=1-\\dfrac z4$；\\n- 其他：$0$。\\n\\n即\\n$$f_Z(z)=\\begin{cases} \\dfrac{z}{4}, & 0<z<2,\\\\[4pt] 1-\\dfrac{z}{4}, & 2\\le z<4,\\\\[4pt] 0, & \\text{其他.}\\end{cases}$$\\n\\n校验：$\\int_0^2 \\frac z4\\,dz+\\int_2^4(1-\\frac z4)\\,dz=\\frac12+\\frac12=1$。\\n\\n**答：** $f_Z(z)=\\dfrac z4\\,(0<z<2)$，$\\;1-\\dfrac z4\\,(2\\le z<4)$，其余为 $0$。",
+          "points": 9
+        },
+        {
+          "stem": "据调查某社区 $400$ 个家庭中，每个家庭购买电脑数为 $0,1,2$ 的概率分布函数为 $F(x)=\\begin{cases}0,&x<0,\\\\0.05,&0\\le x<1,\\\\0.85,&1\\le x<2,\\\\1,&x\\ge 2.\\end{cases}$ (1) 假设各个家庭购买的电脑数相互独立，求购买的电脑数超过 $450$ 台的概率；(2) 求购买 $1$ 台电脑的家庭数不多于 $340$ 的概率。（利用中心极限定理近似计算）",
+          "answer": "由分布函数的跳跃可得单个家庭购买电脑数 $X$ 的分布律：$P(X=0)=0.05,\\ P(X=1)=0.85-0.05=0.80,\\ P(X=2)=1-0.85=0.15$。\\n\\n**单个家庭的期望与方差**\\n$$E(X)=0\\cdot0.05+1\\cdot0.80+2\\cdot0.15=1.1,$$\\n$$E(X^2)=0+1\\cdot0.80+4\\cdot0.15=1.4,\\quad D(X)=1.4-1.1^2=0.19.$$\\n\\n**(1) 电脑总数 $T=\\sum_{i=1}^{400}X_i>450$ 的概率**\\n\\n$E(T)=400\\times1.1=440$，$D(T)=400\\times0.19=76$，$\\sqrt{D(T)}=\\sqrt{76}\\approx 8.718$。由中心极限定理 $T\\stackrel{\\text{近似}}{\\sim} N(440,76)$：\\n$$P(T>450)=P\\!\\left(\\frac{T-440}{\\sqrt{76}}>\\frac{450-440}{8.718}\\right)\\approx 1-\\Phi(1.15)=1-0.8749=0.1251.$$\\n\\n**(2) 购买 $1$ 台电脑的家庭数 $Y\\le 340$ 的概率**\\n\\n每家「购买 $1$ 台」的概率 $p=0.80$，故 $Y\\sim B(400,0.80)$。$E(Y)=400\\times0.8=320$，$D(Y)=400\\times0.8\\times0.2=64$，$\\sqrt{D(Y)}=8$。由棣莫弗–拉普拉斯中心极限定理 $Y\\stackrel{\\text{近似}}{\\sim}N(320,64)$：\\n$$P(Y\\le 340)=P\\!\\left(\\frac{Y-320}{8}\\le\\frac{340-320}{8}\\right)\\approx \\Phi(2.5)=0.9938.$$\\n\\n**答：** (1) $P(T>450)\\approx 1-\\Phi(1.15)=0.1251$；(2) $P(Y\\le 340)\\approx\\Phi(2.5)=0.9938$。",
+          "points": 9
+        },
+        {
+          "stem": "设 $(X_1,X_2,\\cdots,X_n)$ 为取自总体 $X\\sim N(0,\\sigma^2)$ 的简单样本，$\\bar X$ 为样本均值。以下三个统计量是否为 $\\sigma^2$ 的无偏估计，如果不是请矫正为无偏估计，并对矫正后的估计量的有效性从差到好进行排序，给出计算过程。$(1)\\ S_1^2=\\dfrac1n\\sum_{i=1}^{n}X_i^2;\\quad (2)\\ S_2^2=\\dfrac1n\\sum_{i=1}^{n}(X_i-\\bar X)^2;\\quad (3)\\ S_3^2=\\bar X^2.$",
+          "answer": "因 $X\\sim N(0,\\sigma^2)$，故 $E(X_i)=0,\\ D(X_i)=E(X_i^2)=\\sigma^2$。\\n\\n**判别无偏性**\\n\\n(1) $E(S_1^2)=\\dfrac1n\\sum_{i=1}^n E(X_i^2)=\\dfrac1n\\cdot n\\sigma^2=\\sigma^2$。**是无偏估计**，无需矫正，记 $\\hat\\sigma^2_{(1)}=S_1^2$。\\n\\n(2) 已知 $E\\!\\left[\\sum_{i=1}^n(X_i-\\bar X)^2\\right]=(n-1)\\sigma^2$，故 $E(S_2^2)=\\dfrac{n-1}{n}\\sigma^2\\ne\\sigma^2$，**有偏**。矫正为 $\\hat\\sigma^2_{(2)}=\\dfrac{n}{n-1}S_2^2=\\dfrac1{n-1}\\sum_{i=1}^n(X_i-\\bar X)^2$（即样本方差），其期望为 $\\sigma^2$。\\n\\n(3) $\\bar X\\sim N(0,\\sigma^2/n)$，$E(S_3^2)=E(\\bar X^2)=D(\\bar X)+[E(\\bar X)]^2=\\dfrac{\\sigma^2}{n}\\ne\\sigma^2$，**有偏**。矫正为 $\\hat\\sigma^2_{(3)}=n\\bar X^2$，其期望为 $\\sigma^2$。\\n\\n**比较有效性（计算各无偏估计量的方差，方差越小越有效）**\\n\\n(1) $\\dfrac{X_i^2}{\\sigma^2}\\sim\\chi^2(1)$，$D(X_i^2)=\\sigma^4 D(\\chi^2_1)=2\\sigma^4$，故\\n$$D(\\hat\\sigma^2_{(1)})=\\frac1{n^2}\\sum_{i=1}^n D(X_i^2)=\\frac1{n^2}\\cdot n\\cdot 2\\sigma^4=\\frac{2\\sigma^4}{n}.$$\\n\\n(2) $\\dfrac{(n-1)\\hat\\sigma^2_{(2)}}{\\sigma^2}=\\dfrac1{\\sigma^2}\\sum(X_i-\\bar X)^2\\sim\\chi^2(n-1)$，$D(\\chi^2_{n-1})=2(n-1)$，故\\n$$D(\\hat\\sigma^2_{(2)})=\\frac{\\sigma^4}{(n-1)^2}\\cdot 2(n-1)=\\frac{2\\sigma^4}{n-1}.$$\\n\\n(3) $\\dfrac{n\\bar X^2}{\\sigma^2}=\\left(\\dfrac{\\bar X}{\\sigma/\\sqrt n}\\right)^2\\sim\\chi^2(1)$，故 $\\hat\\sigma^2_{(3)}=\\sigma^2\\cdot\\chi^2(1)$，\\n$$D(\\hat\\sigma^2_{(3)})=\\sigma^4 D(\\chi^2_1)=2\\sigma^4.$$\\n\\n**排序**：由于 $n>n-1>1$，有\\n$$D(\\hat\\sigma^2_{(1)})=\\frac{2\\sigma^4}{n}<D(\\hat\\sigma^2_{(2)})=\\frac{2\\sigma^4}{n-1}<D(\\hat\\sigma^2_{(3)})=2\\sigma^4.$$\\n从差到好（由低效到高效）排序为：$\\hat\\sigma^2_{(3)}=n\\bar X^2\\ \\to\\ \\hat\\sigma^2_{(2)}=\\dfrac1{n-1}\\sum(X_i-\\bar X)^2\\ \\to\\ \\hat\\sigma^2_{(1)}=\\dfrac1n\\sum X_i^2$（最有效）。\\n\\n**答：** $S_1^2$ 无偏；$S_2^2,\\ S_3^2$ 有偏，分别矫正为 $\\dfrac1{n-1}\\sum(X_i-\\bar X)^2$ 与 $n\\bar X^2$；有效性从差到好为 $n\\bar X^2,\\ \\dfrac1{n-1}\\sum(X_i-\\bar X)^2,\\ \\dfrac1n\\sum X_i^2$。",
+          "points": 9
+        },
+        {
+          "stem": "已知 $X_1,X_2,\\cdots,X_n$ 是取自总体 $X$ 的样本，且 $X$ 的概率密度函数为 $f(x,\\theta)=\\begin{cases}2\\theta^2 x^{-3}, & x>\\theta>0,\\\\ 0, & \\text{其他.}\\end{cases}$ 求未知参数 $\\theta$ 的矩估计量和最大似然估计量。",
+          "answer": "**矩估计**\\n\\n计算总体一阶矩：\\n$$E(X)=\\int_{\\theta}^{+\\infty} x\\cdot 2\\theta^2 x^{-3}\\,dx=2\\theta^2\\int_{\\theta}^{+\\infty} x^{-2}\\,dx=2\\theta^2\\Big[-x^{-1}\\Big]_{\\theta}^{+\\infty}=2\\theta^2\\cdot\\frac1\\theta=2\\theta.$$\\n令 $E(X)=\\bar X$，即 $2\\theta=\\bar X$，解得矩估计量\\n$$\\hat\\theta_{\\text{矩}}=\\frac{\\bar X}{2}=\\frac1{2n}\\sum_{i=1}^n X_i.$$\\n\\n**最大似然估计**\\n\\n似然函数（要求每个 $x_i>\\theta$）：\\n$$L(\\theta)=\\prod_{i=1}^n 2\\theta^2 x_i^{-3}=2^n\\theta^{2n}\\prod_{i=1}^n x_i^{-3},\\qquad \\theta<\\min_i x_i.$$\\n取对数：$\\ln L(\\theta)=n\\ln 2+2n\\ln\\theta-3\\sum_{i=1}^n\\ln x_i$。\\n\\n$\\dfrac{d\\ln L}{d\\theta}=\\dfrac{2n}{\\theta}>0$，即 $\\ln L(\\theta)$ 关于 $\\theta$ 单调递增。又约束 $\\theta<\\min_i x_i$（且 $\\theta>0$），故 $\\theta$ 取其可行域内最大值时 $L$ 最大，即\\n$$\\hat\\theta_{\\text{MLE}}=\\min\\{X_1,X_2,\\cdots,X_n\\}=X_{(1)}.$$\\n\\n**答：** 矩估计量 $\\hat\\theta=\\dfrac{\\bar X}{2}$；最大似然估计量 $\\hat\\theta=\\min\\limits_{1\\le i\\le n}X_i$。",
+          "points": 9
+        },
+        {
+          "stem": "某自动机床加工车轴，根据要求：车轴直径的平均值为 $4.0$，车轴直径的方差不应超过 $0.1\\,(\\text{cm}^2)$。设车轴直径服从正态分布，为检验自动机床的工作状态，从加工后的车轴中随机抽取 $25$ 件产品，测得直径 $x_i=3.2,3.6,3.9,4.3,4.5$，对应频数 $n_i=3,5,8,7,2$。$(1)$ 用 $P$ 值检验法检验车轴直径的平均值是否达到所要求；$(2)$ 用经典假设检验法检验机床是否达到所要求的精度（方差越小精度越高）。显著性水平均 $\\alpha=0.05$。",
+          "answer": "**先据频数算样本均值与样本方差**（$n=25$）\\n\\n$$\\bar x=\\frac1{25}\\big(3.2\\times3+3.6\\times5+3.9\\times8+4.3\\times7+4.5\\times2\\big)=\\frac{97.9}{25}=3.916.$$\\n\\n离差平方和：\\n$$\\sum n_i(x_i-\\bar x)^2=3(3.2-3.916)^2+5(3.6-3.916)^2+8(3.9-3.916)^2+7(4.3-3.916)^2+2(4.5-3.916)^2=3.7536.$$\\n样本方差（无偏，除以 $n-1=24$）：\\n$$s^2=\\frac{3.7536}{24}=0.1564,\\qquad s=\\sqrt{0.1564}\\approx 0.3955.$$\\n\\n**(1) 均值检验（$P$ 值法，$\\sigma^2$ 未知，用 $t$ 检验）**\\n\\n检验 $H_0:\\mu=4.0\\ \\leftrightarrow\\ H_1:\\mu\\ne 4.0$。检验统计量\\n$$t=\\frac{\\bar x-\\mu_0}{s/\\sqrt n}=\\frac{3.916-4.0}{0.3955/\\sqrt{25}}=\\frac{-0.084}{0.0791}\\approx -1.062,\\qquad |t|\\approx 1.062.$$\\n自由度 $n-1=24$。由附表 $t_{0.15}(24)=1.059$，即 $P(T>1.059)=0.15$，故单侧 $P(T>1.062)\\approx 0.15$，双侧 $P$ 值\\n$$P=2P(T>|t|)\\approx 2\\times 0.15=0.30.$$\\n因 $P\\approx 0.30>\\alpha=0.05$，**不能拒绝 $H_0$**，即认为车轴直径平均值达到要求（$\\mu=4.0$）。\\n\\n**(2) 方差检验（经典假设检验法，$\\chi^2$ 检验）**\\n\\n精度越高方差越小，要求 $\\sigma^2\\le 0.1$。检验 $H_0:\\sigma^2\\le 0.1\\ \\leftrightarrow\\ H_1:\\sigma^2>0.1$（右侧检验）。检验统计量\\n$$\\chi^2=\\frac{(n-1)s^2}{\\sigma_0^2}=\\frac{\\sum n_i(x_i-\\bar x)^2}{\\sigma_0^2}=\\frac{3.7536}{0.1}=37.536.$$\\n在 $H_0$ 边界 $\\sigma^2=0.1$ 下 $\\chi^2\\sim\\chi^2(24)$。右侧检验拒绝域为 $\\chi^2>\\chi^2_{0.05}(24)=36.415$。\\n因 $\\chi^2=37.536>36.415$，**落入拒绝域，拒绝 $H_0$**，即认为方差超过 $0.1$，机床未达到所要求的精度。\\n\\n**答：** (1) $\\bar x=3.916,\\ s^2=0.1564$；$|t|\\approx1.062$，双侧 $P\\approx0.30>0.05$，不拒绝 $H_0$，平均值达到要求。(2) $\\chi^2=37.536>\\chi^2_{0.05}(24)=36.415$，拒绝 $H_0$，方差超标，机床未达到要求的精度。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}

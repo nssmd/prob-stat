@@ -1,0 +1,203 @@
+{
+  "id": "exfall2024",
+  "title": "概率论与数理统计 期末真题（2024 秋）",
+  "code": "2024秋·真题",
+  "totalPoints": 100,
+  "duration": "120分钟",
+  "note": "闭卷 · 上海交通大学期末考试真题（2024 学年秋季学期），附完整参考解答",
+  "sections": [
+    {
+      "name": "一、单项选择题",
+      "desc": "每小题 3 分，共 36 分。每题只有一个正确选项。",
+      "type": "single",
+      "questions": [
+        {
+          "stem": "设 $A,B$ 为两个概率不为零的互不相容随机事件，考虑以下命题：(i) $P(\\bar A\\,\\bar B)=0$；(ii) $P(AB)=P(A)P(B)$；(iii) $P(\\bar A\\cup\\bar B)=1$；(iv) $P(A-B)=P(A)$；(v) $P(A)=1-P(B)$。以下选项中全部正确的有",
+          "options": [
+            "(i)(iii)(iv)",
+            "(ii)(iii)(v)",
+            "(iii)(iv)",
+            "(iii)(v)"
+          ],
+          "answer": "C",
+          "explanation": "互不相容即 $AB=\\varnothing$，$P(AB)=0$，且 $P(A),P(B)>0$。\n(i) $\\bar A\\,\\bar B=\\overline{A\\cup B}$，$P=1-P(A)-P(B)$，一般不为 $0$，错。\n(ii) 左边 $P(AB)=0$，右边 $P(A)P(B)>0$，错。\n(iii) $\\bar A\\cup\\bar B=\\overline{AB}$，$P=1-P(AB)=1-0=1$，对。\n(iv) $A-B=A\\bar B=A$（因 $AB=\\varnothing$），故 $P(A-B)=P(A)$，对。\n(v) 等价于 $P(A)+P(B)=1$ 即 $P(A\\cup B)=1$，一般不成立，错。\n故全部正确的为 (iii)(iv)，选 C。",
+          "points": 3
+        },
+        {
+          "stem": "假设随机变量 $X$ 服从指数分布，则随机变量 $Y=\\min\\{X,2\\}$ 的分布函数",
+          "options": [
+            "是连续函数",
+            "至少有两个间断点",
+            "是阶梯函数",
+            "只有一个间断点"
+          ],
+          "answer": "D",
+          "explanation": "设 $X\\sim E(\\lambda)$。当 $y<2$ 时 $F_Y(y)=P(\\min(X,2)\\le y)=P(X\\le y)=1-e^{-\\lambda y}$（连续）；当 $y\\ge 2$ 时 $F_Y(y)=1$。在 $y=2$ 处有正概率 $P(Y=2)=P(X\\ge 2)=e^{-2\\lambda}>0$，分布函数出现一个跳跃。除 $y=2$ 外处处连续，故恰有一个间断点，选 D。",
+          "points": 3
+        },
+        {
+          "stem": "设二维随机变量 $(X,Y)\\sim N(1,1;0,1;0)$，则 $P\\big((X-1)Y<0\\big)=$",
+          "options": [
+            "$\\dfrac{1}{2}$",
+            "$\\dfrac{1}{4}$",
+            "$0$",
+            "$\\dfrac{3}{4}$"
+          ],
+          "answer": "A",
+          "explanation": "由参数知 $X\\sim N(1,1),\\,Y\\sim N(0,1)$，相关系数 $\\rho=0$，故 $X,Y$ 独立。令 $U=X-1\\sim N(0,1)$，$V=Y\\sim N(0,1)$，二者独立且各自关于 $0$ 对称。$P(UV<0)=P(U>0,V<0)+P(U<0,V>0)=\\tfrac14+\\tfrac14=\\tfrac12$，选 A。",
+          "points": 3
+        },
+        {
+          "stem": "设 $(X_1,X_2,\\cdots,X_5)$ 是取自正态总体 $X\\sim N(\\mu_1,\\sigma^2)$ 的一个样本，$(Y_1,Y_2,\\cdots,Y_5)$ 是取自正态总体 $Y\\sim N(\\mu_2,\\sigma^2)$ 的一个样本，且两样本独立，则 $D\\Big[\\sum_{i=1}^{5}(X_i-\\bar X)^2+\\sum_{i=1}^{5}(Y_i-\\bar Y)^2\\Big]=$",
+          "options": [
+            "$8\\sigma^2$",
+            "$16\\sigma^2$",
+            "$8\\sigma^4$",
+            "$16\\sigma^4$"
+          ],
+          "answer": "D",
+          "explanation": "$\\dfrac{\\sum_{i=1}^{5}(X_i-\\bar X)^2}{\\sigma^2}\\sim\\chi^2(4)$，其方差为 $2\\times4=8$，故 $D\\big[\\sum(X_i-\\bar X)^2\\big]=\\sigma^4\\cdot 8=8\\sigma^4$；同理 $Y$ 部分方差也是 $8\\sigma^4$。两样本独立，方差可加：$8\\sigma^4+8\\sigma^4=16\\sigma^4$，选 D。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X_1,X_2,\\cdots,X_n$ 是来自总体 $X\\sim N(\\mu,\\sigma^2)$ 的一个样本。在假设 $H_0:\\sigma^2\\le 1,\\,H_1:\\sigma^2>1$ 的 $p$ 值假设检验中，根据检验统计量样本观察值计算得到 $p$ 值为 $0.035$，以下结论正确的为",
+          "options": [
+            "在显著性水平 $\\alpha=0.05$ 下，接受 $H_0:\\sigma^2\\le1$",
+            "在显著性水平 $\\alpha=0.01$ 下，拒绝 $H_0:\\sigma^2\\le1$",
+            "在同样的样本数据下，当检验问题改为 $H_0:\\sigma^2=1,\\,H_1:\\sigma^2\\ne1$ 时，在显著性水平 $\\alpha=0.05$ 下，不能拒绝 $H_0:\\sigma^2=1$",
+            "在同样的样本数据下，当检验问题改为 $H_0:\\sigma^2=1,\\,H_1:\\sigma^2\\ne1$ 时，在显著性水平 $\\alpha=0.01$ 下，拒绝 $H_0:\\sigma^2=1$"
+          ],
+          "answer": "C",
+          "explanation": "原检验为右侧检验，$p=0.035$。(A) $p=0.035<0.05$ 应拒绝 $H_0$ 而非接受，错；(B) $p=0.035>0.01$ 不能拒绝，错。改为双侧检验后双侧 $p$ 值 $=2\\times0.035=0.07$。(C) 在 $\\alpha=0.05$ 下 $0.07>0.05$，不能拒绝 $H_0$，对；(D) 在 $\\alpha=0.01$ 下 $0.07>0.01$，也不能拒绝，故 D 错。选 C。",
+          "points": 3
+        },
+        {
+          "stem": "设总体 $X$ 的概率密度为 $f(x;\\theta)=\\begin{cases}\\dfrac{2x}{3\\theta^2}, & \\theta<x<2\\theta,\\\\[2pt] 0, & \\text{其他},\\end{cases}$ 其中 $\\theta$ 是未知参数，$X_1,X_2,X_3$ 是来自总体的简单随机样本，若 $\\sum_{i=1}^{3}c_iX_i$ 是 $\\theta$ 的无偏估计量，当 $c_i$ 的取值为（　）时，可以使得其成为此样本的线性估计量中的最有效估计量。",
+          "options": [
+            "$c_1=\\dfrac{1}{3},\\,c_2=\\dfrac{1}{3},\\,c_3=\\dfrac{1}{3}$",
+            "$c_1=\\dfrac{2}{14},\\,c_2=\\dfrac{3}{14},\\,c_3=\\dfrac{4}{14}$",
+            "$c_1=\\dfrac{1}{7},\\,c_2=\\dfrac{1}{7},\\,c_3=\\dfrac{1}{7}$",
+            "$c_1=\\dfrac{3}{14},\\,c_2=\\dfrac{3}{14},\\,c_3=\\dfrac{3}{14}$"
+          ],
+          "answer": "D",
+          "explanation": "先求 $E(X)=\\int_\\theta^{2\\theta}x\\cdot\\dfrac{2x}{3\\theta^2}\\,dx=\\dfrac{2}{3\\theta^2}\\cdot\\dfrac{x^3}{3}\\Big|_\\theta^{2\\theta}=\\dfrac{2}{9\\theta^2}(8\\theta^3-\\theta^3)=\\dfrac{14}{9}\\theta$。无偏要求 $E\\big[\\sum c_iX_i\\big]=\\dfrac{14}{9}\\theta\\sum c_i=\\theta$，即 $\\sum c_i=\\dfrac{9}{14}$。选项 B、D 均满足无偏（A 之和为 $1$、C 之和为 $\\tfrac37$，均不满足）。在 $\\sum c_i=\\tfrac{9}{14}$ 约束下，$D\\big[\\sum c_iX_i\\big]=D(X)\\sum c_i^2$，由 Cauchy 不等式当各 $c_i$ 相等时 $\\sum c_i^2$ 最小，即 $c_i=\\dfrac{9/14}{3}=\\dfrac{3}{14}$。比较 D 的 $\\sum c_i^2=\\tfrac{27}{196}$ 小于 B 的 $\\tfrac{29}{196}$，故 D 最有效，选 D。",
+          "points": 3
+        },
+        {
+          "stem": "设随机变量 $X,Y$ 相互独立，$X\\sim E(\\lambda_1),\\,Y\\sim E(\\lambda_2)$，则 $P\\Big(\\dfrac{Y}{X}>1\\Big)=$",
+          "options": [
+            "$\\dfrac{\\lambda_1}{\\lambda_1+\\lambda_2}$",
+            "$\\dfrac{\\lambda_2}{\\lambda_1+\\lambda_2}$",
+            "$\\dfrac{\\lambda_1}{\\lambda_2}$",
+            "$\\dfrac{\\lambda_2}{\\lambda_1}$"
+          ],
+          "answer": "A",
+          "explanation": "$P\\big(\\tfrac{Y}{X}>1\\big)=P(Y>X)$（$X,Y>0$）。$P(Y>X)=\\int_0^\\infty \\lambda_1 e^{-\\lambda_1 x}P(Y>x)\\,dx=\\int_0^\\infty \\lambda_1 e^{-\\lambda_1 x}e^{-\\lambda_2 x}\\,dx=\\dfrac{\\lambda_1}{\\lambda_1+\\lambda_2}$，选 A。",
+          "points": 3
+        },
+        {
+          "stem": "设随机变量序列 $X_1,X_2,\\cdots,X_n,\\cdots$ 相互独立、同分布，且 $E(X_i)=3$，$D(X_i)=4$，$i=1,2,\\cdots$，则下列选项不正确的是",
+          "options": [
+            "$\\dfrac{1}{n}\\sum_{i=1}^{n}X_i\\xrightarrow{\\;P\\;}3$",
+            "$\\dfrac{1}{n}\\sum_{i=1}^{n}X_i^2\\xrightarrow{\\;P\\;}13$",
+            "$\\dfrac{1}{n}\\sum_{i=1}^{n}X_i^3\\xrightarrow{\\;P\\;}27$",
+            "$\\forall\\,\\varepsilon>0,\\ \\lim\\limits_{n\\to+\\infty}P\\Big(\\big|\\dfrac{1}{n}\\sum_{i=1}^{n}X_i-3\\big|>\\varepsilon\\Big)=0$"
+          ],
+          "answer": "C",
+          "explanation": "由大数定律 $\\frac1n\\sum X_i\\xrightarrow{P}E(X)=3$，故 A、D 正确（D 即 A 的依概率收敛定义式）。$E(X_i^2)=D+E^2=4+9=13$，故 B 正确。而 $E(X_i^3)$ 仅由均值与方差无法确定（涉及三阶矩，未知），由大数定律 $\\frac1n\\sum X_i^3\\xrightarrow{P}E(X^3)$，一般 $\\ne 27=3^3$，故 C 不正确。选 C。",
+          "points": 3
+        },
+        {
+          "stem": "设 $(X_1,X_2,\\cdots,X_n)$ 为取自总体 $X\\sim N(\\mu,\\sigma^2)$ 的样本，$\\bar X$ 和 $S^2$ 为样本均值和样本方差，随机变量 $Y$ 与 $X$ 有相同的分布 $Y\\sim N(\\mu,\\sigma^2)$，且 $X_1,X_2,\\cdots,X_n,Y$ 独立。若 $\\dfrac{a(\\bar X-\\mu)^2}{(n-1)S^2+(Y-\\mu)^2}$ 服从分布 $F(1,n)$，则 $a=$",
+          "options": [
+            "$1$",
+            "$n$",
+            "$n^2$",
+            "$n+1$"
+          ],
+          "answer": "C",
+          "explanation": "$\\bar X-\\mu\\sim N(0,\\sigma^2/n)$，故 $\\dfrac{n(\\bar X-\\mu)^2}{\\sigma^2}\\sim\\chi^2(1)$。又 $\\dfrac{(n-1)S^2}{\\sigma^2}\\sim\\chi^2(n-1)$、$\\dfrac{(Y-\\mu)^2}{\\sigma^2}\\sim\\chi^2(1)$ 且相互独立，故 $\\dfrac{(n-1)S^2+(Y-\\mu)^2}{\\sigma^2}\\sim\\chi^2(n)$。于是 $F=\\dfrac{\\big[n(\\bar X-\\mu)^2/\\sigma^2\\big]/1}{\\big[((n-1)S^2+(Y-\\mu)^2)/\\sigma^2\\big]/n}=\\dfrac{n^2(\\bar X-\\mu)^2}{(n-1)S^2+(Y-\\mu)^2}\\sim F(1,n)$，对照得 $a=n^2$，选 C。",
+          "points": 3
+        },
+        {
+          "stem": "随机试验 $E$ 有三种两两互斥的结果 $A_1,A_2,A_3$，且三种结果发生的概率均为 $\\dfrac{1}{3}$，将该实验独立重复做 $2$ 次，$X$ 表示 $2$ 次实验中结果 $A_1$ 发生的次数，$Y$ 表示 $2$ 次实验中结果 $A_2$ 发生的次数，则 $X$ 与 $Y$ 的相关系数为",
+          "options": [
+            "$-\\dfrac{1}{2}$",
+            "$-\\dfrac{1}{3}$",
+            "$\\dfrac{1}{2}$",
+            "$\\dfrac{1}{3}$"
+          ],
+          "answer": "A",
+          "explanation": "$(X,Y)$ 服从多项分布，$n=2$，$p_1=p_2=p_3=\\tfrac13$。多项分布中 $\\mathrm{Cov}(X,Y)=-np_1p_2=-2\\cdot\\tfrac13\\cdot\\tfrac13=-\\tfrac29$；$D(X)=np_1(1-p_1)=2\\cdot\\tfrac13\\cdot\\tfrac23=\\tfrac49$，同理 $D(Y)=\\tfrac49$。故 $\\rho=\\dfrac{-2/9}{\\sqrt{(4/9)(4/9)}}=\\dfrac{-2/9}{4/9}=-\\dfrac12$，选 A。",
+          "points": 3
+        },
+        {
+          "stem": "某单位有 $100$ 台电话分机，每台分机有 $10\\%$ 的时间要使用外线通话。假定每台分机是否使用外线是相互独立的，要以 $95\\%$ 以上的概率保证分机用外线时不等待，试用中心极限定理估计该单位总机至少安装的外线数为",
+          "options": [
+            "$14$",
+            "$15$",
+            "$16$",
+            "$17$"
+          ],
+          "answer": "B",
+          "explanation": "设同时使用外线的分机数 $S\\sim B(100,0.1)$，$E(S)=10$，$D(S)=100\\cdot0.1\\cdot0.9=9$，$\\sigma=3$。设装 $m$ 条外线，需 $P(S\\le m)\\ge0.95$。由中心极限定理 $P(S\\le m)\\approx\\Phi\\big(\\tfrac{m-10}{3}\\big)\\ge0.95$，而 $\\Phi(1.645)=0.95$，故 $\\tfrac{m-10}{3}\\ge1.645$，$m\\ge10+4.935=14.935$，取最小整数 $m=15$，选 B。",
+          "points": 3
+        },
+        {
+          "stem": "某家具厂需设计家用门高度，要求人的头顶碰到上门框的机会不超过 $0.001$，假设人的身高服从正态分布 $X\\sim N(\\mu,\\sigma^2)$（单位：厘米），$(X_1,X_2,\\cdots,X_{10})$ 是取自 $X$ 的一个简单随机样本，$\\sum_{i=1}^{10}(X_i-\\bar X)^2=50$，$\\bar X=175$，则门的最低高度的极大似然估计值为",
+          "options": [
+            "$182.09$",
+            "$181.73$",
+            "$180.59$",
+            "$183.24$"
+          ],
+          "answer": "B",
+          "explanation": "设门高为 $h$，要求 $P(X>h)\\le0.001$，即 $P(X\\le h)\\ge0.999$，最低门高满足 $h=\\mu+z\\sigma$，其中 $\\Phi(z)=0.999$。查表 $\\Phi(3.01)=0.999$，故 $z=3.01$。极大似然估计：$\\hat\\mu=\\bar X=175$，$\\hat\\sigma^2=\\dfrac{1}{n}\\sum_{i=1}^{10}(X_i-\\bar X)^2=\\dfrac{50}{10}=5$，$\\hat\\sigma=\\sqrt5\\approx2.236$。由不变性，$\\hat h=\\hat\\mu+3.01\\hat\\sigma=175+3.01\\times2.236\\approx175+6.73=181.73$，选 B。",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "name": "二、计算与证明题",
+      "desc": "共 64 分，写出主要步骤与推导过程。",
+      "type": "calc",
+      "questions": [
+        {
+          "stem": "假设有 $100$ 件产品（其中 $4$ 件次品，其余正品），在检验中，将次品误判为正品的概率为 $0.01$，将正品误判为次品的概率为 $0.05$。对这批产品采用的检验标准为：一次抽取 $3$ 件，只要判定三件都是正品，则这批产品通过检验。试求：（1）这批产品通过检验的概率；（2）若这批产品通过了检验，抽取的三件确实都是正品的概率。",
+          "answer": "**记号与思路.** 一次随机抽取 $3$ 件（不放回）。设抽到的 $3$ 件中含次品数为 $k$（$k=0,1,2,3$），则正品为 $3-k$ 件。每件正品被判为“正品”的概率为 $1-0.05=0.95$；每件次品被误判为“正品”的概率为 $0.01$。“通过检验”即三件全部被判为正品。\n\n**抽样分布（超几何）.** 总体共 $100$ 件，其中次品 $4$ 件、正品 $96$ 件，故\n$$P(K=k)=\\frac{\\binom{4}{k}\\binom{96}{3-k}}{\\binom{100}{3}},\\qquad k=0,1,2,3.$$\n计算得 $\\binom{100}{3}=161700$，\n$$P(K=0)=\\frac{\\binom{96}{3}}{161700}=\\frac{142880}{161700}\\approx 0.8836,\\quad P(K=1)=\\frac{\\binom{4}{1}\\binom{96}{2}}{161700}=\\frac{18240}{161700}\\approx 0.1128,$$\n$$P(K=2)=\\frac{\\binom{4}{2}\\binom{96}{1}}{161700}=\\frac{576}{161700}\\approx 0.003562,\\quad P(K=3)=\\frac{\\binom{4}{3}}{161700}=\\frac{4}{161700}\\approx 0.0000247.$$\n\n**（1）通过检验的概率.** 设事件 $A=\\{\\text{通过检验}\\}$。给定 $K=k$ 时，$3-k$ 件正品都判为正品、$k$ 件次品都误判为正品的条件概率为 $0.95^{\\,3-k}\\cdot 0.01^{\\,k}$。由全概率公式\n$$P(A)=\\sum_{k=0}^{3}P(K=k)\\,(0.95)^{3-k}(0.01)^{k}.$$\n逐项：\n$$k=0:\\ 0.8836\\times0.95^{3}=0.8836\\times0.857375=0.75759,$$\n$$k=1:\\ 0.1128\\times0.95^{2}\\times0.01=0.1128\\times0.9025\\times0.01=0.001018,$$\n$$k=2:\\ 0.003562\\times0.95\\times0.01^{2}=3.38\\times10^{-6},$$\n$$k=3:\\ 0.0000247\\times0.01^{3}\\approx 0.$$\n故\n$$\\boxed{P(A)\\approx 0.75759+0.001018+0.0000034\\approx 0.7586.}$$\n\n**（2）通过检验时三件确实都是正品的概率.** 所求为 $P(K=0\\mid A)$。三件都是正品（$K=0$）且通过检验，对应概率为 $P(K=0)\\cdot0.95^{3}=0.75759$。由条件概率（贝叶斯）\n$$P(K=0\\mid A)=\\frac{P(K=0)\\,0.95^{3}}{P(A)}=\\frac{0.75759}{0.7586}\\approx 0.9987.$$\n$$\\boxed{P(K=0\\mid A)\\approx 0.9987.}$$",
+          "points": 9
+        },
+        {
+          "stem": "某工厂每台设备维修需两个阶段，第一阶段和第二阶段所需时间分别服从参数为 $10$ 和参数为 $8$ 的指数分布，且两阶段所需时间（单位：小时）相互独立。现有 $40$ 台设备需要维修，试用中心极限定理估计该维修工作能够在 $8$ 小时内完成的概率。",
+          "answer": "**单台设备的维修时间.** 设第 $i$ 台设备第一、二阶段所需时间分别为 $U_i\\sim E(10)$、$V_i\\sim E(8)$（指数分布参数即速率，故 $E[U_i]=\\tfrac{1}{10}$，$D[U_i]=\\tfrac{1}{10^2}$；$E[V_i]=\\tfrac{1}{8}$，$D[V_i]=\\tfrac{1}{8^2}$），两者独立。单台维修时间 $T_i=U_i+V_i$，于是\n$$E[T_i]=\\frac{1}{10}+\\frac{1}{8}=0.1+0.125=0.225\\ (\\text{小时}),$$\n$$D[T_i]=\\frac{1}{100}+\\frac{1}{64}=0.01+0.015625=0.025625.$$\n\n**$40$ 台总时间.** $40$ 台设备相互独立，总维修时间 $S=\\sum_{i=1}^{40}T_i$。由独立性\n$$E[S]=40\\times0.225=9,\\qquad D[S]=40\\times0.025625=1.025,\\qquad \\sqrt{D[S]}=\\sqrt{1.025}\\approx1.0124.$$\n\n**中心极限定理.** $40$ 个独立同分布随机变量之和近似正态，$S\\approx N(9,\\,1.025)$。故\n$$P(S\\le 8)=\\Phi\\!\\left(\\frac{8-9}{\\sqrt{1.025}}\\right)=\\Phi(-0.99)=1-\\Phi(0.99).$$\n查表 $\\Phi(0.99)=0.8389$，所以\n$$\\boxed{P(S\\le 8)\\approx 1-0.8389=0.1611.}$$\n即维修工作能在 $8$ 小时内完成的概率约为 $0.1611$。",
+          "points": 9
+        },
+        {
+          "stem": "在平炉上进行一项试验，设钢的得率近似服从正态分布 $X\\sim N(\\mu,\\sigma^2)$。最近用此平炉炼 $40$ 炉钢，计算得样本均值 $\\bar X=75$，样本方差 $S^2=7.30$。（1）在显著性水平 $\\alpha=0.05$ 下，平均得率是否显著小于 $78.5$？（2）请给出置信度 $95\\%$ 的方差 $\\sigma^2$ 的置信区间。",
+          "answer": "已知 $n=40$，$\\bar X=75$，$S^2=7.30$（$S=\\sqrt{7.30}\\approx2.7019$），自由度 $n-1=39$。\n\n**（1）单侧 $t$ 检验.** $\\sigma^2$ 未知，检验\n$$H_0:\\ \\mu\\ge 78.5\\quad\\text{vs}\\quad H_1:\\ \\mu<78.5.$$\n检验统计量\n$$t=\\frac{\\bar X-78.5}{S/\\sqrt{n}}=\\frac{75-78.5}{2.7019/\\sqrt{40}}=\\frac{-3.5}{0.42721}\\approx -8.19.$$\n左侧拒绝域为 $t<-t_{0.05}(39)=-1.685$。因为 $t\\approx-8.19<-1.685$，落入拒绝域，**拒绝 $H_0$**，即在 $\\alpha=0.05$ 下平均得率显著小于 $78.5$。\n\n**（2）方差 $\\sigma^2$ 的 $95\\%$ 置信区间.** 由 $\\dfrac{(n-1)S^2}{\\sigma^2}\\sim\\chi^2(n-1)$，置信区间为\n$$\\left(\\frac{(n-1)S^2}{\\chi^2_{0.025}(39)},\\ \\frac{(n-1)S^2}{\\chi^2_{0.975}(39)}\\right).$$\n查表 $\\chi^2_{0.025}(39)=58.120$，$\\chi^2_{0.975}(39)=23.654$，且 $(n-1)S^2=39\\times7.30=284.7$，故\n$$\\left(\\frac{284.7}{58.120},\\ \\frac{284.7}{23.654}\\right)=(4.898,\\ 12.036).$$\n$$\\boxed{\\sigma^2\\ \\text{的 }95\\%\\ \\text{置信区间约为}\\ (4.90,\\ 12.04).}$$",
+          "points": 9
+        },
+        {
+          "stem": "设二维随机变量 $(X,Y)$ 的联合概率密度为 $f(x,y)=\\begin{cases}cxy,&0<x<y<1;\\\\[2pt]0,&\\text{其他.}\\end{cases}$ 试求：（1）常数 $c$；（2）条件概率 $P\\!\\left(Y<\\sqrt{X}\\,\\middle|\\,X>\\tfrac12\\right)$；（3）条件密度函数 $f_{Y\\mid X}(y\\mid x)$，并写出 $X=\\tfrac12$ 时 $Y$ 的条件密度函数。",
+          "answer": "**（1）求 $c$.** 由归一性，在区域 $\\{0<x<y<1\\}$ 上积分等于 $1$：\n$$\\int_0^1\\!\\!\\int_0^{y} cxy\\,dx\\,dy=\\int_0^1 cy\\cdot\\frac{y^2}{2}\\,dy=\\frac{c}{2}\\int_0^1 y^3\\,dy=\\frac{c}{2}\\cdot\\frac14=\\frac{c}{8}=1.$$\n故 $\\boxed{c=8.}$\n\n**$X$ 的边缘密度.** 对 $0<x<1$，\n$$f_X(x)=\\int_x^1 8xy\\,dy=8x\\cdot\\frac{1-x^2}{2}=4x(1-x^2),\\qquad 0<x<1.$$\n\n**（2）条件概率.** 由条件概率定义\n$$P\\!\\left(Y<\\sqrt X\\,\\middle|\\,X>\\tfrac12\\right)=\\frac{P\\!\\left(Y<\\sqrt X,\\ X>\\tfrac12\\right)}{P\\!\\left(X>\\tfrac12\\right)}.$$\n分母：\n$$P\\!\\left(X>\\tfrac12\\right)=\\int_{1/2}^{1}4x(1-x^2)\\,dx=\\Big[2x^2-x^4\\Big]_{1/2}^{1}=(2-1)-\\left(\\tfrac12-\\tfrac{1}{16}\\right)=1-\\tfrac{7}{16}=\\frac{9}{16}.$$\n分子：在 $\\{0<x<y<1\\}$ 内，又要求 $x>\\tfrac12$ 且 $y<\\sqrt x$；当 $\\tfrac12<x<1$ 有 $x<\\sqrt x<1$，故 $y$ 从 $x$ 到 $\\sqrt x$：\n$$P\\!\\left(Y<\\sqrt X,X>\\tfrac12\\right)=\\int_{1/2}^{1}\\!\\!\\int_{x}^{\\sqrt x}8xy\\,dy\\,dx=\\int_{1/2}^{1}4x\\big(x-x^2\\big)\\,dx=\\int_{1/2}^{1}\\big(4x^2-4x^3\\big)\\,dx.$$\n$$=\\Big[\\tfrac{4}{3}x^3-x^4\\Big]_{1/2}^{1}=\\left(\\tfrac43-1\\right)-\\left(\\tfrac43\\cdot\\tfrac18-\\tfrac{1}{16}\\right)=\\tfrac13-\\left(\\tfrac16-\\tfrac{1}{16}\\right)=\\tfrac13-\\tfrac{5}{48}=\\frac{11}{48}.$$\n所以\n$$P\\!\\left(Y<\\sqrt X\\,\\middle|\\,X>\\tfrac12\\right)=\\frac{11/48}{9/16}=\\frac{11}{48}\\cdot\\frac{16}{9}=\\frac{11}{27}\\approx 0.4074.$$\n$$\\boxed{P\\!\\left(Y<\\sqrt X\\mid X>\\tfrac12\\right)=\\frac{11}{27}\\approx0.407.}$$\n\n**（3）条件密度.** 对 $0<x<1$，当 $x<y<1$ 时\n$$f_{Y\\mid X}(y\\mid x)=\\frac{f(x,y)}{f_X(x)}=\\frac{8xy}{4x(1-x^2)}=\\frac{2y}{1-x^2},\\qquad x<y<1,$$\n其余为 $0$。特别地，当 $X=\\tfrac12$ 时，$1-x^2=1-\\tfrac14=\\tfrac34$，故\n$$f_{Y\\mid X}\\!\\left(y\\,\\middle|\\,\\tfrac12\\right)=\\frac{2y}{3/4}=\\frac{8y}{3},\\qquad \\tfrac12<y<1,$$\n其余为 $0$（可验证 $\\int_{1/2}^{1}\\tfrac{8y}{3}\\,dy=1$）。",
+          "points": 9
+        },
+        {
+          "stem": "若某电子设备的输出服从 $\\sigma=2$ 的 Rayleigh 分布，密度函数为 $f(x)=\\begin{cases}\\dfrac{x}{\\sigma^2}e^{-x^2/(2\\sigma^2)},&x\\ge 0,\\\\[4pt]0,&x<0.\\end{cases}$ 随机变量 $Z$ 表示 $5$ 次独立输出中的最小输出。（1）求 $Z$ 的分布函数；（2）求 $P(Z>1)$。",
+          "answer": "**单次输出的分布函数.** $\\sigma=2$，即 $\\sigma^2=4$，$2\\sigma^2=8$。对 $x\\ge0$，\n$$F(x)=\\int_0^x \\frac{t}{4}e^{-t^2/8}\\,dt=\\Big[-e^{-t^2/8}\\Big]_0^x=1-e^{-x^2/8},$$\n当 $x<0$ 时 $F(x)=0$。故单次输出的生存函数为 $1-F(x)=e^{-x^2/8}\\ (x\\ge0)$。\n\n**（1）$Z=\\min$ 的分布函数.** 设 $5$ 次独立输出为 $X_1,\\dots,X_5$（i.i.d.），$Z=\\min_{1\\le i\\le5}X_i$。利用\n$$P(Z>z)=\\prod_{i=1}^{5}P(X_i>z)=\\big(1-F(z)\\big)^5,\\qquad z\\ge0.$$\n因此对 $z\\ge0$，\n$$F_Z(z)=1-\\big(1-F(z)\\big)^5=1-\\big(e^{-z^2/8}\\big)^5=1-e^{-5z^2/8};$$\n当 $z<0$ 时 $F_Z(z)=0$。即\n$$\\boxed{F_Z(z)=\\begin{cases}1-e^{-5z^2/8},&z\\ge0,\\\\[2pt]0,&z<0.\\end{cases}}$$\n\n**（2）$P(Z>1)$.**\n$$P(Z>1)=1-F_Z(1)=e^{-5\\cdot1^2/8}=e^{-5/8}\\approx 0.5353.$$\n$$\\boxed{P(Z>1)=e^{-5/8}\\approx0.535.}$$",
+          "points": 9
+        },
+        {
+          "stem": "设总体 $X$ 的分布函数为 $F(x;\\theta)=\\begin{cases}1-\\dfrac{1}{x^{\\theta}},&x>1,\\\\[4pt]0,&x\\le 1,\\end{cases}$ 其中 $\\theta\\ (\\theta>1)$ 是未知参数，$X_1,X_2,\\dots,X_n$ 是来自总体的样本。求：（1）$\\theta$ 的矩估计量；（2）$\\theta$ 的最大似然估计量。",
+          "answer": "**总体密度.** 对 $x>1$，$f(x;\\theta)=F'(x;\\theta)=\\theta\\,x^{-\\theta-1}$；当 $x\\le1$ 时 $f=0$。\n\n**（1）矩估计.** 先求总体均值（要求 $\\theta>1$ 才收敛）：\n$$E[X]=\\int_1^\\infty x\\cdot\\theta x^{-\\theta-1}\\,dx=\\theta\\int_1^\\infty x^{-\\theta}\\,dx=\\theta\\left[\\frac{x^{1-\\theta}}{1-\\theta}\\right]_1^\\infty=\\theta\\cdot\\frac{1}{\\theta-1}=\\frac{\\theta}{\\theta-1}.$$\n令总体一阶矩等于样本一阶矩 $\\bar X$：\n$$\\frac{\\theta}{\\theta-1}=\\bar X\\ \\Longrightarrow\\ \\theta=\\bar X(\\theta-1)\\ \\Longrightarrow\\ \\theta(\\bar X-1)=\\bar X.$$\n故矩估计量\n$$\\boxed{\\hat\\theta_{\\text{矩}}=\\frac{\\bar X}{\\bar X-1},\\qquad \\bar X=\\frac1n\\sum_{i=1}^n X_i.}$$\n\n**（2）最大似然估计.** 当所有 $x_i>1$ 时，似然函数\n$$L(\\theta)=\\prod_{i=1}^n \\theta\\,x_i^{-\\theta-1}=\\theta^{\\,n}\\Big(\\prod_{i=1}^n x_i\\Big)^{-\\theta-1}.$$\n取对数\n$$\\ln L(\\theta)=n\\ln\\theta-(\\theta+1)\\sum_{i=1}^n\\ln x_i.$$\n对 $\\theta$ 求导并令其为零：\n$$\\frac{d\\ln L}{d\\theta}=\\frac{n}{\\theta}-\\sum_{i=1}^n\\ln x_i=0\\ \\Longrightarrow\\ \\theta=\\frac{n}{\\sum_{i=1}^n\\ln x_i}.$$\n（二阶导 $-n/\\theta^2<0$，确为极大值。）故最大似然估计量\n$$\\boxed{\\hat\\theta_{\\text{MLE}}=\\frac{n}{\\sum_{i=1}^n\\ln X_i}.}$$",
+          "points": 9
+        },
+        {
+          "stem": "假设测量的随机误差 $X\\sim N(0,5^2)$，试求在 $50$ 次独立重复测量中，至少有两次测量误差的绝对值大于 $9.8$ 的概率 $\\alpha$，并利用泊松分布求出 $\\alpha$ 的近似值（要求小数点后取两位有效数字）。",
+          "answer": "**单次测量误差超限的概率.** $X\\sim N(0,5^2)$，标准化 $X/5\\sim N(0,1)$。单次测量误差绝对值大于 $9.8$ 的概率\n$$p=P(|X|>9.8)=P\\!\\left(\\frac{|X|}{5}>\\frac{9.8}{5}\\right)=P(|Z|>1.96)=2\\big(1-\\Phi(1.96)\\big).$$\n查表 $\\Phi(1.96)=0.975$，故\n$$p=2(1-0.975)=2\\times0.025=0.05.$$\n\n**事件计数.** 设 $50$ 次测量中误差绝对值大于 $9.8$ 的次数为 $Y$，则 $Y\\sim B(50,\\,0.05)$。所求为\n$$\\alpha=P(Y\\ge 2)=1-P(Y=0)-P(Y=1).$$\n\n**泊松近似.** $n=50$ 较大、$p=0.05$ 较小，取 $\\lambda=np=50\\times0.05=2.5$，则 $Y$ 近似服从泊松分布 $P(2.5)$：\n$$P(Y=0)\\approx e^{-\\lambda}=e^{-2.5},\\qquad P(Y=1)\\approx \\lambda e^{-\\lambda}=2.5\\,e^{-2.5}.$$\n查表 $e^{-2.5}=0.0821$，于是\n$$\\alpha\\approx 1-e^{-2.5}-2.5\\,e^{-2.5}=1-(1+2.5)\\,e^{-2.5}=1-3.5\\times0.0821=1-0.28735=0.71265.$$\n小数点后取两位有效数字：\n$$\\boxed{\\alpha\\approx 0.71.}$$",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}

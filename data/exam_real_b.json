@@ -1,0 +1,203 @@
+{
+  "id": "exreal_b",
+  "title": "概率论与数理统计 期末真题（B 卷）",
+  "code": "2025秋·真题",
+  "totalPoints": 100,
+  "duration": "120分钟",
+  "note": "闭卷 · 上海交通大学 2025–2026 学年第一学期期末考试真题（B 卷），附完整参考解答",
+  "sections": [
+    {
+      "name": "一、单项选择题",
+      "desc": "每小题 3 分，共 36 分。每题只有一个正确选项。",
+      "type": "single",
+      "questions": [
+        {
+          "stem": "设二维随机变量 $(X,Y)\\sim N(1,0.3;-1,0.3;0.1)$（即 $\\mu_X=1,\\ \\sigma_X^2=0.3,\\ \\mu_Y=-1,\\ \\sigma_Y^2=0.3,\\ \\rho=0.1$）。则根据切比雪夫不等式，下列四个选项中是概率 $P(Y+1<X<Y+3)$ 的最大下界的为",
+          "options": [
+            "0.46",
+            "0.54",
+            "0.6",
+            "0.4"
+          ],
+          "answer": "A",
+          "explanation": "记 $Z=X-Y$，则 $P(Y+1<X<Y+3)=P(1<X-Y<3)=P(1<Z<3)$。\n\n$E(Z)=\\mu_X-\\mu_Y=1-(-1)=2$，\n$D(Z)=\\sigma_X^2+\\sigma_Y^2-2\\rho\\sigma_X\\sigma_Y=0.3+0.3-2(0.1)\\sqrt{0.3}\\sqrt{0.3}=0.6-0.06=0.54$。\n\n区间 $(1,3)$ 关于 $E(Z)=2$ 对称，$\\varepsilon=1$，故 $P(1<Z<3)=P(|Z-2|<1)$。由切比雪夫不等式\n$$P(|Z-E(Z)|<\\varepsilon)\\ge 1-\\frac{D(Z)}{\\varepsilon^2}=1-\\frac{0.54}{1^2}=0.46.$$\n切比雪夫给出的（可达的）最大下界为 $0.46$，选 (A)。",
+          "points": 3
+        },
+        {
+          "stem": "设随机变量 $X,Y$ 的相关系数 $\\rho=0.3$，若 $Z=4X-0.4$，则 $Y$ 与 $Z$ 的相关系数为",
+          "options": [
+            "1",
+            "0.3",
+            "0.3",
+            "0.6"
+          ],
+          "answer": "B",
+          "explanation": "相关系数在正的线性变换下保持不变。$Z=4X-0.4$ 中 $X$ 的系数 $4>0$，故\n$$\\rho_{YZ}=\\operatorname{sgn}(4)\\,\\rho_{YX}=\\rho_{YX}=\\rho=0.3.$$\n（若系数为负则取相反数。）所以 $Y$ 与 $Z$ 的相关系数仍为 $0.3$，选 (B)。注意选项 (B)、(C) 内容均为 $0.3$，正确答案对应字母 (B)。",
+          "points": 3
+        },
+        {
+          "stem": "设 $(X_1,X_2,\\cdots,X_9)$ 是来自正态总体 $X$ 的简单随机样本，$Y_1=\\dfrac{1}{6}(X_1+X_2+\\cdots+X_6)$，$Y_2=\\dfrac{1}{3}(X_7+X_8+X_9)$，$S^2=\\dfrac{1}{2}\\sum_{i=7}^{9}(X_i-Y_2)^2$，则统计量 $\\dfrac{\\sqrt{2}\\,(Y_1-Y_2)}{S}$ 服从的分布为",
+          "options": [
+            "$t(8)$",
+            "$t(3)$",
+            "$t(9)$",
+            "$t(2)$"
+          ],
+          "answer": "D",
+          "explanation": "设总体 $X\\sim N(\\mu,\\sigma^2)$。\n\n$Y_1\\sim N(\\mu,\\sigma^2/6)$，$Y_2\\sim N(\\mu,\\sigma^2/3)$，且二者独立，故\n$$Y_1-Y_2\\sim N\\!\\Big(0,\\ \\tfrac{\\sigma^2}{6}+\\tfrac{\\sigma^2}{3}\\Big)=N\\!\\Big(0,\\tfrac{\\sigma^2}{2}\\Big),\\qquad \\frac{\\sqrt2\\,(Y_1-Y_2)}{\\sigma}\\sim N(0,1).$$\n\n$Y_2$ 是 $X_7,X_8,X_9$（共 $3$ 个）的样本均值，$S^2=\\frac{1}{3-1}\\sum_{i=7}^9(X_i-Y_2)^2$ 是其样本方差，故\n$$\\frac{(3-1)S^2}{\\sigma^2}=\\frac{2S^2}{\\sigma^2}\\sim\\chi^2(2),\\qquad \\frac{S}{\\sigma}=\\sqrt{\\frac{\\chi^2(2)}{2}}.$$\n\n$Y_1$ 与 $(Y_2,S^2)$ 独立、且 $Y_2$ 与 $S^2$ 独立，故分子与分母独立。于是\n$$\\frac{\\sqrt2\\,(Y_1-Y_2)}{S}=\\frac{\\sqrt2\\,(Y_1-Y_2)/\\sigma}{S/\\sigma}=\\frac{N(0,1)}{\\sqrt{\\chi^2(2)/2}}\\sim t(2).$$\n选 (D)。",
+          "points": 3
+        },
+        {
+          "stem": "设 $a,b$ 为常数，连续型随机变量 $X$ 的分布函数为 $$F(x)=\\begin{cases} ae^{x}, & x<0,\\\\ b+ax, & 0\\le x<2,\\\\ 1, & x\\ge 2,\\end{cases}$$ 则 $E(X)=$",
+          "options": [
+            "$-\\dfrac{1}{3}$",
+            "$\\dfrac{2}{3}$",
+            "$\\dfrac{1}{3}$",
+            "$1$"
+          ],
+          "answer": "C",
+          "explanation": "连续型随机变量的分布函数处处连续。\n\n在 $x=0$ 处：$\\lim_{x\\to0^-}ae^x=a$，而 $F(0)=b$，故 $a=b$。\n在 $x=2$ 处：$\\lim_{x\\to2^-}(b+ax)=b+2a$，而 $F(2)=1$，故 $b+2a=1$。\n\n联立得 $3a=1$，即 $a=b=\\frac13$。\n\n密度 $f(x)=F'(x)$：当 $x<0$ 时 $f(x)=\\frac13 e^x$；当 $0<x<2$ 时 $f(x)=\\frac13$；其余为 $0$。\n\n$$E(X)=\\int_{-\\infty}^{0}x\\cdot\\tfrac13 e^x\\,dx+\\int_0^2 x\\cdot\\tfrac13\\,dx=\\tfrac13(-1)+\\tfrac13\\cdot 2=-\\tfrac13+\\tfrac23=\\tfrac13.$$\n其中 $\\int_{-\\infty}^0 xe^x\\,dx=[(x-1)e^x]_{-\\infty}^0=-1$。选 (C)。",
+          "points": 3
+        },
+        {
+          "stem": "设样本 $(X_1,X_2,\\cdots,X_n)$ 为来自总体 $X\\sim N(\\mu,\\sigma^2)$ 的简单随机样本，$\\mu,\\sigma^2$ 均未知，$\\bar X,\\ S^2$ 分别为样本均值与样本方差。则以下是统计量的为\n\n① $\\bar X-X_1$；② $\\sum_{i=1}^n(X_i-\\bar X)^2$；③ $\\sum_{i=1}^n(X_i-\\mu)^2$；④ $\\bar X-E(X_1)$；⑤ $\\dfrac{1}{\\sigma}X_{(n)}$；⑥ $X_{(n)}-S^2$",
+          "options": [
+            "①②④⑥",
+            "①③④",
+            "①②③④",
+            "①②⑥"
+          ],
+          "answer": "D",
+          "explanation": "统计量是样本的函数，其表达式中不能含有未知参数。\n\n① $\\bar X-X_1$：只含样本，是统计量。\n② $\\sum(X_i-\\bar X)^2$：只含样本，是统计量。\n③ $\\sum(X_i-\\mu)^2$：含未知参数 $\\mu$，不是统计量。\n④ $\\bar X-E(X_1)=\\bar X-\\mu$：含未知参数 $\\mu$，不是统计量。\n⑤ $\\dfrac{1}{\\sigma}X_{(n)}$：含未知参数 $\\sigma$，不是统计量。\n⑥ $X_{(n)}-S^2$：$X_{(n)}$ 为最大次序统计量，只含样本，是统计量。\n\n故为统计量的是 ①②⑥，选 (D)。",
+          "points": 3
+        },
+        {
+          "stem": "设连续型随机变量 $X_1,X_2,\\cdots,X_5$ 独立同分布，则 $P\\{X_5>\\max(X_1,X_2,X_3,X_4)\\}=$",
+          "options": [
+            "$\\dfrac{1}{2}$",
+            "$\\dfrac{1}{4}$",
+            "$\\dfrac{1}{5}$",
+            "$\\dfrac{1}{3}$"
+          ],
+          "answer": "C",
+          "explanation": "事件 $\\{X_5>\\max(X_1,X_2,X_3,X_4)\\}$ 即 $X_5$ 是 $X_1,\\dots,X_5$ 中的最大者。由于 $5$ 个随机变量独立同分布且为连续型（相等的概率为 $0$），由对称性每一个成为最大值的概率相同，均为 $\\dfrac{1}{5}$。故所求概率 $=\\dfrac{1}{5}$，选 (C)。",
+          "points": 3
+        },
+        {
+          "stem": "设随机变量 $X$ 的概率密度 $$f_X(x)=\\begin{cases} xe^{-x}, & x>0,\\\\ 0, & \\text{其他},\\end{cases}$$ $Y=2X^2$，则 $Y$ 的概率密度为",
+          "options": [
+            "$f_Y(y)=\\begin{cases}\\dfrac{1}{4}e^{-\\sqrt{y/2}}, & y>0,\\\\ 0, & \\text{其他}\\end{cases}$",
+            "$f_Y(y)=\\begin{cases}\\dfrac{1}{\\sqrt{y}}e^{-\\sqrt{y/2}}, & y>0,\\\\ 0, & \\text{其他}\\end{cases}$",
+            "$f_Y(y)=\\begin{cases}4ye^{-2y^2}, & y>0,\\\\ 0, & \\text{其他}\\end{cases}$",
+            "$f_Y(y)=\\begin{cases}\\dfrac{1}{\\sqrt{\\pi}}e^{-2y^2}, & y>0,\\\\ 0, & \\text{其他}\\end{cases}$"
+          ],
+          "answer": "A",
+          "explanation": "$X>0$，故 $Y=2X^2>0$，且 $X=\\sqrt{y/2}$ 单调。用分布函数法：对 $y>0$，\n$$F_Y(y)=P(2X^2\\le y)=P\\big(X\\le\\sqrt{y/2}\\big)=F_X\\big(\\sqrt{y/2}\\big).$$\n求导：\n$$f_Y(y)=f_X\\big(\\sqrt{y/2}\\big)\\cdot\\frac{d}{dy}\\sqrt{y/2}.$$\n其中 $\\frac{d}{dy}\\sqrt{y/2}=\\dfrac{1}{2\\sqrt{2y}}$，$f_X(\\sqrt{y/2})=\\sqrt{y/2}\\,e^{-\\sqrt{y/2}}$。代入：\n$$f_Y(y)=\\sqrt{\\frac{y}{2}}\\,e^{-\\sqrt{y/2}}\\cdot\\frac{1}{2\\sqrt{2y}}=\\frac{1}{4}e^{-\\sqrt{y/2}},\\quad y>0.$$\n故 $f_Y(y)=\\frac14 e^{-\\sqrt{y/2}}\\ (y>0)$，其余为 $0$，选 (A)。",
+          "points": 3
+        },
+        {
+          "stem": "已知 $P(A)=0.6,\\ P(B)=0.1,\\ P(C)=0.4,\\ P(A\\mid\\bar C)=0.7$，且已知事件 $A$ 与事件 $B$ 互不相容，事件 $B$ 与事件 $C$ 相互独立，则 $P(A\\mid B\\cup C)=$",
+          "options": [
+            "$\\dfrac{9}{23}$",
+            "$\\dfrac{9}{25}$",
+            "$\\dfrac{21}{23}$",
+            "$\\dfrac{17}{23}$"
+          ],
+          "answer": "A",
+          "explanation": "$$P(A\\mid B\\cup C)=\\frac{P\\big(A\\cap(B\\cup C)\\big)}{P(B\\cup C)}=\\frac{P(A\\cap B)+P(A\\cap C)-P(A\\cap B\\cap C)}{P(B\\cup C)}.$$\n\n分子：$A,B$ 互不相容，$P(A\\cap B)=0$，$P(A\\cap B\\cap C)=0$，故分子 $=P(A\\cap C)$。\n由 $P(A\\mid\\bar C)=0.7$ 得 $P(A\\cap\\bar C)=0.7\\times P(\\bar C)=0.7\\times0.6=0.42$，所以 $P(A\\cap C)=P(A)-P(A\\cap\\bar C)=0.6-0.42=0.18$。\n\n分母：$B,C$ 独立，$P(B\\cap C)=P(B)P(C)=0.1\\times0.4=0.04$，故 $P(B\\cup C)=0.1+0.4-0.04=0.46$。\n\n$$P(A\\mid B\\cup C)=\\frac{0.18}{0.46}=\\frac{18}{46}=\\frac{9}{23}.$$\n选 (A)。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X$ 服从参数为 $\\alpha$ 的泊松分布，$Y$ 服从参数为 $\\lambda$ 的指数分布，且满足 $E(X)=3E(Y)$，$D(X)=D(Y)$，则 $\\alpha=$",
+          "options": [
+            "$\\dfrac{1}{3}$",
+            "$9$",
+            "$3$",
+            "$\\sqrt{3}$"
+          ],
+          "answer": "B",
+          "explanation": "泊松分布 $X\\sim P(\\alpha)$：$E(X)=\\alpha,\\ D(X)=\\alpha$。\n指数分布 $Y\\sim E(\\lambda)$：$E(Y)=\\dfrac{1}{\\lambda},\\ D(Y)=\\dfrac{1}{\\lambda^2}$。\n\n由 $E(X)=3E(Y)$：$\\alpha=\\dfrac{3}{\\lambda}$；由 $D(X)=D(Y)$：$\\alpha=\\dfrac{1}{\\lambda^2}$。\n\n两式相等：$\\dfrac{3}{\\lambda}=\\dfrac{1}{\\lambda^2}\\Rightarrow 3\\lambda=1\\Rightarrow\\lambda=\\dfrac13$，故 $\\alpha=\\dfrac{1}{\\lambda^2}=9$（与 $\\alpha=3/\\lambda=9$ 一致）。选 (B)。",
+          "points": 3
+        },
+        {
+          "stem": "设 $(X_1,X_2,\\cdots,X_{40})$ 是来自总体 $X\\sim N(\\mu,\\sigma^2)$ 的简单随机样本，现进行假设检验 $H_0:\\mu\\le 0.05,\\ H_1:\\mu>0.05$，计算得到 $p$ 值为 $0.04$。以下表述错误的是",
+          "options": [
+            "在显著性水平 $0.05$ 下，拒绝 $H_0$",
+            "在相同样本数据下，当检验问题改为 $H_0:\\mu=0.05,\\ H_1:\\mu\\ne 0.05$，在显著性水平 $0.05$ 下，拒绝 $H_0$",
+            "在显著性水平 $0.01$ 下，接受 $H_0$",
+            "在相同样本数据下，当检验问题改为 $H_0:\\mu=0.05,\\ H_1:\\mu\\ne 0.05$，在显著性水平 $0.01$ 下，接受 $H_0$"
+          ],
+          "answer": "B",
+          "explanation": "原检验为单侧 $H_1:\\mu>0.05$，$p=0.04$，对应检验统计量落在右侧（$z_{obs}>0$）。\n\n(A) 单侧检验，$p=0.04<0.05$，拒绝 $H_0$。正确。\n(C) 单侧检验，$p=0.04>0.01$，不拒绝（接受）$H_0$。正确。\n(B)(D) 改为双侧检验 $H_1:\\mu\\ne0.05$，相同数据下双侧 $p$ 值为单侧的两倍：$p_{双}=2\\times0.04=0.08$。\n(B) 在 $0.05$ 下：$0.08>0.05$，应接受 $H_0$，而选项说“拒绝 $H_0$”，错误。\n(D) 在 $0.01$ 下：$0.08>0.01$，接受 $H_0$。正确。\n\n故表述错误的是 (B)。",
+          "points": 3
+        },
+        {
+          "stem": "假设总体 $X\\sim N(\\mu,\\sigma^2)$，方差未知，从中抽取一个容量 $n=16$ 的样本，经计算得样本方差 $s^2=0.1877^2$。若 $(\\bar X-0.1,\\ \\bar X+0.1)$ 是 $\\mu$ 的置信区间，则此置信区间的置信度为",
+          "options": [
+            "$0.05$",
+            "$0.025$",
+            "$0.975$",
+            "$0.95$"
+          ],
+          "answer": "D",
+          "explanation": "方差未知，用 $t$ 分布构造 $\\mu$ 的置信区间：$\\bar X\\pm t_{\\alpha/2}(n-1)\\dfrac{s}{\\sqrt n}$，半宽为 $0.1$。\n\n$$t_{\\alpha/2}(15)\\cdot\\frac{s}{\\sqrt{16}}=0.1,\\quad \\frac{s}{\\sqrt{16}}=\\frac{0.1877}{4}=0.046925,$$\n$$t_{\\alpha/2}(15)=\\frac{0.1}{0.046925}\\approx 2.131=t_{0.025}(15).$$\n故 $\\alpha/2=0.025$，$\\alpha=0.05$，置信度 $=1-\\alpha=0.95$。选 (D)。",
+          "points": 3
+        },
+        {
+          "stem": "设总体 $X\\sim B(m,p)$，$(X_1,X_2,\\cdots,X_n)$ 为来自总体的简单随机样本，$\\bar X$ 为样本均值，则 $E\\!\\left(\\sum_{i=1}^n(X_i-\\bar X)^2\\right)=$",
+          "options": [
+            "$(m-1)np(1-p)$",
+            "$m(n-1)p(1-p)$",
+            "$(m-1)(n-1)p(1-p)$",
+            "$mnp(1-p)$"
+          ],
+          "answer": "B",
+          "explanation": "由样本方差的性质，$\\sum_{i=1}^n(X_i-\\bar X)^2=(n-1)S^2$，且 $E(S^2)=D(X)=\\sigma^2$，故\n$$E\\!\\left(\\sum_{i=1}^n(X_i-\\bar X)^2\\right)=(n-1)\\,\\sigma^2.$$\n对 $X\\sim B(m,p)$，$\\sigma^2=D(X)=mp(1-p)$，所以\n$$E\\!\\left(\\sum_{i=1}^n(X_i-\\bar X)^2\\right)=(n-1)\\,mp(1-p)=m(n-1)p(1-p).$$\n选 (B)。",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "name": "二、计算与证明题",
+      "desc": "共 64 分，写出主要步骤与推导过程。",
+      "type": "calc",
+      "questions": [
+        {
+          "stem": "（9分）有甲乙丙三个企业生产的某种型号的电子管，甲生产该型号电子管的次品率为 $0.3$，乙生产该型号电子管的次品率为 $0.2$，丙生产该型号电子管的次品率为 $0.1$。某日随机地从甲乙丙中任取一个企业，并对该企业生产的该型号电子管进行随机测试，每次抽取一个，只要测得一个次品则不再测试。令 $X$ 表示测试的次数。\n\n（1）计算 $P(X=3)$；\n\n（2）问在 $\\{X=3\\}$ 的条件下，测试的产品来自乙企业的可能性大还是来自丙企业的可能性大，说明理由。（保留小数点后面 4 位有效数字）",
+          "answer": "记 $A_1,A_2,A_3$ 分别为\"所取企业为甲、乙、丙\"，则 $P(A_1)=P(A_2)=P(A_3)=\\dfrac{1}{3}$。\n\n设所选企业的次品率为 $p$，由于\"每次抽一个，直到测得一个次品即停止\"，故 $\\{X=3\\}$ 表示前两个均为正品、第三个为次品，在该企业条件下\n$$P(X=3\\mid p)=(1-p)^2\\,p.$$\n\n**（1）求 $P(X=3)$。**\n\n各企业条件概率：\n$$P(X=3\\mid A_1)=(0.7)^2\\times 0.3=0.49\\times0.3=0.147,$$\n$$P(X=3\\mid A_2)=(0.8)^2\\times 0.2=0.64\\times0.2=0.128,$$\n$$P(X=3\\mid A_3)=(0.9)^2\\times 0.1=0.81\\times0.1=0.081.$$\n\n由全概率公式：\n$$P(X=3)=\\sum_{i=1}^{3}P(A_i)P(X=3\\mid A_i)=\\frac{1}{3}(0.147+0.128+0.081)=\\frac{0.356}{3}\\approx 0.1187.$$\n\n**（2）比较来自乙、丙的可能性。**\n\n由贝叶斯公式（分母即 $3P(X=3)=0.356$）：\n$$P(A_2\\mid X=3)=\\frac{P(A_2)P(X=3\\mid A_2)}{P(X=3)}=\\frac{0.128}{0.356}\\approx 0.3596,$$\n$$P(A_3\\mid X=3)=\\frac{P(A_3)P(X=3\\mid A_3)}{P(X=3)}=\\frac{0.081}{0.356}\\approx 0.2275.$$\n\n因为 $P(A_2\\mid X=3)=0.3596>0.2275=P(A_3\\mid X=3)$，所以在 $\\{X=3\\}$ 的条件下，**测试的产品来自乙企业的可能性更大**。",
+          "points": 9
+        },
+        {
+          "stem": "（9分）盒子内有 4 张卡片，编号为 $0\\sim3$ 的卡片各一张。从中有放回地随机抽取两次，每次一张。令 $X$ 表示抽到编号为 $0$ 的卡片的张数，令 $Y$ 表示两次抽到的卡片的编号之和。\n\n（1）求 $(X,Y)$ 的联合分布律；\n\n（2）计算 $\\mathrm{Cov}(X,Y)$。",
+          "answer": "两次有放回抽取，每次等可能取到 $0,1,2,3$，共 $4\\times4=16$ 个等可能的有序结果，每个结果概率 $\\dfrac{1}{16}$。设两次编号为 $(a,b)$，则 $X=\\mathbf{1}\\{a=0\\}+\\mathbf{1}\\{b=0\\}$，$Y=a+b$。$X$ 取值 $0,1,2$，$Y$ 取值 $0,1,\\dots,6$。\n\n**（1）联合分布律。** 逐一计数（每格为概率 $\\times16$ 的个数除以 $16$）：\n\n$$\\begin{array}{c|ccccccc}\nX\\backslash Y & 0 & 1 & 2 & 3 & 4 & 5 & 6\\\\\\hline\n0 & 0 & 0 & \\frac{1}{16} & \\frac{2}{16} & \\frac{3}{16} & \\frac{2}{16} & \\frac{1}{16}\\\\\n1 & 0 & \\frac{2}{16} & \\frac{2}{16} & \\frac{2}{16} & 0 & 0 & 0\\\\\n2 & \\frac{1}{16} & 0 & 0 & 0 & 0 & 0 & 0\n\\end{array}$$\n\n说明：$X=2$ 即两次都取 $0$，只有 $(0,0)$，故 $Y=0$，概率 $\\frac{1}{16}$；$X=1$ 即恰一次取 $0$，另一次取 $1,2,3$ 之一，$Y$ 分别为 $1,2,3$，每种 $2$ 个有序结果，概率各 $\\frac{2}{16}$；$X=0$ 即两次均非 $0$（取自 $\\{1,2,3\\}$），$Y=2,3,4,5,6$ 对应个数 $1,2,3,2,1$。各格概率之和为 $1$。\n\n**（2）求 $\\mathrm{Cov}(X,Y)$。**\n\n由对称性，$X\\sim B(2,\\tfrac14)$，故 $E(X)=2\\times\\tfrac14=\\dfrac12$。\n\n每次抽取编号的期望为 $\\dfrac{0+1+2+3}{4}=\\dfrac32$，两次独立同分布，故 $E(Y)=2\\times\\dfrac32=3$。\n\n计算 $E(XY)=\\sum_{x,y}xy\\,P(X=x,Y=y)$：\n$$E(XY)=1\\cdot\\Big(1\\cdot\\tfrac{2}{16}+2\\cdot\\tfrac{2}{16}+3\\cdot\\tfrac{2}{16}\\Big)+2\\cdot\\big(0\\cdot\\tfrac{1}{16}\\big)=\\frac{2(1+2+3)}{16}=\\frac{12}{16}=\\frac{3}{4}.$$\n\n所以\n$$\\mathrm{Cov}(X,Y)=E(XY)-E(X)E(Y)=\\frac{3}{4}-\\frac{1}{2}\\times 3=\\frac{3}{4}-\\frac{3}{2}=-\\frac{3}{4}.$$\n\n即 $\\mathrm{Cov}(X,Y)=-\\dfrac{3}{4}=-0.75$。",
+          "points": 9
+        },
+        {
+          "stem": "（9分）设二维随机变量 $(X,Y)$ 的联合概率密度为\n$$f(x,y)=\\begin{cases}\\dfrac{y}{9}, & 0<x<2,\\ 0<y<3,\\\\[4pt] 0, & \\text{其他}.\\end{cases}$$\n\n（1）计算 $P(X>Y)$；\n\n（2）令 $Z=3X+2Y$，求 $Z$ 的概率密度函数。",
+          "answer": "**验证归一化：** $\\displaystyle\\int_0^2\\!\\!\\int_0^3\\frac{y}{9}\\,dy\\,dx=\\int_0^2\\frac{1}{9}\\cdot\\frac{9}{2}\\,dx=\\int_0^2\\frac{1}{2}\\,dx=1$，密度正确。\n\n由此还可得边缘密度 $f_X(x)=\\displaystyle\\int_0^3\\frac{y}{9}dy=\\frac12\\ (0<x<2)$，$f_Y(y)=\\displaystyle\\int_0^2\\frac{y}{9}dx=\\frac{2y}{9}\\ (0<y<3)$，且 $f(x,y)=f_X(x)f_Y(y)$，故 $X,Y$ 相互独立（其中 $X\\sim U(0,2)$）。\n\n**（1）求 $P(X>Y)$。**\n\n积分区域为 $\\{0<x<2,\\,0<y<3,\\,x>y\\}$。由于 $x<2$，故 $y<x<2$，即 $y$ 从 $0$ 到 $2$：\n$$P(X>Y)=\\int_0^2\\!\\!\\int_y^2\\frac{y}{9}\\,dx\\,dy=\\int_0^2\\frac{y}{9}(2-y)\\,dy=\\frac{1}{9}\\int_0^2(2y-y^2)\\,dy.$$\n$$=\\frac{1}{9}\\Big[y^2-\\frac{y^3}{3}\\Big]_0^2=\\frac{1}{9}\\Big(4-\\frac{8}{3}\\Big)=\\frac{1}{9}\\cdot\\frac{4}{3}=\\frac{4}{27}\\approx 0.1481.$$\n\n**（2）求 $Z=3X+2Y$ 的概率密度。**\n\n$Z$ 的取值范围：$3X\\in(0,6)$，$2Y\\in(0,6)$，故 $Z\\in(0,12)$。用分布函数法，$F_Z(z)=P(3X+2Y\\le z)=\\displaystyle\\iint_{3x+2y\\le z}f(x,y)\\,dx\\,dy$，分段（分界点 $z=6$，对应过角点 $(2,0)$ 与 $(0,3)$）。\n\n**当 $0\\le z\\le 6$：** 约束线 $3x+2y=z$ 与矩形交于 $x$ 轴上 $x=z/3\\,(\\le2)$、$y$ 轴上 $y=z/2\\,(\\le3)$，积分区域为三角形：\n$$F_Z(z)=\\int_0^{z/3}\\!\\!\\int_0^{(z-3x)/2}\\frac{y}{9}\\,dy\\,dx=\\frac{z^3}{648},$$\n求导得 $f_Z(z)=\\dfrac{z^2}{216}$。\n\n**当 $6\\le z\\le 12：$** 用 $x\\le\\frac{z-6}{3}$ 时 $y$ 取满 $(0,3)$，其余 $x\\in(\\frac{z-6}{3},2)$ 时 $y\\le\\frac{z-3x}{2}$，积分得\n$$F_Z(z)=-\\frac{z^3}{648}+\\frac{z^2}{36}-\\frac{1}{3},$$\n求导得 $f_Z(z)=\\dfrac{z(12-z)}{216}$。\n\n（验证：在 $z=6$ 两式都给出 $f_Z=\\frac{1}{6}$，连续；$F_Z(6)=\\frac13$，$F_Z(12)=1$，且 $\\int_0^{12}f_Z\\,dz=1$。）\n\n所以\n$$f_Z(z)=\\begin{cases}\\dfrac{z^2}{216}, & 0\\le z\\le 6,\\\\[6pt]\\dfrac{z(12-z)}{216}, & 6< z\\le 12,\\\\[6pt]0, & \\text{其他}.\\end{cases}$$",
+          "points": 9
+        },
+        {
+          "stem": "（9分）在推进\"健康中国 2030\"规划纲要的背景下，某市卫生健康委员会对基层医疗机构的服务质量进行检测。根据国家标准，某种常用药品的平均有效成分含量应为 $4.8\\,\\text{mg/}$片，方差不超过 $1.0$。为检验某社区卫生服务中心的药品质量，随机抽取 $9$ 片药品进行检测，测得样本平均含量为 $5.0\\,\\text{mg/}$片，样本标准差为 $1.2\\,\\text{mg/}$片。设总体服从正态分布，均值为 $\\mu$，方差为 $\\sigma^2$，$\\mu,\\sigma^2$ 均未知。\n\n（1）根据抽样结果，能否认为该药品的平均有效成分显著偏高？（显著性水平 $\\alpha=0.05$）\n\n（2）请给出方差的置信度 $95\\%$ 的单侧置信下限。（保留小数点后面 3 位有效数字）",
+          "answer": "已知 $n=9$，样本均值 $\\bar{x}=5.0$，样本标准差 $s=1.2$（样本方差 $s^2=1.44$），$\\mu_0=4.8$，$\\alpha=0.05$。\n\n**（1）平均成分是否显著偏高——单边 $t$ 检验。**\n\n因 $\\sigma^2$ 未知，检验均值用 $t$ 统计量。\n\n假设 $H_0:\\mu\\le 4.8\\ \\leftrightarrow\\ H_1:\\mu>4.8$（右侧检验）。\n\n检验统计量\n$$t=\\frac{\\bar{x}-\\mu_0}{s/\\sqrt{n}}=\\frac{5.0-4.8}{1.2/\\sqrt{9}}=\\frac{0.2}{1.2/3}=\\frac{0.2}{0.4}=0.5.$$\n\n拒绝域为 $t>t_{\\alpha}(n-1)=t_{0.05}(8)$。查表得 $t_{0.05}(8)=1.860$。\n\n由于 $t=0.5<1.860$，落入接受域，故在 $\\alpha=0.05$ 下**不能拒绝 $H_0$**，即没有充分理由认为该药品平均有效成分显著偏高。\n\n**（2）方差的 $95\\%$ 单侧置信下限。**\n\n对正态总体，$\\dfrac{(n-1)s^2}{\\sigma^2}\\sim\\chi^2(n-1)$。要求置信度 $1-\\alpha=0.95$ 的单侧置信下限，即 $\\sigma^2$ 的下界，使\n$$P\\!\\left(\\sigma^2>\\frac{(n-1)s^2}{\\chi^2_{\\alpha}(n-1)}\\right)=1-\\alpha=0.95.$$\n\n这里用上侧分位数 $\\chi^2_{0.05}(8)=15.507$。代入 $(n-1)s^2=8\\times1.44=11.52$：\n$$\\underline{\\sigma^2}=\\frac{(n-1)s^2}{\\chi^2_{0.05}(8)}=\\frac{11.52}{15.507}\\approx 0.743.$$\n\n故方差 $\\sigma^2$ 的置信度 $95\\%$ 单侧置信下限为约 $0.743$，即 $\\sigma^2$ 的单侧置信区间为 $(0.743,\\ +\\infty)$。",
+          "points": 9
+        },
+        {
+          "stem": "设 $(X,Y)$ 是二维随机变量，其关于 $X$ 的边缘概率密度为\n\n$$f_X(x)=\\begin{cases}\\dfrac{2+x}{6}, & 0<x<2,\\\\[2pt] 0, & \\text{其他},\\end{cases}$$\n\n且当 $X=x\\ (0<x<2)$ 时 $Y$ 的条件概率密度为\n\n$$f_{Y\\mid X}(y\\mid x)=\\begin{cases}\\dfrac{1+xy}{1+\\frac{x}{2}}, & 0<y<1,\\\\[2pt] 0, & \\text{其他}.\\end{cases}$$\n\n(1) 求 $(X,Y)$ 关于 $Y$ 的边缘密度函数；(2) 令 $Z$ 表示不超过 $2Y$ 的最大整数（即 $Z=\\lfloor 2Y\\rfloor$），求 $Z$ 的分布律。",
+          "answer": "**(1) 求 $f_Y(y)$。**\n\n先求 $(X,Y)$ 的联合密度。当 $0<x<2,\\ 0<y<1$ 时\n\n$$f(x,y)=f_X(x)\\,f_{Y\\mid X}(y\\mid x)=\\frac{2+x}{6}\\cdot\\frac{1+xy}{1+\\frac{x}{2}}.$$\n\n注意 $1+\\dfrac{x}{2}=\\dfrac{2+x}{2}$，于是\n\n$$f(x,y)=\\frac{2+x}{6}\\cdot\\frac{2(1+xy)}{2+x}=\\frac{1+xy}{3},\\qquad 0<x<2,\\ 0<y<1,$$\n\n其余为 $0$。\n\n对 $x$ 积分得 $Y$ 的边缘密度：当 $0<y<1$ 时\n\n$$f_Y(y)=\\int_0^2\\frac{1+xy}{3}\\,dx=\\frac{1}{3}\\left[x+\\frac{x^2y}{2}\\right]_0^2=\\frac{1}{3}\\bigl(2+2y\\bigr)=\\frac{2(1+y)}{3}.$$\n\n所以\n\n$$f_Y(y)=\\begin{cases}\\dfrac{2(1+y)}{3}, & 0<y<1,\\\\[2pt] 0, & \\text{其他}.\\end{cases}$$\n\n（验证：$\\displaystyle\\int_0^1\\frac{2(1+y)}{3}\\,dy=\\frac{2}{3}\\Bigl[y+\\frac{y^2}{2}\\Bigr]_0^1=\\frac{2}{3}\\cdot\\frac{3}{2}=1$，正确。）\n\n**(2) 求 $Z=\\lfloor 2Y\\rfloor$ 的分布律。**\n\n因为 $0<Y<1$，所以 $2Y\\in(0,2)$，从而 $Z$ 只能取 $0$ 或 $1$：\n\n- $Z=0\\iff 0<2Y<1\\iff 0<Y<\\dfrac{1}{2}$；\n- $Z=1\\iff 1\\le 2Y<2\\iff \\dfrac{1}{2}\\le Y<1$。\n\n计算概率：\n\n$$P(Z=0)=P\\!\\left(0<Y<\\tfrac{1}{2}\\right)=\\int_0^{1/2}\\frac{2(1+y)}{3}\\,dy=\\frac{2}{3}\\left[y+\\frac{y^2}{2}\\right]_0^{1/2}=\\frac{2}{3}\\left(\\frac{1}{2}+\\frac{1}{8}\\right)=\\frac{2}{3}\\cdot\\frac{5}{8}=\\frac{5}{12}.$$\n\n$$P(Z=1)=1-P(Z=0)=1-\\frac{5}{12}=\\frac{7}{12}.$$\n\n故 $Z$ 的分布律为\n\n$$\\begin{array}{c|cc} Z & 0 & 1\\\\\\hline P & \\dfrac{5}{12} & \\dfrac{7}{12}\\end{array}$$",
+          "points": 9
+        },
+        {
+          "stem": "中国“东数西算”工程中，某国家算力枢纽节点负责某国产大模型的训练任务。每日处理的数据量（单位：PB）可以认为是独立同分布的随机变量序列。历史数据显示，每日处理量的期望值 $\\mu=80$ PB，方差 $\\sigma^2=64\\ \\text{PB}^2$。为确保算力资源精准调度，需估算连续 $n$ 天的平均日处理量 $\\bar X=\\dfrac{1}{n}\\sum_{i=1}^{n}X_i$ 接近期望值的概率。问：根据中心极限定理，当 $n$ 至少为多少时，连续 $n$ 天的平均日处理量 $\\bar X$ 与期望值 $\\mu$ 的偏差不超过 $2$ PB 的概率至少达到 $95\\%$？（用 $\\Phi(1.96)=0.975$）",
+          "answer": "设每日处理量 $X_1,X_2,\\dots,X_n$ 独立同分布，$E(X_i)=\\mu=80$，$D(X_i)=\\sigma^2=64$，故 $\\sigma=8$。\n\n样本均值 $\\bar X=\\dfrac{1}{n}\\sum_{i=1}^n X_i$ 满足 $E(\\bar X)=\\mu$，$D(\\bar X)=\\dfrac{\\sigma^2}{n}$。\n\n由中心极限定理，当 $n$ 较大时近似地有\n\n$$\\frac{\\bar X-\\mu}{\\sigma/\\sqrt{n}}\\sim N(0,1).$$\n\n要求\n\n$$P\\bigl(|\\bar X-\\mu|\\le 2\\bigr)\\ge 0.95.$$\n\n标准化：\n\n$$P\\bigl(|\\bar X-\\mu|\\le 2\\bigr)=P\\!\\left(\\frac{|\\bar X-\\mu|}{\\sigma/\\sqrt n}\\le\\frac{2}{\\sigma/\\sqrt n}\\right)\\approx 2\\Phi\\!\\left(\\frac{2\\sqrt n}{\\sigma}\\right)-1=2\\Phi\\!\\left(\\frac{2\\sqrt n}{8}\\right)-1=2\\Phi\\!\\left(\\frac{\\sqrt n}{4}\\right)-1.$$\n\n于是\n\n$$2\\Phi\\!\\left(\\frac{\\sqrt n}{4}\\right)-1\\ge 0.95\\ \\Longrightarrow\\ \\Phi\\!\\left(\\frac{\\sqrt n}{4}\\right)\\ge 0.975=\\Phi(1.96).$$\n\n由 $\\Phi$ 单调递增，得\n\n$$\\frac{\\sqrt n}{4}\\ge 1.96\\ \\Longrightarrow\\ \\sqrt n\\ge 7.84\\ \\Longrightarrow\\ n\\ge 7.84^2=61.4656.$$\n\n由于 $n$ 为正整数，所以 $n$ 至少取\n\n$$\\boxed{n=62}.$$\n\n即连续观测至少 $62$ 天，才能使平均日处理量 $\\bar X$ 与期望值 $\\mu$ 的偏差不超过 $2$ PB 的概率至少达到 $95\\%$。",
+          "points": 9
+        },
+        {
+          "stem": "设总体 $X$ 服从 $[\\theta,\\theta+1]$ 上的均匀分布，$(X_1,X_2,\\dots,X_n)$ 为来自总体 $X$ 的简单随机样本，$(x_1,x_2,\\dots,x_n)$ 为样本观测值。\n\n(1) 求 $\\theta$ 的矩估计量和最大似然估计量，请写出详细计算过程；\n\n(2) 现有两个估计量 $\\hat\\theta_1=\\bar X-\\dfrac{1}{2}$，$\\hat\\theta_2=X_{(n)}-\\dfrac{n}{n+1}$，请讨论它们的无偏性、一致性，并在 $n\\ge 10$ 的情况下比较它们的有效性，说明理由。（其中 $X_{(n)}=\\max\\{X_1,\\dots,X_n\\}$。）",
+          "answer": "总体 $X\\sim U[\\theta,\\theta+1]$，密度为\n\n$$f(x;\\theta)=\\begin{cases}1, & \\theta\\le x\\le\\theta+1,\\\\ 0, & \\text{其他}.\\end{cases}$$\n\n其期望 $E(X)=\\theta+\\dfrac{1}{2}$，方差 $D(X)=\\dfrac{(\\theta+1-\\theta)^2}{12}=\\dfrac{1}{12}$。\n\n**(1) 矩估计量。**\n\n令一阶总体矩等于一阶样本矩：$E(X)=\\bar X$，即\n\n$$\\theta+\\frac{1}{2}=\\bar X\\ \\Longrightarrow\\ \\hat\\theta_{\\text{矩}}=\\bar X-\\frac{1}{2}.$$\n\n**最大似然估计量。** 似然函数\n\n$$L(\\theta)=\\prod_{i=1}^n f(x_i;\\theta)=\\begin{cases}1, & \\theta\\le x_i\\le\\theta+1\\ (i=1,\\dots,n),\\\\ 0, & \\text{其他}.\\end{cases}$$\n\n条件“对一切 $i$ 有 $\\theta\\le x_i\\le\\theta+1$”等价于\n\n$$\\theta\\le \\min_i x_i=x_{(1)}\\quad\\text{且}\\quad \\max_i x_i=x_{(n)}\\le\\theta+1,$$\n\n即\n\n$$x_{(n)}-1\\le\\theta\\le x_{(1)}.$$\n\n在此区间上 $L(\\theta)=1$（取最大值），区间外 $L(\\theta)=0$。因此最大似然估计**不唯一**，凡满足\n\n$$x_{(n)}-1\\le\\hat\\theta\\le x_{(1)}$$\n\n的 $\\hat\\theta$ 都是 $\\theta$ 的最大似然估计量。特别地，可取端点\n\n$$\\hat\\theta_{\\text{MLE}}=X_{(n)}-1\\qquad\\text{或}\\qquad \\hat\\theta_{\\text{MLE}}=X_{(1)}.$$\n\n**(2) 无偏性、一致性与有效性比较。**\n\n*预备：次序统计量 $X_{(n)}$ 的分布。* 令 $U_i=X_i-\\theta\\sim U[0,1]$，记 $M=\\max_i U_i$，则 $X_{(n)}=\\theta+M$，$M$ 的密度为 $f_M(u)=n u^{n-1}\\ (0<u<1)$。于是\n\n$$E(M)=\\int_0^1 u\\cdot n u^{n-1}\\,du=\\frac{n}{n+1},\\qquad E(M^2)=\\int_0^1 u^2\\cdot n u^{n-1}\\,du=\\frac{n}{n+2},$$\n\n$$D(M)=\\frac{n}{n+2}-\\left(\\frac{n}{n+1}\\right)^2=\\frac{n}{(n+1)^2(n+2)}.$$\n\n**① 无偏性。**\n\n对 $\\hat\\theta_1=\\bar X-\\dfrac{1}{2}$：\n\n$$E(\\hat\\theta_1)=E(\\bar X)-\\frac{1}{2}=\\Bigl(\\theta+\\frac{1}{2}\\Bigr)-\\frac{1}{2}=\\theta,$$\n\n故 $\\hat\\theta_1$ 是 $\\theta$ 的无偏估计。\n\n对 $\\hat\\theta_2=X_{(n)}-\\dfrac{n}{n+1}$：\n\n$$E(X_{(n)})=\\theta+E(M)=\\theta+\\frac{n}{n+1},\\qquad E(\\hat\\theta_2)=\\theta+\\frac{n}{n+1}-\\frac{n}{n+1}=\\theta,$$\n\n故 $\\hat\\theta_2$ 也是 $\\theta$ 的无偏估计。\n\n**② 一致性（相合性）。**\n\n$\\hat\\theta_1$：$\\hat\\theta_1$ 无偏，且\n\n$$D(\\hat\\theta_1)=D(\\bar X)=\\frac{D(X)}{n}=\\frac{1}{12n}\\to 0\\quad(n\\to\\infty),$$\n\n由“无偏 + 方差趋于 0 $\\Rightarrow$ 依概率收敛”可知 $\\hat\\theta_1\\xrightarrow{P}\\theta$，故 $\\hat\\theta_1$ 是 $\\theta$ 的一致估计。\n\n$\\hat\\theta_2$：$\\hat\\theta_2$ 无偏，且\n\n$$D(\\hat\\theta_2)=D(X_{(n)})=D(M)=\\frac{n}{(n+1)^2(n+2)}\\to 0\\quad(n\\to\\infty),$$\n\n同理 $\\hat\\theta_2\\xrightarrow{P}\\theta$，故 $\\hat\\theta_2$ 也是 $\\theta$ 的一致估计。\n\n**③ 有效性比较（比较方差）。**\n\n$$D(\\hat\\theta_1)=\\frac{1}{12n},\\qquad D(\\hat\\theta_2)=\\frac{n}{(n+1)^2(n+2)}.$$\n\n比较二者大小，等价于比较 $12n^2$ 与 $(n+1)^2(n+2)$：\n\n$$D(\\hat\\theta_2)<D(\\hat\\theta_1)\\iff \\frac{n}{(n+1)^2(n+2)}<\\frac{1}{12n}\\iff 12n^2<(n+1)^2(n+2).$$\n\n展开 $(n+1)^2(n+2)=n^3+4n^2+5n+2$，故不等式即\n\n$$n^3+4n^2+5n+2>12n^2\\iff n^3-8n^2+5n+2>0.$$\n\n逐项验证可知该式当 $n\\ge 8$ 时成立（例如 $n=8$ 时左边 $=810-768>0$）。因此当 $n\\ge 10$ 时必有\n\n$$D(\\hat\\theta_2)<D(\\hat\\theta_1).$$\n\n（数值佐证：$n=10$ 时 $D(\\hat\\theta_1)=\\dfrac{1}{120}\\approx 0.00833$，$D(\\hat\\theta_2)=\\dfrac{10}{11^2\\cdot 12}=\\dfrac{10}{1452}\\approx 0.00689$。）\n\n**结论：** $\\hat\\theta_1$ 与 $\\hat\\theta_2$ 都是 $\\theta$ 的无偏、一致估计；在 $n\\ge 10$ 时 $D(\\hat\\theta_2)<D(\\hat\\theta_1)$，即 $\\hat\\theta_2=X_{(n)}-\\dfrac{n}{n+1}$ 比 $\\hat\\theta_1=\\bar X-\\dfrac{1}{2}$ 更有效。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}

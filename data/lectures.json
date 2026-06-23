@@ -3,6 +3,7 @@
   "subtitle": "Probability & Mathematical Statistics · 基于案例分析",
   "instructor": "上海交通大学数学科学学院",
   "exams": [
+    { "id": "exreal_b", "title": "期末真题（B 卷）", "code": "2025秋·真题", "points": 100 },
     { "id": "exam1", "title": "期末模拟试卷（一）", "code": "A卷", "points": 100 },
     { "id": "exam2", "title": "期末模拟试卷（二）", "code": "B卷", "points": 100 },
     { "id": "exam3", "title": "期末模拟试卷（三）", "code": "C卷", "points": 100 }

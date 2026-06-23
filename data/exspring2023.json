@@ -1,0 +1,203 @@
+{
+  "id": "exspring2023",
+  "title": "概率论与数理统计 期末真题（2023 春）",
+  "code": "22–23(2)·真题",
+  "totalPoints": 100,
+  "duration": "120分钟",
+  "note": "闭卷 · 上海交通大学期末考试真题（2022–2023 学年第二学期 A 卷），附完整参考解答",
+  "sections": [
+    {
+      "name": "一、单项选择题",
+      "desc": "每小题 3 分，共 36 分。每题只有一个正确选项。",
+      "type": "single",
+      "questions": [
+        {
+          "stem": "设 $A,B$ 为两个事件，$P(\\bar B)=0.6$，$P(\\bar A)=0.3$，$P(B\\mid A)=0.4$，有如下说法：① $\\bar A$ 与 $\\bar B$ 互不相容；② $P(\\bar A B)=P(\\bar A)P(B)$；③ $P(A\\bar B)=0.52$；④ $P(A\\cup B)=0.82$。其中正确的有",
+          "options": [
+            "②④",
+            "①③",
+            "①③④",
+            "①②④"
+          ],
+          "answer": "A",
+          "explanation": "由条件得 $P(A)=0.7,\\ P(B)=0.4,\\ P(AB)=P(A)P(B\\mid A)=0.7\\times0.4=0.28$。\n\n① $\\bar A$ 与 $\\bar B$ 互不相容 $\\Leftrightarrow \\bar A\\bar B=\\varnothing \\Leftrightarrow A\\cup B=\\Omega \\Leftrightarrow P(A\\cup B)=1$。而 $P(A\\cup B)=0.7+0.4-0.28=0.82\\neq1$，故①错。\n\n② $P(\\bar A B)=P(B)-P(AB)=0.4-0.28=0.12$，$P(\\bar A)P(B)=0.3\\times0.4=0.12$，相等，②对。\n\n③ $P(A\\bar B)=P(A)-P(AB)=0.7-0.28=0.42\\neq0.52$，③错。\n\n④ $P(A\\cup B)=0.82$，④对。\n\n正确的为②④，选 A。",
+          "points": 3
+        },
+        {
+          "stem": "设随机变量 $X$ 的概率密度为 $f(x)=2x,\\ x\\in[0,1]$；其他为 $0$。对 $X$ 独立观测 $5$ 次，事件 $\\{X>0.5\\}$ 发生的次数为 $Y$，则 $E(e^{Y})$ 为",
+          "options": [
+            "$\\dfrac34 e+\\dfrac14$",
+            "$\\dfrac14 e+\\dfrac34$",
+            "$\\left(\\dfrac34 e+\\dfrac14\\right)^{5}$",
+            "$\\left(\\dfrac14 e+\\dfrac34\\right)^{5}$"
+          ],
+          "answer": "C",
+          "explanation": "单次试验 $p=P(X>0.5)=\\int_{0.5}^{1}2x\\,dx=1-0.25=0.75$。故 $Y\\sim B(5,\\,0.75)$。\n\n$$E(e^{Y})=\\sum_{k=0}^{5}\\binom{5}{k}(0.75)^k(0.25)^{5-k}e^{k}=\\sum_{k=0}^{5}\\binom{5}{k}(0.75\\,e)^k(0.25)^{5-k}=(0.75\\,e+0.25)^5=\\left(\\tfrac34 e+\\tfrac14\\right)^{5}.$$\n\n（用了二项分布的概率母函数 $E(t^{Y})=(pt+q)^n$，取 $t=e$。）选 C。",
+          "points": 3
+        },
+        {
+          "stem": "设总体 $X$ 服从参数为 $\\lambda$ 的泊松分布，$X_1,X_2,X_3,X_4$ 为简单随机样本，$\\lambda$ 未知。令 $\\hat\\lambda_1=\\dfrac{X_1+X_2+X_3}{3}$，$\\hat\\lambda_2=\\dfrac{X_2+X_4}{2}$。在使 $a\\hat\\lambda_1+b\\hat\\lambda_2$ 为 $\\lambda$ 的无偏估计量中，最有效的估计量是",
+          "options": [
+            "$a=\\dfrac12,\\ b=\\dfrac12$",
+            "$a=\\dfrac13,\\ b=\\dfrac23$",
+            "$a=\\dfrac23,\\ b=\\dfrac13$",
+            "$a=\\dfrac14,\\ b=\\dfrac34$"
+          ],
+          "answer": "C",
+          "explanation": "由于 $E(\\hat\\lambda_1)=E(\\hat\\lambda_2)=\\lambda$，无偏要求 $a+b=1$。设 $b=1-a$。\n\n注意 $\\hat\\lambda_1,\\hat\\lambda_2$ 都含 $X_2$，故相关：$\\mathrm{Var}(\\hat\\lambda_1)=\\dfrac{\\lambda}{3}$，$\\mathrm{Var}(\\hat\\lambda_2)=\\dfrac{\\lambda}{2}$，$\\mathrm{Cov}(\\hat\\lambda_1,\\hat\\lambda_2)=\\dfrac{\\mathrm{Cov}(X_2,X_2)}{3\\cdot2}=\\dfrac{\\lambda}{6}$。\n\n$$\\mathrm{Var}=a^2\\tfrac{\\lambda}{3}+b^2\\tfrac{\\lambda}{2}+2ab\\tfrac{\\lambda}{6}.$$\n代入 $b=1-a$ 化简得 $\\dfrac{\\mathrm{Var}}{\\lambda}=\\dfrac{a^2}{2}-\\dfrac{2a}{3}+\\dfrac12$。令导数 $a-\\dfrac23=0$，得 $a=\\dfrac23,\\ b=\\dfrac13$。选 C。",
+          "points": 3
+        },
+        {
+          "stem": "设随机变量 $X$ 的概率密度为 $f(x)=\\dfrac12\\lambda e^{-\\lambda|x|}$，$-\\infty<x<\\infty$（拉普拉斯分布）。则 $Y=X^2$ 的概率密度为",
+          "options": [
+            "$f_Y(y)=\\begin{cases}\\lambda e^{-\\lambda\\sqrt{y}}, & y>0\\\\ 0,& \\text{其他}\\end{cases}$",
+            "$f_Y(y)=\\begin{cases}2\\lambda e^{-\\lambda\\sqrt{y}}, & y>0\\\\ 0,& \\text{其他}\\end{cases}$",
+            "$f_Y(y)=\\begin{cases}\\dfrac{\\lambda}{2\\sqrt{y}}\\,e^{-\\lambda\\sqrt{y}}, & y>0\\\\ 0,& \\text{其他}\\end{cases}$",
+            "$f_Y(y)=\\begin{cases}\\dfrac{\\lambda}{4\\sqrt{y}}\\,e^{-\\lambda\\sqrt{y}}, & y>0\\\\ 0,& \\text{其他}\\end{cases}$"
+          ],
+          "answer": "C",
+          "explanation": "对 $y>0$：\n$$F_Y(y)=P(X^2\\le y)=P(-\\sqrt y\\le X\\le\\sqrt y)=2\\int_0^{\\sqrt y}\\tfrac12\\lambda e^{-\\lambda x}\\,dx=1-e^{-\\lambda\\sqrt y}.$$\n求导：\n$$f_Y(y)=F_Y'(y)=e^{-\\lambda\\sqrt y}\\cdot\\lambda\\cdot\\frac{1}{2\\sqrt y}=\\frac{\\lambda}{2\\sqrt y}\\,e^{-\\lambda\\sqrt y},\\quad y>0.$$\n选 C。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X,Y$ 相互独立，$X$ 服从 $[0,2]$ 上的均匀分布，$Y$ 服从 $[0,3]$ 上的均匀分布，则 $P(|Y-X|\\le1)=$",
+          "options": [
+            "$\\dfrac{5}{12}$",
+            "$\\dfrac{7}{12}$",
+            "$\\dfrac23$",
+            "$\\dfrac13$"
+          ],
+          "answer": "B",
+          "explanation": "$(X,Y)$ 在矩形 $[0,2]\\times[0,3]$ 上均匀，总面积 $6$。所求为区域 $|y-x|\\le1$ 与矩形交的面积之比。\n\n对固定 $x\\in[0,2]$，满足条件的 $y$ 区间为 $[\\max(0,x-1),\\min(3,x+1)]$，长度：$x\\in[0,1]$ 时为 $x+1$；$x\\in[1,2]$ 时为 $2$。\n\n$$\\text{面积}=\\int_0^1(x+1)\\,dx+\\int_1^2 2\\,dx=1.5+2=3.5.$$\n概率 $=\\dfrac{3.5}{6}=\\dfrac{7}{12}$。选 B。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X_1,X_2,X_3$ 取自总体 $X$，分布律为 $P(X=k)$ 对 $k=1,2,3,4,5,6$ 分别为 $0.1,0.3,0.2,0.1,0.2,0.1$。令 $Y=\\max\\{X_1,X_2,X_3\\}$，则 $P(Y=3)=$",
+          "options": [
+            "$0.2$",
+            "$0.152$",
+            "$0.127$",
+            "$0.6$"
+          ],
+          "answer": "B",
+          "explanation": "$P(Y=3)=P(Y\\le3)-P(Y\\le2)=[P(X\\le3)]^3-[P(X\\le2)]^3$（三个样本独立同分布）。\n\n$P(X\\le3)=0.1+0.3+0.2=0.6$，$P(X\\le2)=0.1+0.3=0.4$。\n\n$$P(Y=3)=0.6^3-0.4^3=0.216-0.064=0.152.$$\n选 B。",
+          "points": 3
+        },
+        {
+          "stem": "某工厂生产一批滚珠，其直径 $X$ 服从正态分布 $N(\\mu,\\sigma^2)$，随机抽取 $20$ 个滚珠，测得样本均值记为 $\\bar x$，样本方差记为 $s^2$，则 $\\mu$ 的单侧置信下限、$\\sigma^2$ 的单侧置信上限分别为（置信度都为 $1-\\alpha$）",
+          "options": [
+            "$\\bar x-\\dfrac{s}{\\sqrt{20}}\\,t_\\alpha(19),\\quad \\dfrac{19s^2}{\\chi^2_{1-\\alpha}(19)}$",
+            "$\\bar x-\\dfrac{s}{\\sqrt{20}}\\,t_\\alpha(19),\\quad \\dfrac{19s^2}{\\chi^2_{\\alpha}(19)}$",
+            "$\\bar x-\\dfrac{\\sigma}{\\sqrt{20}}\\,u_\\alpha,\\quad \\dfrac{19s^2}{\\chi^2_{\\alpha}(19)}$",
+            "$\\bar x-\\dfrac{\\sigma}{\\sqrt{20}}\\,u_\\alpha,\\quad \\dfrac{19s^2}{\\chi^2_{1-\\alpha}(19)}$"
+          ],
+          "answer": "A",
+          "explanation": "$\\sigma^2$ 未知，对 $\\mu$ 用 $t$ 分布：$\\dfrac{\\bar X-\\mu}{S/\\sqrt n}\\sim t(n-1)$，$n=20$。单侧置信下限为 $\\bar x-\\dfrac{s}{\\sqrt{20}}\\,t_\\alpha(19)$（排除 C、D 用 $\\sigma$ 与 $u_\\alpha$）。\n\n对 $\\sigma^2$ 用 $\\dfrac{(n-1)S^2}{\\sigma^2}\\sim\\chi^2(n-1)$。按盛骤教材约定 $\\chi^2_\\alpha$ 为上 $\\alpha$ 分位点（值较大），单侧置信上限由 $P\\!\\left(\\dfrac{19S^2}{\\sigma^2}>\\chi^2_{1-\\alpha}(19)\\right)=1-\\alpha$ 得 $\\sigma^2<\\dfrac{19s^2}{\\chi^2_{1-\\alpha}(19)}$（除以较小的下分位点得到较大的上限）。\n\n故选 A。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X_1,X_2,\\cdots,X_{16}$ 为取自总体 $X\\sim N(\\mu,\\sigma^2)$ 的简单样本，$\\mu,\\sigma^2$ 均未知。记 $\\bar X=\\dfrac1n\\sum_{k=1}^{n}X_k$，$Q^2=\\sum_{k=1}^{n}(X_k-\\bar X)^2$。由样本算得 $\\bar x=4.32$，$q^2=2.7$，对假设 $H_0:\\mu=4,\\ H_1:\\mu\\neq4$，检验统计量与 $p$ 值分别为",
+          "options": [
+            "$\\dfrac{4}{\\sqrt{15}}\\,\\dfrac{\\bar X-4}{Q}\\sim t(15)$，$p$ 值为 $0.4221$",
+            "$\\dfrac{4}{\\sqrt{15}}\\,\\dfrac{\\bar X-4}{Q}\\sim t(15)$，$p$ 值为 $0.8442$",
+            "$4\\sqrt{15}\\,\\dfrac{\\bar X-4}{Q}\\sim t(15)$，$p$ 值为 $0.0043$",
+            "$4\\sqrt{15}\\,\\dfrac{\\bar X-4}{Q}\\sim t(15)$，$p$ 值为 $0.0086$"
+          ],
+          "answer": "D",
+          "explanation": "$n=16$，$\\sigma^2$ 未知用 $t$ 检验。$S^2=\\dfrac{Q^2}{n-1}=\\dfrac{Q^2}{15}$，$S=\\dfrac{Q}{\\sqrt{15}}$。\n\n$$T=\\frac{\\bar X-4}{S/\\sqrt{16}}=\\frac{\\bar X-4}{\\,Q/(\\sqrt{15}\\cdot4)\\,}=4\\sqrt{15}\\,\\frac{\\bar X-4}{Q}\\sim t(15).$$\n（排除 A、B 的系数 $\\tfrac{4}{\\sqrt{15}}$。）\n\n代入：$Q=\\sqrt{2.7}$，$t=4\\sqrt{15}\\cdot\\dfrac{0.32}{\\sqrt{2.7}}\\approx3.017$。双侧 $p=2P(t(15)>3.017)\\approx0.0087\\approx0.0086$。选 D。",
+          "points": 3
+        },
+        {
+          "stem": "设总体 $X$ 服从参数为 $2$ 的泊松分布，$(X_1,X_2,\\cdots,X_8)$ 是来自总体 $X$ 的一个简单样本，$\\bar X$ 表示样本均值。令 $Y=\\sum_{i=1}^{4}\\left(X_{2i-1}+X_{2i}-2\\bar X\\right)^2$，则 $E(Y)=$",
+          "options": [
+            "$6$",
+            "$8$",
+            "$12$",
+            "$16$"
+          ],
+          "answer": "C",
+          "explanation": "记 $W_i=X_{2i-1}+X_{2i}\\ (i=1,2,3,4)$。则 $\\sum_{i=1}^4 W_i=\\sum_{k=1}^8 X_k=8\\bar X$，故 $\\bar W=\\dfrac14\\sum W_i=2\\bar X$。\n\n于是 $X_{2i-1}+X_{2i}-2\\bar X=W_i-\\bar W$，即\n$$Y=\\sum_{i=1}^4 (W_i-\\bar W)^2.$$\n$W_1,\\dots,W_4$ 独立同分布，$\\mathrm{Var}(W_i)=\\mathrm{Var}(X_{2i-1})+\\mathrm{Var}(X_{2i})=2+2=4$。由 $E\\left[\\sum(W_i-\\bar W)^2\\right]=(m-1)\\mathrm{Var}(W_i)$（$m=4$）得\n$$E(Y)=(4-1)\\times4=12.$$\n选 C。",
+          "points": 3
+        },
+        {
+          "stem": "如果随机变量 $X\\sim N(\\mu,\\sigma^2)$，$Y\\sim N(\\mu,\\sigma^2)$，$\\rho_{X,Y}=-0.3$。有命题：① $(X,Y)$ 服从二维正态分布；② $D(X-2Y)=6.2\\sigma^2$；③ $X+Y$ 与 $X-Y$ 不相关；④ $X+Y$ 与 $X-Y$ 相互独立。其中正确的是",
+          "options": [
+            "①②④",
+            "②④",
+            "①②③",
+            "②③"
+          ],
+          "answer": "D",
+          "explanation": "① 边缘均为正态不能推出联合二维正态，①错。\n\n② $D(X-2Y)=\\mathrm{Var}(X)+4\\mathrm{Var}(Y)-4\\mathrm{Cov}(X,Y)=\\sigma^2+4\\sigma^2-4\\rho\\sigma^2=5\\sigma^2-4(-0.3)\\sigma^2=6.2\\sigma^2$，②对。\n\n③ $\\mathrm{Cov}(X+Y,\\,X-Y)=\\mathrm{Var}(X)-\\mathrm{Var}(Y)=\\sigma^2-\\sigma^2=0$（与是否联合正态无关），故不相关，③对。\n\n④ 不相关不一定独立；独立需联合正态，而①未必成立，④错。\n\n正确的为②③，选 D。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X_1,X_2,\\cdots,X_{10}$ 是来自总体 $X\\sim N(0,4)$ 的简单样本，样本均值与样本方差分别为 $\\bar X,\\ S^2$。随机变量 $Y\\sim N(0,9)$，且 $Y$ 与 $X_1,X_2,\\cdots,X_{10}$ 相互独立，要使 $a(Y-\\bar X)^2+bS^2$ 服从 $\\chi^2$ 分布，则 $a,b$ 为",
+          "options": [
+            "$a=\\dfrac{1}{9.4},\\ b=\\dfrac94$",
+            "$a=9.4,\\ b=\\dfrac94$",
+            "$a=8.6,\\ b=1$",
+            "$a=\\dfrac{1}{8.6},\\ b=1$"
+          ],
+          "answer": "A",
+          "explanation": "$\\sigma^2=4$，$\\bar X\\sim N\\!\\left(0,\\dfrac{4}{10}\\right)=N(0,0.4)$。$Y\\sim N(0,9)$ 与 $\\bar X$ 独立，故\n$$Y-\\bar X\\sim N(0,\\ 9+0.4)=N(0,9.4)\\ \\Rightarrow\\ \\frac{(Y-\\bar X)^2}{9.4}\\sim\\chi^2(1),$$\n即 $a=\\dfrac{1}{9.4}$。\n\n又 $\\dfrac{(n-1)S^2}{\\sigma^2}=\\dfrac{9S^2}{4}\\sim\\chi^2(9)$，即 $b=\\dfrac94$。\n\n二者相互独立（$S^2$ 与 $\\bar X$、与 $Y$ 均独立），相加仍服从 $\\chi^2$（自由度 $1+9=10$）。选 A。",
+          "points": 3
+        },
+        {
+          "stem": "设 $X\\sim t(n)$，$Y=X^2$，记 $p_1=P(X<1)$，$p_2=P(X>-1)$，$p_3=P(Y<1)$，$p_4=P(Y>1)$，则",
+          "options": [
+            "$p_1=p_2,\\quad p_3=p_1+p_2$",
+            "$p_1<p_2,\\quad p_3=p_4$",
+            "$p_1=p_2,\\quad p_4=2-p_1-p_2$",
+            "$p_1=p_2,\\quad p_4=p_1+p_2-1$"
+          ],
+          "answer": "C",
+          "explanation": "$t(n)$ 关于 $0$ 对称。$p_2=P(X>-1)=P(-X>-1)=P(X<1)=p_1$，故 $p_1=p_2$。\n\n$p_3=P(Y<1)=P(X^2<1)=P(-1<X<1)=P(X<1)-P(X\\le-1)=p_1-(1-p_2)=p_1+p_2-1$。\n\n$p_4=P(Y>1)=1-p_3=1-(p_1+p_2-1)=2-p_1-p_2$。\n\n比较各选项：C 给出 $p_1=p_2$ 且 $p_4=2-p_1-p_2$，正确；A 的 $p_3=p_1+p_2$、D 的 $p_4=p_1+p_2-1$（实为 $p_3$）均错。选 C。",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "name": "二、计算与证明题",
+      "desc": "共 64 分，写出主要步骤与推导过程。",
+      "type": "calc",
+      "questions": [
+        {
+          "stem": "交通保险公司把驾驶员分为3类：安全型、一般型、危险型，所占比例分别为 $0.4,\\,0.5,\\,0.1$。安全型驾驶员一年内发生的事故数服从参数 $\\lambda=0.3$ 的泊松分布，一般型服从 $\\lambda=0.6$ 的泊松分布，危险型服从 $\\lambda=1.2$ 的泊松分布。（1）任选一名驾驶员，求“他在未来 1 年会至少发生 1 起事故”的概率；（2）已知“某驾驶员在去年至少发生了 1 起事故”，求“他是危险型”的概率。",
+          "answer": "记事件 $A=\\{$某驾驶员一年内至少发生 1 起事故$\\}$，三类驾驶员分别记为 $B_1$（安全型）、$B_2$（一般型）、$B_3$（危险型），它们构成样本空间的一个划分：\n$$P(B_1)=0.4,\\quad P(B_2)=0.5,\\quad P(B_3)=0.1.$$\n\n对参数为 $\\lambda$ 的泊松分布，一年内发生事故数 $N\\sim P(\\lambda)$，故\n$$P(A\\mid B_i)=P(N\\ge 1)=1-P(N=0)=1-e^{-\\lambda_i}.$$\n代入 $\\lambda_1=0.3,\\ \\lambda_2=0.6,\\ \\lambda_3=1.2$：\n$$P(A\\mid B_1)=1-e^{-0.3},\\quad P(A\\mid B_2)=1-e^{-0.6},\\quad P(A\\mid B_3)=1-e^{-1.2}.$$\n\n**（1）全概率公式。**\n$$P(A)=\\sum_{i=1}^{3}P(B_i)P(A\\mid B_i)=0.4\\,(1-e^{-0.3})+0.5\\,(1-e^{-0.6})+0.1\\,(1-e^{-1.2}).$$\n利用 $e^{-0.3}\\approx0.7408,\\ e^{-0.6}\\approx0.5488,\\ e^{-1.2}\\approx0.3012$：\n$$P(A)=0.4\\times0.2592+0.5\\times0.4512+0.1\\times0.6988=0.10367+0.22559+0.06988\\approx 0.3992.$$\n即任选一名驾驶员未来 1 年至少发生 1 起事故的概率约为 $\\boxed{0.399}$。\n\n**（2）贝叶斯公式。**\n$$P(B_3\\mid A)=\\frac{P(B_3)P(A\\mid B_3)}{P(A)}=\\frac{0.1\\,(1-e^{-1.2})}{P(A)}=\\frac{0.06988}{0.3992}\\approx 0.175.$$\n故已知某驾驶员去年至少发生 1 起事故，他是危险型的概率约为 $\\boxed{0.175}$。",
+          "points": 9
+        },
+        {
+          "stem": "设二维连续型随机变量 $(X,Y)$ 具有联合概率密度\n$$f(x,y)=\\begin{cases}\\dfrac{27}{4}x^2y^2, & y^2<x<1,\\\\[2mm]0, & \\text{其它}.\\end{cases}$$\n求：（1）边缘概率密度 $f_X(x)$；（2）在 $X=0.25$ 条件下 $Y$ 的条件分布函数。",
+          "answer": "区域 $D=\\{(x,y): y^2<x<1\\}$，等价地 $0<x<1$ 且 $-\\sqrt{x}<y<\\sqrt{x}$。\n\n**（1）边缘密度 $f_X(x)$。** 对 $0<x<1$：\n$$f_X(x)=\\int_{-\\infty}^{+\\infty}f(x,y)\\,dy=\\int_{-\\sqrt{x}}^{\\sqrt{x}}\\frac{27}{4}x^2y^2\\,dy=\\frac{27}{4}x^2\\cdot\\frac{y^3}{3}\\Big|_{-\\sqrt{x}}^{\\sqrt{x}}=\\frac{27}{4}x^2\\cdot\\frac{2x^{3/2}}{3}=\\frac{9}{2}x^{7/2}.$$\n故\n$$f_X(x)=\\begin{cases}\\dfrac{9}{2}x^{7/2}, & 0<x<1,\\\\[1mm]0, & \\text{其它}.\\end{cases}$$\n（验证 $\\int_0^1\\frac{9}{2}x^{7/2}dx=\\frac{9}{2}\\cdot\\frac{2}{9}=1$，正确。）\n\n**（2）在 $X=0.25$ 条件下 $Y$ 的条件分布。** 先求条件密度。当 $x=\\tfrac14$ 时，$y$ 的取值范围为 $-\\sqrt{x}<y<\\sqrt{x}$，即 $-\\tfrac12<y<\\tfrac12$。\n$$f_X\\!\\left(\\tfrac14\\right)=\\frac{9}{2}\\left(\\tfrac14\\right)^{7/2}=\\frac{9}{2}\\cdot\\frac{1}{2^7}=\\frac{9}{256}.$$\n$$f(\\tfrac14,y)=\\frac{27}{4}\\left(\\tfrac14\\right)^2y^2=\\frac{27}{4}\\cdot\\frac{1}{16}y^2=\\frac{27}{64}y^2,\\qquad -\\tfrac12<y<\\tfrac12.$$\n于是条件密度为\n$$f_{Y\\mid X}(y\\mid 0.25)=\\frac{f(\\tfrac14,y)}{f_X(\\tfrac14)}=\\frac{27y^2/64}{9/256}=12y^2,\\qquad -\\tfrac12<y<\\tfrac12,$$\n其它为 $0$。（验证 $\\int_{-1/2}^{1/2}12y^2\\,dy=12\\cdot\\frac{2}{3}\\cdot\\frac{1}{8}=1$，正确。）\n\n条件分布函数 $F_{Y\\mid X}(y\\mid 0.25)=\\displaystyle\\int_{-\\infty}^{y}f_{Y\\mid X}(t\\mid 0.25)\\,dt$：\n- 当 $y\\le -\\tfrac12$ 时，$F=0$；\n- 当 $-\\tfrac12<y<\\tfrac12$ 时，\n$$F_{Y\\mid X}(y\\mid 0.25)=\\int_{-1/2}^{y}12t^2\\,dt=4t^3\\Big|_{-1/2}^{y}=4y^3-4\\left(-\\tfrac12\\right)^3=4y^3+\\tfrac12;$$\n- 当 $y\\ge\\tfrac12$ 时，$F=1$。\n\n综上\n$$F_{Y\\mid X}(y\\mid 0.25)=\\begin{cases}0, & y\\le -\\tfrac12,\\\\[1mm]4y^3+\\dfrac12, & -\\tfrac12<y<\\tfrac12,\\\\[1mm]1, & y\\ge\\tfrac12.\\end{cases}$$",
+          "points": 9
+        },
+        {
+          "stem": "设二维连续型随机变量 $(X,Y)$ 具有概率密度\n$$f(x,y)=\\begin{cases}\\dfrac{1}{2}(x+2y)e^{-2y}, & x\\in(0,2),\\ y>0,\\\\[2mm]0, & \\text{其它}.\\end{cases}$$\n设 $Z=X+2Y$，求 $Z$ 的概率密度函数。",
+          "answer": "用变量替换法。令 $Z=X+2Y$，固定 $x$，作变换 $y\\mapsto z=x+2y$，即 $y=\\dfrac{z-x}{2}$，$dy=\\dfrac{1}{2}\\,dz$。\n\n$Z$ 的密度为\n$$f_Z(z)=\\int_{-\\infty}^{+\\infty}f\\!\\left(x,\\tfrac{z-x}{2}\\right)\\cdot\\frac{1}{2}\\,dx.$$\n在被积函数非零处需 $0<x<2$ 且 $y=\\dfrac{z-x}{2}>0$，即 $x<z$。把 $y=\\dfrac{z-x}{2}$ 代入：\n$$f\\!\\left(x,\\tfrac{z-x}{2}\\right)=\\frac{1}{2}\\Big(x+2\\cdot\\tfrac{z-x}{2}\\Big)e^{-2\\cdot\\frac{z-x}{2}}=\\frac{1}{2}\\,z\\,e^{-(z-x)}.$$\n于是被积函数为\n$$f\\!\\left(x,\\tfrac{z-x}{2}\\right)\\cdot\\frac{1}{2}=\\frac{z}{4}e^{x-z}.$$\n\n**确定积分上下限（$z>0$）。** 要求 $0<x<2$ 且 $x<z$。\n\n- 当 $0<z<2$ 时，$x$ 的范围为 $(0,z)$：\n$$f_Z(z)=\\int_0^z\\frac{z}{4}e^{x-z}\\,dx=\\frac{z}{4}e^{-z}\\big(e^{x}\\big)\\Big|_0^z=\\frac{z}{4}e^{-z}(e^{z}-1)=\\frac{z}{4}\\left(1-e^{-z}\\right).$$\n\n- 当 $z\\ge 2$ 时，$x$ 的范围为 $(0,2)$：\n$$f_Z(z)=\\int_0^2\\frac{z}{4}e^{x-z}\\,dx=\\frac{z}{4}e^{-z}\\big(e^{2}-1\\big)=\\frac{z}{4}(e^{2}-1)e^{-z}.$$\n\n- 当 $z\\le 0$ 时，$f_Z(z)=0$。\n\n综上\n$$f_Z(z)=\\begin{cases}\\dfrac{z}{4}\\left(1-e^{-z}\\right), & 0<z<2,\\\\[2mm]\\dfrac{z}{4}\\left(e^{2}-1\\right)e^{-z}, & z\\ge 2,\\\\[2mm]0, & z\\le 0.\\end{cases}$$\n（可验证 $\\int_{-\\infty}^{+\\infty}f_Z(z)\\,dz=1$。）",
+          "points": 9
+        },
+        {
+          "stem": "设总体 $X$ 具有概率密度\n$$f(x;\\theta)=\\begin{cases}\\dfrac{\\theta}{2^{\\theta}}\\,x^{\\theta-1}, & x\\in(0,2),\\\\[2mm]0, & \\text{其它},\\end{cases}$$\n其中参数 $\\theta>0$ 未知。设 $(X_1,X_2,\\dots,X_n)$ 是来自总体 $X$ 的一个简单样本，求 $\\theta$ 的矩估计量和最大似然估计量。",
+          "answer": "**1. 矩估计量。** 先求总体均值：\n$$E(X)=\\int_0^2 x\\cdot\\frac{\\theta}{2^{\\theta}}x^{\\theta-1}\\,dx=\\frac{\\theta}{2^{\\theta}}\\int_0^2 x^{\\theta}\\,dx=\\frac{\\theta}{2^{\\theta}}\\cdot\\frac{x^{\\theta+1}}{\\theta+1}\\Big|_0^2=\\frac{\\theta}{2^{\\theta}}\\cdot\\frac{2^{\\theta+1}}{\\theta+1}=\\frac{2\\theta}{\\theta+1}.$$\n令 $E(X)=\\bar X$，即 $\\dfrac{2\\theta}{\\theta+1}=\\bar X$。解出 $\\theta$：\n$$2\\theta=\\bar X(\\theta+1)\\ \\Longrightarrow\\ \\theta(2-\\bar X)=\\bar X\\ \\Longrightarrow\\ \\hat\\theta_{\\text{矩}}=\\frac{\\bar X}{2-\\bar X}.$$\n（其中 $\\bar X=\\frac{1}{n}\\sum_{i=1}^n X_i$，且 $0<\\bar X<2$。）\n\n**2. 最大似然估计量。** 似然函数（当所有 $x_i\\in(0,2)$ 时）：\n$$L(\\theta)=\\prod_{i=1}^{n}\\frac{\\theta}{2^{\\theta}}x_i^{\\theta-1}=\\frac{\\theta^{n}}{2^{n\\theta}}\\left(\\prod_{i=1}^{n}x_i\\right)^{\\theta-1}.$$\n取对数：\n$$\\ln L(\\theta)=n\\ln\\theta-n\\theta\\ln 2+(\\theta-1)\\sum_{i=1}^{n}\\ln x_i.$$\n对 $\\theta$ 求导并令其为零：\n$$\\frac{d\\ln L}{d\\theta}=\\frac{n}{\\theta}-n\\ln 2+\\sum_{i=1}^{n}\\ln x_i=0.$$\n解得\n$$\\hat\\theta_{\\text{MLE}}=\\frac{n}{\\,n\\ln 2-\\sum_{i=1}^{n}\\ln x_i\\,}=\\frac{1}{\\ln 2-\\dfrac{1}{n}\\sum_{i=1}^{n}\\ln x_i}.$$\n（由于 $\\dfrac{d^2\\ln L}{d\\theta^2}=-\\dfrac{n}{\\theta^2}<0$，所对应确为极大值。）写成估计量形式：\n$$\\hat\\theta_{\\text{MLE}}=\\frac{n}{\\,n\\ln 2-\\sum_{i=1}^{n}\\ln X_i\\,}.$$",
+          "points": 9
+        },
+        {
+          "stem": "假设某品牌某型号笔记本电脑的续航时间（单位：小时）服从正态分布。今从中随机地抽取 12 台该型号笔记本电脑，经计算样本均值和样本标准差的观测值分别为 $\\bar x=9.7$，$s=1.3$。问在显著性水平 $0.05$ 下，根据该批数据是否可以认为该型号笔记本电脑续航时间的均值为 10 小时，标准差显著超过 0.9 小时？",
+          "answer": "设续航时间 $X\\sim N(\\mu,\\sigma^2)$，$n=12$，$\\bar x=9.7$，$s=1.3$，$\\alpha=0.05$。这里分别做两个检验。\n\n**检验 (a)：关于均值的双侧 $t$ 检验。** $\\sigma^2$ 未知，检验\n$$H_0:\\mu=10\\quad\\leftrightarrow\\quad H_1:\\mu\\neq 10.$$\n检验统计量\n$$t=\\frac{\\bar x-\\mu_0}{s/\\sqrt{n}}\\sim t(n-1)=t(11)\\quad(\\text{在 }H_0\\text{ 下}).$$\n代入数据：\n$$t=\\frac{9.7-10}{1.3/\\sqrt{12}}=\\frac{-0.3}{1.3/3.4641}=\\frac{-0.3}{0.3753}\\approx -0.799.$$\n拒绝域为 $|t|>t_{0.025}(11)=2.201$。因 $|t|=0.799<2.201$，不落入拒绝域，**接受 $H_0$**。\n\n结论：在 $\\alpha=0.05$ 下，没有充分理由否定均值为 10 小时，即可以认为该型号笔记本续航时间的均值为 10 小时。\n\n**检验 (b)：关于标准差是否显著超过 0.9 的单侧 $\\chi^2$ 检验。** $\\mu$ 未知，检验“标准差是否显著超过 0.9”，取\n$$H_0:\\sigma\\le 0.9\\quad\\leftrightarrow\\quad H_1:\\sigma>0.9\\qquad(\\text{即 }\\sigma_0=0.9).$$\n检验统计量\n$$\\chi^2=\\frac{(n-1)s^2}{\\sigma_0^2}\\sim \\chi^2(n-1)=\\chi^2(11)\\quad(\\text{在 }\\sigma=\\sigma_0\\text{ 时}).$$\n代入数据：\n$$\\chi^2=\\frac{(12-1)\\times 1.3^2}{0.9^2}=\\frac{11\\times 1.69}{0.81}=\\frac{18.59}{0.81}\\approx 22.95.$$\n这是右侧（单侧）检验，拒绝域为 $\\chi^2>\\chi^2_{0.05}(11)=19.675$。因 $\\chi^2=22.95>19.675$，落入拒绝域，**拒绝 $H_0$**。\n\n结论：在 $\\alpha=0.05$ 下，有充分理由认为标准差显著超过 0.9 小时。\n\n**综合结论：** 可以认为续航时间均值为 10 小时；且标准差显著超过 0.9 小时。",
+          "points": 9
+        },
+        {
+          "stem": "一个人的血型为 $O,A,B,AB$ 型的概率分别为 $0.46,0.40,0.11,0.03$。某市血液中心预计 6 月会收到 1000 个人的义务献血，每人献血 200 毫升的概率为 $0.90$，献血 400 毫升的概率为 $0.10$。（1）用 Chebyshev 不等式估计 6 月该血库的 A 型血的增量在 8.3 万毫升到 9.3 万毫升的概率；（2）用中心极限定理估计 6 月该血库的 A 型血的增量在 8.3 万毫升到 9.3 万毫升的概率。",
+          "answer": "**建立模型。** 对第 $i$ 个献血者，设其献血量为 $V_i$（毫升），$P(V_i=200)=0.9,\\ P(V_i=400)=0.1$；设 $I_i$ 为其是否 A 型血的示性变量，$P(I_i=1)=0.40$（且 $V_i$ 与 $I_i$ 相互独立）。该人对 A 型血库的增量为 $W_i=V_i I_i$。总增量\n$$T=\\sum_{i=1}^{1000}W_i.$$\n\n**单个人的均值与方差。** 先算 $V_i$ 的矩：\n$$E(V_i)=200\\times0.9+400\\times0.1=220,\\qquad E(V_i^2)=200^2\\times0.9+400^2\\times0.1=36000+16000=52000.$$\n由 $I_i^2=I_i$ 且 $V_i,I_i$ 独立：\n$$E(W_i)=E(V_i)E(I_i)=220\\times0.40=88,$$\n$$E(W_i^2)=E(V_i^2)E(I_i^2)=E(V_i^2)E(I_i)=52000\\times0.40=20800,$$\n$$D(W_i)=E(W_i^2)-[E(W_i)]^2=20800-88^2=20800-7744=13056.$$\n\n**总增量的均值与方差**（各人独立同分布，$n=1000$）：\n$$E(T)=1000\\times 88=88000\\ \\text{毫升}\\,(=8.8\\ \\text{万毫升}),$$\n$$D(T)=1000\\times 13056=13056000,\\qquad \\sigma_T=\\sqrt{13056000}\\approx 3613.3\\ \\text{毫升}.$$\n\n所求区间为 $[83000,\\,93000]$ 毫升（即 8.3 万至 9.3 万毫升），关于均值 $88000$ 对称，半宽 $\\varepsilon=5000$。\n\n**（1）Chebyshev 不等式。**\n$$P(83000<T<93000)=P\\big(|T-E(T)|<5000\\big)\\ge 1-\\frac{D(T)}{\\varepsilon^2}=1-\\frac{13056000}{5000^2}=1-\\frac{13056000}{25000000}.$$\n$$=1-0.5222=0.4778.$$\n即由切比雪夫不等式估计该概率不小于约 $\\boxed{0.478}$。\n\n**（2）中心极限定理。** 由独立同分布中心极限定理，$T$ 近似服从 $N\\big(88000,\\,13056000\\big)$。标准化：\n$$P(83000<T<93000)=P\\!\\left(\\frac{83000-88000}{3613.3}<\\frac{T-E(T)}{\\sigma_T}<\\frac{93000-88000}{3613.3}\\right).$$\n两端标准化值\n$$\\frac{93000-88000}{3613.3}=\\frac{5000}{3613.3}\\approx 1.38,\\qquad \\frac{83000-88000}{3613.3}\\approx -1.38.$$\n于是\n$$P\\approx \\Phi(1.38)-\\Phi(-1.38)=2\\Phi(1.38)-1=2\\times 0.9162-1=0.8324.$$\n即由中心极限定理估计该概率约为 $\\boxed{0.832}$。",
+          "points": 9
+        },
+        {
+          "stem": "设二维总体 $(X,Y)$，$(X_1,Y_1),(X_2,Y_2),\\dots,(X_n,Y_n)$ 为简单样本。记\n$$Q_n(X,Y)=\\frac{1}{n}\\sum_{i=1}^{n}\\big(X_i+Y_i-\\bar X-\\bar Y\\big)^2,\\qquad S_n(X,Y)=\\frac{1}{n}\\sum_{i=1}^{n}\\big(X_i-\\bar X\\big)\\big(Y_i-\\bar Y\\big).$$\n（1）如果 $(X,Y)\\sim N(1,4;2,9;0.2)$（即 $\\mu_X=1,\\sigma_X^2=4,\\mu_Y=2,\\sigma_Y^2=9,\\rho=0.2$），请计算 $E[Q_n(X,Y)]$。（2）若 $E(X^2)<+\\infty$ 与 $E(Y^2)<+\\infty$，假设协方差 $\\mathrm{Cov}(X,Y)$ 未知：（i）证明 $S_n(X,Y)$ 不是 $\\mathrm{Cov}(X,Y)$ 的无偏估计量，试将其矫正为无偏估计；（ii）证明 $S_n(X,Y)$ 是 $\\mathrm{Cov}(X,Y)$ 的一致估计量。",
+          "answer": "**（1）求 $E[Q_n(X,Y)]$。** 令 $U_i=X_i+Y_i$，则 $\\bar U=\\bar X+\\bar Y$，故\n$$Q_n(X,Y)=\\frac{1}{n}\\sum_{i=1}^{n}(U_i-\\bar U)^2.$$\n这是总体 $U=X+Y$ 的“除以 $n$ 的样本方差”。由标准结论 $E\\!\\left[\\frac{1}{n}\\sum(U_i-\\bar U)^2\\right]=\\frac{n-1}{n}D(U)$，得\n$$E[Q_n(X,Y)]=\\frac{n-1}{n}\\,D(U)=\\frac{n-1}{n}\\,D(X+Y).$$\n而\n$$D(X+Y)=\\sigma_X^2+\\sigma_Y^2+2\\,\\mathrm{Cov}(X,Y),\\qquad \\mathrm{Cov}(X,Y)=\\rho\\,\\sigma_X\\sigma_Y=0.2\\times 2\\times 3=1.2.$$\n所以\n$$D(X+Y)=4+9+2\\times 1.2=15.4.$$\n故\n$$E[Q_n(X,Y)]=\\frac{n-1}{n}\\times 15.4=\\frac{15.4(n-1)}{n}=15.4\\Big(1-\\frac1n\\Big).$$\n\n**（2）记 $\\sigma_{XY}=\\mathrm{Cov}(X,Y)$，$\\mu_X=E(X),\\mu_Y=E(Y)$。**\n\n**(i) 证 $S_n$ 不无偏并矫正。** 展开：\n$$\\sum_{i=1}^{n}(X_i-\\bar X)(Y_i-\\bar Y)=\\sum_{i=1}^{n}X_iY_i-n\\bar X\\bar Y.$$\n因此 $E[S_n]=\\frac{1}{n}\\Big(\\sum_i E[X_iY_i]-nE[\\bar X\\bar Y]\\Big)=E[X_1Y_1]-E[\\bar X\\bar Y]$。\n\n各样本独立同分布，$E[X_iY_i]=E[XY]=\\sigma_{XY}+\\mu_X\\mu_Y$。又\n$$E[\\bar X\\bar Y]=\\frac{1}{n^2}\\sum_{i}\\sum_{j}E[X_iY_j].$$\n当 $i=j$ 时 $E[X_iY_i]=\\sigma_{XY}+\\mu_X\\mu_Y$（共 $n$ 项）；当 $i\\neq j$ 时 $X_i,Y_j$ 独立，$E[X_iY_j]=\\mu_X\\mu_Y$（共 $n^2-n$ 项）。于是\n$$E[\\bar X\\bar Y]=\\frac{1}{n^2}\\Big[n(\\sigma_{XY}+\\mu_X\\mu_Y)+(n^2-n)\\mu_X\\mu_Y\\Big]=\\frac{\\sigma_{XY}}{n}+\\mu_X\\mu_Y.$$\n所以\n$$E[S_n]=(\\sigma_{XY}+\\mu_X\\mu_Y)-\\Big(\\frac{\\sigma_{XY}}{n}+\\mu_X\\mu_Y\\Big)=\\Big(1-\\frac1n\\Big)\\sigma_{XY}=\\frac{n-1}{n}\\,\\sigma_{XY}.$$\n由于 $E[S_n]=\\frac{n-1}{n}\\sigma_{XY}\\neq\\sigma_{XY}$（当 $n$ 有限时），故 $S_n$ **不是** $\\mathrm{Cov}(X,Y)$ 的无偏估计量。\n\n**矫正：** 令\n$$S_n^{*}=\\frac{n}{n-1}S_n=\\frac{1}{n-1}\\sum_{i=1}^{n}(X_i-\\bar X)(Y_i-\\bar Y),$$\n则 $E[S_n^{*}]=\\frac{n}{n-1}\\cdot\\frac{n-1}{n}\\sigma_{XY}=\\sigma_{XY}$，即 $S_n^{*}$（样本协方差）是 $\\mathrm{Cov}(X,Y)$ 的无偏估计量。\n\n**(ii) 证 $S_n$ 是一致（相合）估计量。** 写\n$$S_n=\\frac{1}{n}\\sum_{i=1}^{n}X_iY_i-\\bar X\\,\\bar Y.$$\n由于 $E(X^2)<\\infty,\\ E(Y^2)<\\infty$，由柯西-施瓦茨知 $E|XY|<\\infty$，且 $\\{X_iY_i\\}$ 独立同分布、$\\{X_i\\}$、$\\{Y_i\\}$ 独立同分布且各有有限期望。对它们分别应用辛钦大数定律（依概率收敛）：\n$$\\frac{1}{n}\\sum_{i=1}^{n}X_iY_i\\ \\xrightarrow{P}\\ E[XY],\\qquad \\bar X\\ \\xrightarrow{P}\\ \\mu_X,\\qquad \\bar Y\\ \\xrightarrow{P}\\ \\mu_Y.$$\n依概率收敛对连续函数（乘积、差）的运算封闭（Slutsky 定理 / 连续映射定理），故\n$$S_n=\\frac{1}{n}\\sum_{i=1}^{n}X_iY_i-\\bar X\\,\\bar Y\\ \\xrightarrow{P}\\ E[XY]-\\mu_X\\mu_Y=\\mathrm{Cov}(X,Y).$$\n即 $S_n\\xrightarrow{P}\\mathrm{Cov}(X,Y)$，所以 $S_n(X,Y)$ 是 $\\mathrm{Cov}(X,Y)$ 的一致估计量。（同理 $S_n^{*}=\\frac{n}{n-1}S_n$，因 $\\frac{n}{n-1}\\to1$，也依概率收敛于 $\\mathrm{Cov}(X,Y)$，亦为一致估计量。）",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}

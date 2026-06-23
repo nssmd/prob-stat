@@ -3,6 +3,7 @@
   "subtitle": "Probability & Mathematical Statistics · 基于案例分析",
   "instructor": "上海交通大学数学科学学院",
   "exams": [
+    { "id": "exspring2023", "title": "期末真题（2023 春）", "code": "22–23(2)·真题", "points": 100 },
     { "id": "exspring2024", "title": "期末真题（2024 春）", "code": "2024春·真题", "points": 100 },
     { "id": "exfall2024", "title": "期末真题（2024 秋）", "code": "2024秋·真题", "points": 100 },
     { "id": "exspring2025", "title": "期末真题（2025 春）", "code": "2025春·真题", "points": 100 },
